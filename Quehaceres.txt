@@ -1,0 +1,7 @@
+Tareas por hacer:
+-Base de datos  --
+-Modelo de dominio  --
+-Coneccion Base de datos APP   --
+-Clases dominio 
+-Navegacion de la pagina
+-Listado de Marcas o Categorias
