@@ -1,7 +1,23 @@
-Tareas por hacer:
--Base de datos  --
--Modelo de dominio  --
--Coneccion Base de datos APP   --
--Clases dominio 
--Navegacion de la pagina
--Listado de Marcas o Categorias
+------------------------------QUE HACERES-----------------------------------------
+
+Este es un documento de texto para registrar las cosas que debe hacer cada uno,
+lo que esta desarrollado, y lo que falta desarrollar
+
+
+-----------------------------------------
+------------COSAS REALIZADAS-------------
+-----------------------------------------
+
+>BASE DE DATOS
+>MODELO DE DOMINIO
+
+-----------------------------------------
+--------------COSAS A HACER--------------
+-----------------------------------------
+
+>RELLENAR BASE DE DATOS (Gaston)
+>DESARROLLAR CONEXIONES A LA BASE DE DATOS (Martin)
+>DESARROLLAR CLASES DE ARTICULOS, CATEGORIAS Y MARCAS
+>DESARROLLAR LISTADOS DE ARTICULOS, CATEGORIAS Y MARCAS
+>DESARROLLAR ABM DE ARTICULOS, CATEGORIAS Y MARCAS 
+
