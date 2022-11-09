@@ -19,16 +19,20 @@ namespace dominio
         [DisplayName("Descripción")]
         public string Descripcion { get; set; }
 
-        public Marca Marca { get; set; }
-
         [DisplayName("Categoría")]
         public Categoria Categoria { get; set; }
 
-        public string URLImagen { get; set; }
+        public Marca Marca { get; set; }
 
         public decimal Precio { get; set; }
 
+        public string Imagen { get; set; }
+
+
+        [DisplayName("EstadoComercial")]
+
+        public EstadoComercial EstadoComer { get; set; }
+
+        public int Descuento { get; set; }
     }
-
-
 }
