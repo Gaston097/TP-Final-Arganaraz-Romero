@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Ecommerce
 {
-    public partial class Contact : Page
+    public partial class ABMMain : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -11,7 +11,7 @@
             <ItemTemplate>
                 <div class="col p-3">
                         <div class="card pb-1" style="height:100%;" > 
-                            <img src="<%#Eval("Imagen")%>" alt="Articulo" class="card-img-top p-3" />
+                            <img src="<%#Eval("Imagen")%>" alt="Articulo" class="card-img-top p-3" style="object-fit:contain; max-height:250px; max-width:250px; " />
                             <div class="card-body">
                                 <h4 class="card-title"><%#Eval("Nombre")%></h4>
                                 <p class="card-text"><%#Eval("Descripcion")%></p>
