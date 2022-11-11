@@ -17,6 +17,8 @@ lo que esta desarrollado, y lo que falta desarrollar
 --------------COSAS A HACER--------------
 -----------------------------------------
 
->DESARROLLAR LISTADOS DE ARTICULOS, CATEGORIAS Y MARCAS
+
+>DESARROLLAR LISTADOS DE ARTICULOS- CARDS ,  [[[[CATEGORIAS Y MARCAS   <<< DGV
 >DESARROLLAR ABM DE ARTICULOS, CATEGORIAS Y MARCAS 
+
 
