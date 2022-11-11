@@ -10,6 +10,27 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*    public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();

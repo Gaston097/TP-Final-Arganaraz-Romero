@@ -10,10 +10,25 @@
     <title><%: Page.Title %> - Ecommerce ASP.NET</title>
 
 
+     <%--STYLESHEETS--%>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
   
+    <%--SCRIPTS--%>
+    <script src="https://kit.fontawesome.com/0c5b036370.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.min.js"></script>
+
+
+
 </head>
 <body>
     <form runat="server">
@@ -37,25 +52,29 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">CocinameYA</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Catagolo</a></li>
-                        <li><a runat="server" href="~/About">Marcas</a></li>
-                        <li><a runat="server" href="~/Contact">Categorias</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position:fixed; width:100%;margin-top:-50px; z-index:99;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="Default.aspx">e-CooKmmerce</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Carrito</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Categorias</a>
+        </li>
+             <li class="nav-item">
+          <a class="nav-link" href="#">Marcas</a>
+        </li>
+    
+      </ul>     
+    </div>
+  </div>
+</nav>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
