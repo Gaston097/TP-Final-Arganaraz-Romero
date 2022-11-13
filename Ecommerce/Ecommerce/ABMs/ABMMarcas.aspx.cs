@@ -13,7 +13,9 @@ namespace Ecommerce.ABMs
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Categoria> ABMCategorias = new List<Categoria>();
+            MarcaNegocio lista = new MarcaNegocio();
+            dgvMarcass.DataSource = lista.listar();
+            dgvMarcass.DataBind();
         }
 
         protected void dgvCategorias_SelectedIndexChanged(object sender, EventArgs e)
@@ -22,8 +24,9 @@ namespace Ecommerce.ABMs
 
         }
 
+        protected void dgvMarcas_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

@@ -11,9 +11,12 @@ namespace Ecommerce.ABMs
 {
     public partial class ABMCategorias : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
-        {
-            List<Categoria> ABMCategorias = new List<Categoria>();
+        {          
+            CategoriaNegocio lista = new CategoriaNegocio();
+            dgvCategorias.DataSource = lista.listar();
+            dgvCategorias.DataBind();
 
         }
 

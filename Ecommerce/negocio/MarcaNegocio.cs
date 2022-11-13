@@ -16,14 +16,14 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("Select Id, Descripcion from MARCAS");
+                datos.setearConsulta(Diccionario.LISTAR_MARCAS);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Marca aux = new Marca();
                     aux.ID = (int)datos.Lector["Id"];
-                    aux.Descripcion = (String)datos.Lector["Descripcion"];
+                    aux.Descripcion = (String)datos.Lector["Nombre"];
 
                     lista.Add(aux);
                 }

@@ -22,7 +22,7 @@ namespace negocio
                 {
                    Categoria aux = new Categoria();
                     aux.ID = (int)datos.Lector["id"];
-                    aux.Descripcion = (String)datos.Lector["nombreMarca"];
+                    aux.Descripcion = (String)datos.Lector["Nombre"];
 
                    lista.Add(aux);            
                 }

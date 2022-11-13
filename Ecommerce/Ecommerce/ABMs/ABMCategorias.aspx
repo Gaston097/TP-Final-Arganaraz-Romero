@@ -5,11 +5,11 @@
     <br />
     <h1><%: Title %></h1>
 
-    <asp:GridView ID="dgvCategorias" runat="server"  OnSelectedIndexChanged="dgvCategorias_SelectedIndexChanged"  AutoGenerateColumns="false" class="table table-bordered table-condensed table-hover " >
+    <asp:GridView ID="dgvCategorias" runat="server"  OnSelectedIndexChanged="dgvCategorias_SelectedIndexChanged"  AutoGenerateColumns="false" class="table table-dark table-bordered " >
 
         <Columns>
             
-            <asp:BoundField DataField="Id" HeaderText="ID Producto" />
+            <asp:BoundField DataField="Id" HeaderText="ID" />
             <asp:BoundField DataField="Descripcion" HeaderText="Nombre" />
             <asp:CommandField ShowSelectButton="true" SelectText="Eliminar" HeaderText="Acción" />
              

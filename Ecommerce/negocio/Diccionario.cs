@@ -10,9 +10,9 @@ namespace negocio
     {
         public static string CONEXION_SERVER = "server =.\\SQLEXPRESS; database=ECommerce; integrated security = true";
 
-        public static string LISTAR_MARCAS = "select id, descripcion as nombreMarca from MARCAS";
+        public static string LISTAR_MARCAS = "select id, Nombre from MARCA";
 
-        public static string LISTAR_CATEGORIAS = "select id, descripcion as nombreCategoria from CATEGORIAS";
+        public static string LISTAR_CATEGORIAS = "select id, Nombre from CATEGORIA";
 
         public static string LISTAR_ARTICULOS = "select A.Id, A.Codigo as Codigo, A.Nombre as Nombre, A.Descripcion as Descripcion, M.Nombre as Marca, M.Id as IdMarca, C.Nombre as Categoria, C.Id as IdCategoria, A.Precio as Precio, A.Imagen , A.EstadoComercial, E.Nombre AS NombreE, A.Descuento FROM ARTICULO A inner join MARCA M on M.Id = A.IdMarca inner join CATEGORIA C on C.Id = A.IdCategoria inner join Estado_Comercial E on E.Id= A.EstadoComercial";
 
