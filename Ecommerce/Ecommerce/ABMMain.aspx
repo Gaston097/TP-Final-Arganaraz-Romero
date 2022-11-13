@@ -4,8 +4,12 @@
     <br />
     <h1><%: Title %></h1>
 
-    <a href="ABMs/ABMCategorias.aspx">ABM de Categorias</a> 
+     <asp:Button runat="server" class="btn btn-primary"  BorderStyle="Outset" Text="ABM de Categorias" OnClick="Unnamed_Click" />
     <br />
-    <a href="ABMs/ABMMarcas.aspx">ABM de Marcas</a>
+    <br />
+
+    <asp:Button runat="server" class="btn btn-primary" Text="ABM de Marcas" ID="btnAbmMarcas" OnClick="btnAbmMarcas_Click" />
+    
+
 
 </asp:Content>
