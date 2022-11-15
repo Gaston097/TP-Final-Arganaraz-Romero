@@ -18,7 +18,10 @@ namespace negocio
               
                 if(id != "")
                 {
-                    datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS += "WHERE id = " + id);
+                    if(id != null)
+                    {
+                        datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS += "WHERE id = " + id);
+                    }
                 }
                 else
                 {
@@ -74,9 +77,9 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta(Diccionario.MODIFICAR_MARCA);
+                datos.setearConsulta(Diccionario.MODIFICAR_CATEGORIA);
                 datos.setearParametro("@nombre", nombre);
-                datos.setearParametro("id", id);
+                datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
             } catch (Exception ex)
             {

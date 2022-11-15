@@ -16,6 +16,8 @@ namespace negocio
 
         public static string LISTAR_CATEGORIAS = "select id, Nombre from CATEGORIA ";
 
+        public static string MODIFICAR_CATEGORIA = "UPDATE Categoria SET Nombre = @nombre WHERE ID = @id";
+
         public static string LISTAR_ARTICULOS = "select A.Id, A.Codigo as Codigo, A.Nombre as Nombre, A.Descripcion as Descripcion, M.Nombre as Marca, M.Id as IdMarca, C.Nombre as Categoria, C.Id as IdCategoria, A.Precio as Precio, A.Imagen , A.EstadoComercial, E.Nombre AS NombreE, A.Descuento FROM ARTICULO A inner join MARCA M on M.Id = A.IdMarca inner join CATEGORIA C on C.Id = A.IdCategoria inner join Estado_Comercial E on E.Id= A.EstadoComercial ";
 
         public static string CONSULTA_FILTRO_AVANZADO = "select A.Id, A.Codigo as Codigo, A.Nombre , A.Descripcion , M.Descripcion as Marca, M.Id as IdMarca, C.Descripcion as Categoria, C.Id as IdCategoria, A.ImagenUrl, A.Precio from ARTICULOS A inner join MARCAS M on M.Id = A.IdMarca inner join CATEGORIAS C on C.Id = A.IdCategoria where A.";
