@@ -21,7 +21,7 @@
     </asp:GridView>
 
     
-     <a class="btn btn-dark" href="#" > Agregar </a>
+     <a class="btn btn-dark" href="AltaCategoria.aspx" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
      
 
