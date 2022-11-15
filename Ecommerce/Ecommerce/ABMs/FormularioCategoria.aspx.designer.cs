@@ -11,7 +11,7 @@ namespace Ecommerce.ABMs
 {
 
 
-    public partial class AltaMarca
+    public partial class FormularioCategoria
     {
 
         /// <summary>

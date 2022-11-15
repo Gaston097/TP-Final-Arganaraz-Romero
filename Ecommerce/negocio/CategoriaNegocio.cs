@@ -9,13 +9,21 @@ namespace negocio
 {
     public class CategoriaNegocio
     {
-        public List<Categoria> listar()
+        public List<Categoria> listar(string id = "")
         {
             List<Categoria> lista = new List<Categoria>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS);
+              
+                if(id != "")
+                {
+                    datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS += "WHERE id = " + id);
+                }
+                else
+                {
+                    datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS);
+                }
                 datos.ejecutarLectura();
 
                  while (datos.Lector.Read())
@@ -58,6 +66,29 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+
+        public void modificar(string id, string nombre)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(Diccionario.MODIFICAR_MARCA);
+                datos.setearParametro("@nombre", nombre);
+                datos.setearParametro("id", id);
+                datos.ejecutarAccion();
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
 
 
     }

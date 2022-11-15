@@ -14,19 +14,19 @@ namespace Ecommerce.ABMs
         protected void Page_Load(object sender, EventArgs e)
         {
             MarcaNegocio lista = new MarcaNegocio();
-            dgvMarcass.DataSource = lista.listar();
-            dgvMarcass.DataBind();
+            dgvMarcas.DataSource = lista.listar();
+            dgvMarcas.DataBind();
         }
 
-        protected void dgvCategorias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
 
         protected void dgvMarcas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string id = dgvMarcas.SelectedDataKey.Value.ToString();
+            Response.Redirect("FormularioCategoria.aspx?id=" + id);
+
 
         }
+
+
     }
 }

@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AltaCategoria.aspx.cs" Inherits="Ecommerce.ABMs.AltaCategoria" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormularioCategoria.aspx.cs" Inherits="Ecommerce.ABMs.FormularioCategoria" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-     <h3>Alta item Categoria</h3>
+     <h3>Formulario Item Categoria</h3>
     <div class="row">
         <div class="col-6">
       <div class="mb-3">
-         <label for="txtDesc" class="form-label">Nombre del nuevo item</label>
+         <label for="txtDesc" class="form-label">Nombre del item</label>
           <asp:TextBox ID="txtDesc" CssClass="form-control" runat="server"></asp:TextBox>
       </div>
          <div class="mb-3">
@@ -16,26 +16,13 @@
             </button>
 
 
-            <div class="modal fade" data-bs-keyboard="false" id="confirmarAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                                    
-                        <div class="modal-body" style="color:green">
-                        Categoria agregada con exito!
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                        </div>
-                        <div class="modal-footer">
-                       
-                        </div>
-                    </div>
-                    </div>
-                </div>
+
              <a class="btn btn-dark" href="ABMCategorias" > Volver a ABM de Categorias </a>
 
 
              
 
-<!-- Modal -->
+
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

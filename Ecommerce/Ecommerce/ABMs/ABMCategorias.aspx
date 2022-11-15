@@ -6,7 +6,7 @@
     <h1><%: Title %> </h1>
 
 
-    <asp:GridView ID="dgvCategorias" runat="server"  OnSelectedIndexChanged="dgvCategorias_SelectedIndexChanged"  AutoGenerateColumns="false" class="table table-dark table-bordered " >
+    <asp:GridView ID="dgvCategorias" runat="server"  OnSelectedIndexChanged="dgvCategorias_SelectedIndexChanged"  AutoGenerateColumns="false" DataKeyNames="Id"  class="table table-dark table-bordered " >
 
         <Columns>
             
@@ -23,7 +23,7 @@
     </asp:GridView>
 
     
-     <a class="btn btn-dark" href="AltaCategoria.aspx" > Agregar </a>
+     <a class="btn btn-dark" href="FormularioCategoria.aspx" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
      
 

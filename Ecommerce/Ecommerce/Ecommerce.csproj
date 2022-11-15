@@ -106,8 +106,8 @@
     <Content Include="ABMMain.aspx" />
     <Content Include="ABMs\ABMCategorias.aspx" />
     <Content Include="ABMs\ABMMarcas.aspx" />
-    <Content Include="ABMs\AltaMarca.aspx" />
-    <Content Include="ABMs\AltaCategoria.aspx" />
+    <Content Include="ABMs\FormularioMarca.aspx" />
+    <Content Include="ABMs\FormularioCategoria.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.css.map" />
@@ -184,19 +184,19 @@
     <Compile Include="ABMs\ABMMarcas.aspx.designer.cs">
       <DependentUpon>ABMMarcas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\AltaMarca.aspx.cs">
-      <DependentUpon>AltaMarca.aspx</DependentUpon>
+    <Compile Include="ABMs\FormularioMarca.aspx.cs">
+      <DependentUpon>FormularioMarca.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ABMs\AltaMarca.aspx.designer.cs">
-      <DependentUpon>AltaMarca.aspx</DependentUpon>
+    <Compile Include="ABMs\FormularioMarca.aspx.designer.cs">
+      <DependentUpon>FormularioMarca.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\AltaCategoria.aspx.cs">
-      <DependentUpon>AltaCategoria.aspx</DependentUpon>
+    <Compile Include="ABMs\FormularioCategoria.aspx.cs">
+      <DependentUpon>FormularioCategoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ABMs\AltaCategoria.aspx.designer.cs">
-      <DependentUpon>AltaCategoria.aspx</DependentUpon>
+    <Compile Include="ABMs\FormularioCategoria.aspx.designer.cs">
+      <DependentUpon>FormularioCategoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="ABMMain.aspx.cs">
