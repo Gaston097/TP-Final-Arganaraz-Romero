@@ -38,5 +38,28 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void agregar(String nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(Diccionario.AGREGAR_MARCA);
+                datos.setearParametro("@nombre", nuevo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
     }
 }

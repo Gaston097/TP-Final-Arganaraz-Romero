@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <br />
-    <h1><%: Title %></h1>
+    <h1><%: Title %> </h1>
+
 
     <asp:GridView ID="dgvCategorias" runat="server"  OnSelectedIndexChanged="dgvCategorias_SelectedIndexChanged"  AutoGenerateColumns="false" class="table table-dark table-bordered " >
 
@@ -11,7 +12,8 @@
             
             <asp:BoundField DataField="Id" HeaderText="ID" />
             <asp:BoundField DataField="Descripcion" HeaderText="Nombre" />
-            <asp:CommandField ShowSelectButton="true" SelectText="Eliminar" HeaderText="Acción" />
+            <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>
+            <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
              
 
               

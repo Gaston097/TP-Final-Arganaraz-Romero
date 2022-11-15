@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AltaCategoria.aspx.cs" Inherits="Ecommerce.ABMs.AltaCategoria" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AltaMarca.aspx.cs" Inherits="Ecommerce.ABMs.AltaMarca" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-     <h3>Alta item Categoria</h3>
+     <h3>Alta item Marca</h3>
     <div class="row">
         <div class="col-6">
       <div class="mb-3">
@@ -21,7 +21,7 @@
                     <div class="modal-content">
                                     
                         <div class="modal-body" style="color:green">
-                        Categoria agregada con exito!
+                        Marca agregada con exito!
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
                         </div>
                         <div class="modal-footer">
@@ -30,18 +30,17 @@
                     </div>
                     </div>
                 </div>
-             <a class="btn btn-dark" href="ABMCategorias" > Volver a ABM de Categorias </a>
+             <a class="btn btn-dark" href="ABMMarcas" > Volver a ABM de Marcas </a>
 
 
              
 
-<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
       <div class="modal-body" style="color:green">
-          Categoria agregada con exito!
+          Marca agregada con exito!
           <i class="fa fa-check-circle" aria-hidden="true"></i>
       </div>
 

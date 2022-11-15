@@ -11,7 +11,7 @@ namespace Ecommerce.ABMs
 {
 
 
-    public partial class AltaCategoria
+    public partial class AltaMarca
     {
 
         /// <summary>

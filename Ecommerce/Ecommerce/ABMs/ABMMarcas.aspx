@@ -10,11 +10,12 @@
 
             <asp:BoundField DataField="ID" HeaderText="ID" />
             <asp:BoundField DataField="Descripcion" HeaderText="Nombre" />
-            <asp:CommandField ShowSelectButton="true" SelectText="Eliminar" HeaderText="Acción" />           
+            <asp:CommandField ShowDeleteButton="true" DeleteText="❌" HeaderText="Eliminar"/>
+            <asp:CommandField ShowEditButton="true" EditText="🛠️" HeaderText="Modificar"/>    
         </Columns>
     </asp:GridView>
 
-     <a class="btn btn-dark" href="#" > Agregar </a>
+     <a class="btn btn-dark" href="AltaMarca" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
 
 

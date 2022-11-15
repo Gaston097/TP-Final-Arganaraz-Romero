@@ -6,9 +6,9 @@
 
     <br />
 
-     <asp:Button runat="server" class="btn btn-primary"   Text="ABM de Categorias" OnClick="Unnamed_Click" />
+     <asp:Button runat="server" class="btn btn-dark"   Text="ABM de Categorias" OnClick="Unnamed_Click" />
     
-    <asp:Button runat="server" class="btn btn-primary" Text="ABM de Marcas" ID="btnAbmMarcas" OnClick="btnAbmMarcas_Click" />
+    <asp:Button runat="server" class="btn btn-dark" Text="ABM de Marcas" ID="btnAbmMarcas" OnClick="btnAbmMarcas_Click" />
     
 
 

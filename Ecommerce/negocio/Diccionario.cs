@@ -30,6 +30,12 @@ namespace negocio
 
         public static string AGREGAR_CATEGORIA = "INSERT INTO Categoria VALUES (@nombre)";
 
+        public static string AGREGAR_MARCA = "INSERT INTO Marca VALUES (@nombre)";
+
+
+
+
+
 
         public static string Buscar = "select A.Id, A.Codigo as Codigo, A.Nombre , A.Descripcion , M.Descripcion as Marca, M.Id as IdMarca, C.Descripcion as Categoria, C.Id as IdCategoria, A.ImagenUrl, A.Precio from ARTICULOS A inner join MARCAS M on M.Id = A.IdMarca inner join CATEGORIAS C on C.Id = A.IdCategoria where A.ID = @ID";
 

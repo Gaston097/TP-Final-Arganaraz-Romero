@@ -9,7 +9,7 @@ using negocio;
 
 namespace Ecommerce.ABMs
 {
-    public partial class AltaCategoria : System.Web.UI.Page
+    public partial class AltaMarca : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,9 +20,9 @@ namespace Ecommerce.ABMs
         {
 
             string texto = txtDesc.Text;
-            CategoriaNegocio a = new CategoriaNegocio();
-            a.agregarCat(texto);
-            Response.Redirect("ABMCategorias.aspx");
+            MarcaNegocio a = new MarcaNegocio();
+            a.agregar(texto);
+            Response.Redirect("ABMMarcas.aspx");
 
         }
 
