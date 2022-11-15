@@ -22,7 +22,7 @@ namespace negocio
                 }
                 else
                 {
-                  datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS += "WHERE id = " + id);
+                  datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS +"WHERE id = " + id);
                 }
                 datos.ejecutarLectura();
 
