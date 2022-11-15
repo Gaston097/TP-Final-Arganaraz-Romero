@@ -16,16 +16,13 @@ namespace negocio
             try
             {
               
-                if(id != "")
+                if(id == "")
                 {
-                    if(id != null)
-                    {
-                        datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS += "WHERE id = " + id);
-                    }
+                    datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS);
                 }
                 else
                 {
-                    datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS);
+                  datos.setearConsulta(Diccionario.LISTAR_CATEGORIAS += "WHERE id = " + id);
                 }
                 datos.ejecutarLectura();
 

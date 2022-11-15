@@ -23,7 +23,8 @@ namespace Ecommerce.ABMs
         protected void dgvCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
             string id = dgvCategorias.SelectedDataKey.Value.ToString();
-            Response.Redirect("FormularioCategoria.aspx?id=" + id);
+            Session.Add("id", id);
+            Response.Redirect("FormularioCategoria.aspx");
 
         }
 

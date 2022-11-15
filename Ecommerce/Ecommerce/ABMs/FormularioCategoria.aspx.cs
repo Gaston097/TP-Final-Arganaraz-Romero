@@ -18,7 +18,7 @@ namespace Ecommerce.ABMs
             if (!IsPostBack)
             {
 
-                id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+                id = Session["id"] != null ? Session["id"].ToString() : "";
                 if (id != null)
                 {
 
@@ -34,7 +34,7 @@ namespace Ecommerce.ABMs
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
 
-            id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+            id = Session["id"] != null ? Session["id"].ToString() : "";
             if (id != "")
             {
                 if (id != null)
@@ -44,7 +44,7 @@ namespace Ecommerce.ABMs
                     a.modificar(id, texto);
 
                     id = "";
-
+                    Session.Remove("id");
                     Response.Redirect("ABMCategorias.aspx");
                 }
             }
