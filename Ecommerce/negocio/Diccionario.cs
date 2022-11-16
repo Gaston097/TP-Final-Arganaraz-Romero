@@ -30,6 +30,8 @@ namespace negocio
 
         public static string ELIMINAR_ARTICULO = "delete from articulos where ID = @ID";
 
+        public static string ELIMINAR_MARCA = "delete from MARCA where ID = @ID";
+
         public static string ALTA_ARTICULO = "update articulos set Estado = 1 where ID = @ID";
 
         public static string AGREGAR_CATEGORIA = "INSERT INTO Categoria VALUES (@nombre)";

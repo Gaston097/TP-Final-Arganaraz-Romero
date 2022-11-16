@@ -12,9 +12,11 @@ namespace Ecommerce.ABMs
     public partial class FormularioMarca : System.Web.UI.Page
     {      
         public string id { get; set; }
+
+        public bool Confirmacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Confirmacion = false;
             if (!IsPostBack)
             {
 
@@ -57,6 +59,28 @@ namespace Ecommerce.ABMs
 
             
 
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Confirmacion = true;
+        }
+
+        protected void btnEliminarConfirma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                id = Session["id"] != null ? Session["id"].ToString() : "";
+                int aux = int.Parse(id);
+                MarcaNegocio Negocio = new MarcaNegocio();
+                Negocio.eliminar(aux);
+                Response.Redirect("ABMMarcas.aspx");
+            }
+            catch ( Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 
