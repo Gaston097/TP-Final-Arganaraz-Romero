@@ -17,7 +17,7 @@ namespace Ecommerce
         {
 
             ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulos = negocio.listar();
+            listaArticulos = negocio.listar(true);
 
             if (!IsPostBack)
             {

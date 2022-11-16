@@ -10,6 +10,8 @@
     
     <asp:Button runat="server" class="btn btn-dark" Text="ABM de Marcas" ID="btnAbmMarcas" OnClick="btnAbmMarcas_Click" />
     
+    <a class="btn btn-dark" href="ABMs/ABMArticulos" > ABM de Articulos</a>
+
 
 
 </asp:Content>

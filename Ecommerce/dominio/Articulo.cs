@@ -34,5 +34,8 @@ namespace dominio
         public EstadoComercial EstadoComer { get; set; }
 
         public int Descuento { get; set; }
+
+        public bool EstadoActivo { get; set; }
+
     }
 }

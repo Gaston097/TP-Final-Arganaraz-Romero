@@ -104,8 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ABMMain.aspx" />
+    <Content Include="ABMs\ABMArticulos.aspx" />
     <Content Include="ABMs\ABMCategorias.aspx" />
     <Content Include="ABMs\ABMMarcas.aspx" />
+    <Content Include="ABMs\FormularioArticulo.aspx" />
     <Content Include="ABMs\FormularioMarca.aspx" />
     <Content Include="ABMs\FormularioCategoria.aspx" />
     <Content Include="Carrito.aspx" />
@@ -170,6 +172,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMs\ABMArticulos.aspx.cs">
+      <DependentUpon>ABMArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMs\ABMArticulos.aspx.designer.cs">
+      <DependentUpon>ABMArticulos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMs\ABMCategorias.aspx.cs">
       <DependentUpon>ABMCategorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +192,13 @@
     </Compile>
     <Compile Include="ABMs\ABMMarcas.aspx.designer.cs">
       <DependentUpon>ABMMarcas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\FormularioArticulo.aspx.cs">
+      <DependentUpon>FormularioArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMs\FormularioArticulo.aspx.designer.cs">
+      <DependentUpon>FormularioArticulo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ABMs\FormularioMarca.aspx.cs">
       <DependentUpon>FormularioMarca.aspx</DependentUpon>

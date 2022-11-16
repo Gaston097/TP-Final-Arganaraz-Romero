@@ -10,7 +10,7 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
-        public List<Articulo> listar()
+        public List<Articulo> listar(bool estado)
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
@@ -22,24 +22,29 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                    Articulo aux = new Articulo();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.Codigo = (string)datos.Lector["Codigo"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Imagen = (string)datos.Lector["Imagen"];
-                    aux.Precio = (decimal)datos.Lector["Precio"];
-                    aux.Marca = new Marca();
-                    aux.Marca.ID = (int)datos.Lector["IdMarca"];
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-                    aux.EstadoComer= new EstadoComercial();
-                    aux.EstadoComer.ID = (int)datos.Lector["EstadoComercial"];
-                    aux.EstadoComer.Nombre = (string)datos.Lector["NombreE"];
-                    aux.Descuento = (int)datos.Lector["Descuento"];
-                    lista.Add(aux);
+                    if ((bool)datos.Lector["EstadoActivo"] == estado)
+                    {
+                        Articulo aux = new Articulo();
+                        aux.Id = (int)datos.Lector["Id"];
+                        aux.Codigo = (string)datos.Lector["Codigo"];
+                        aux.Nombre = (string)datos.Lector["Nombre"];
+                        aux.Descripcion = (string)datos.Lector["Descripcion"];
+                        aux.Imagen = (string)datos.Lector["Imagen"];
+                        aux.Precio = (decimal)datos.Lector["Precio"];
+                        aux.Marca = new Marca();
+                        aux.Marca.ID = (int)datos.Lector["IdMarca"];
+                        aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                        aux.Categoria = new Categoria();
+                        aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
+                        aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                        aux.EstadoComer= new EstadoComercial();
+                        aux.EstadoComer.ID = (int)datos.Lector["EstadoComercial"];
+                        aux.EstadoComer.Nombre = (string)datos.Lector["NombreE"];
+                        aux.Descuento = (int)datos.Lector["Descuento"];
+                        aux.EstadoActivo = (bool)datos.Lector["EstadoActivo"];
+                        lista.Add(aux);
+                    }
+
 
                 }
 
