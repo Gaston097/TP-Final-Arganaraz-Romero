@@ -12,20 +12,20 @@ namespace Ecommerce.ABMs
     public partial class FormularioCategoria : System.Web.UI.Page
     {
         public string id { get; set; }
+        public bool Confirmacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Confirmacion = false;
             if (!IsPostBack)
             {
-
+              
                 id = Session["id"] != null ? Session["id"].ToString() : "";
                 if (id != null)
                 {
 
-                    CategoriaNegocio negocio = new CategoriaNegocio();
+                    CategoriaNegocio negocio = new CategoriaNegocio();                   
                     Categoria selecta = (negocio.listar(id))[0];
-
-                    txtDesc.Text = selecta.Descripcion;
+                    txtDesc.Text = selecta.Descripcion;                   
                 }
 
             }
@@ -57,6 +57,26 @@ namespace Ecommerce.ABMs
 
         }
 
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Confirmacion = true;
+        }
 
+        protected void btnEliminarConfirma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                id = Session["id"] != null ? Session["id"].ToString() : "";
+                int aux = int.Parse(id);
+                CategoriaNegocio Negocio = new CategoriaNegocio();
+                Negocio.eliminar(aux);
+                Response.Redirect("ABMCategorias.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

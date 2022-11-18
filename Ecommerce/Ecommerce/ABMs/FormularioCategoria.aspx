@@ -21,8 +21,6 @@
 
 
              
-
-
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -38,7 +36,24 @@
     </div>
   </div>
 </div>
-
+              <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                     <div class="row">
+                      <div class="col-6">
+                         <div class="mb-3">                           
+                             <br />
+                             <asp:Button ID="btnEliminar" OnClick="btnEliminar_Click" runat="server" CssClass="btn btn-danger" text="Eliminación" />
+                         </div>
+                          <%if (Confirmacion) { %>
+                         <div class="mb-3">
+                             <asp:CheckBox ID="ChkConfirmaEliminacion" runat="server" Text="Confirmar Eliminación" />
+                             <asp:Button ID="btnEliminarConfirma" OnClick="btnEliminarConfirma_Click"  runat="server" CssClass="btn btn-danger" text="Eliminar" />
+                         </div>
+                       <%  } %> 
+                      </div>
+              </div>
+                </ContentTemplate>
+             </asp:UpdatePanel>
 
           </div>
       </div>
