@@ -10,13 +10,22 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
-        public List<Articulo> listar(bool estado)
+        public List<Articulo> listar(bool estado, string id = "")
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta(Diccionario.LISTAR_ARTICULOS);
+                if (id == "")
+                {
+                    datos.setearConsulta(Diccionario.LISTAR_ARTICULOS);
+                }
+                else
+                {
+                    datos.setearConsulta(Diccionario.LISTAR_ARTICULOS + "WHERE id = " + id);
+                }
+
+
                 datos.ejecutarLectura();
 
 
@@ -60,115 +69,65 @@ namespace negocio
         }
 
 
+        
 
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
 
-
-
-
-
-
-
-
-
-
-        /*    public List<Articulo> listar()
+            try
             {
-                List<Articulo> lista = new List<Articulo>();
-                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta(Diccionario.AGREGAR_ARTICULO);
+                datos.setearParametro("@codigo", nuevo.Codigo);
+                datos.setearParametro("@nombre", nuevo.Nombre);
+                datos.setearParametro("@descripcion", nuevo.Descripcion);
+                datos.setearParametro("@IdMarca", nuevo.Marca.ID);
+                datos.setearParametro("@IdCategoria", nuevo.Categoria.ID);
+                datos.setearParametro("@imagenUrl", nuevo.Imagen);
+                datos.setearParametro("@precio", nuevo.Precio);
+                datos.setearParametro("@estado", 1);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
-                try
-                {
-                    datos.setearConsulta(Diccionario.LISTAR_ARTICULOS);
-                    datos.ejecutarLectura();
+        public void modificar(Articulo articulo, string id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta(Diccionario.MODIFICAR_ARTICULO);
+                datos.setearParametro("@codigo", articulo.Codigo);
+                datos.setearParametro("@nombre", articulo.Nombre);
+                datos.setearParametro("@descripcion", articulo.Descripcion);
+                datos.setearParametro("@IdMarca", articulo.Marca.ID);
+                datos.setearParametro("@IdCategoria", articulo.Categoria.ID);
+                datos.setearParametro("@imagenUrl", articulo.Imagen);
+                datos.setearParametro("@precio", articulo.Precio);
+                datos.setearParametro("@ID", id);
 
-
-                    while (datos.Lector.Read())
-                    {
-                        Articulo aux = new Articulo();
-                        aux.Id = (int)datos.Lector["Id"];
-                        aux.Codigo = (string)datos.Lector["Codigo"];
-                        aux.Nombre = (string)datos.Lector["Nombre"];
-                        aux.Descripcion = (string)datos.Lector["Descripcion"];
-                        aux.URLImagen = (string)datos.Lector["ImagenURL"];
-                        aux.Precio = (decimal)datos.Lector["Precio"];
-                        aux.Marca = new Marca();
-                        aux.Marca.ID = (int)datos.Lector["IdMarca"];
-                        aux.Marca.Descripcion = (string)datos.Lector["Marca"];
-                        aux.Categoria = new Categoria();
-                        aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
-                        aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-
-                        lista.Add(aux);
-
-                    }
-
-
-                    return lista;
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-
+                datos.ejecutarAccion();
 
             }
-
-            public void agregar(Articulo nuevo)
+            catch (Exception ex)
             {
-                AccesoDatos datos = new AccesoDatos();
-
-                try
-                {
-                    datos.setearConsulta(Diccionario.AGREGAR_ARTICULO);
-                    datos.setearParametro("@codigo", nuevo.Codigo);
-                    datos.setearParametro("@nombre", nuevo.Nombre);
-                    datos.setearParametro("@descripcion", nuevo.Descripcion);
-                    datos.setearParametro("@idMarca", nuevo.Marca.ID);
-                    datos.setearParametro("@idCategoria", nuevo.Categoria.ID);
-                    datos.setearParametro("@imagen", nuevo.URLImagen);
-                    datos.setearParametro("@precio", nuevo.Precio);
-                    datos.setearParametro("@estado", 1);
-                    datos.ejecutarAccion();
-                }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
-                finally
-                {
-                    datos.cerrarConexion();
-                }
+                throw ex;
             }
-
-            public void modificar(Articulo articulo)
+            finally
             {
-                AccesoDatos datos = new AccesoDatos();
-                try
-                {
-                    datos.setearConsulta(Diccionario.MODIFICAR_ARTICULO);
-                    datos.setearParametro("@codigo", articulo.Codigo);
-                    datos.setearParametro("@nombre", articulo.Nombre);
-                    datos.setearParametro("@descripcion", articulo.Descripcion);
-                    datos.setearParametro("@IdMarca", articulo.Marca.ID);
-                    datos.setearParametro("@IdCategoria", articulo.Categoria.ID);
-                    datos.setearParametro("@imagenUrl", articulo.URLImagen);
-                    datos.setearParametro("@precio", articulo.Precio);
-                    datos.setearParametro("@ID", articulo.Id);
-
-                    datos.ejecutarAccion();
-
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    datos.cerrarConexion();
-                }
+                datos.cerrarConexion();
             }
+        }
+        /*     
+        
             public List<Articulo> BuscarProduc(int id)
             {
                 List<Articulo> list = new List<Articulo>();           
@@ -287,4 +246,4 @@ namespace negocio
         */
     }
 
-    }
+}
