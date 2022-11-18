@@ -7,7 +7,11 @@
     <h1><%: Title %> </h1>
 
     <div style="width:50%">
-        <asp:GridView ID="dgvArticulos" runat="server"  OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"  AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered " >
+        <asp:GridView ID="dgvArticulos" runat="server"  OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged" 
+            AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered "
+            OnPageIndexChanging="dgvArticulos_PageIndexChanging"
+            AllowPaging="True" PageSize="5"
+            >
 
             <Columns>
             

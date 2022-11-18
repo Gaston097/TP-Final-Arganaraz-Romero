@@ -5,7 +5,10 @@
     <br />
     <h1><%: Title %></h1>
 
-    <asp:GridView ID="dgvMarcas" runat="server" OnSelectedIndexChanged="dgvMarcas_SelectedIndexChanged"  AutoGenerateColumns="false" DataKeyNames="Id" class="table table-dark table-bordered " >
+    <asp:GridView ID="dgvMarcas" runat="server" OnSelectedIndexChanged="dgvMarcas_SelectedIndexChanged" 
+        AutoGenerateColumns="false" DataKeyNames="Id" class="table table-dark table-bordered " 
+        AllowPaging="True" PageSize="10" OnPageIndexChanging="dgvMarcas_PageIndexChanging"
+        >
         <Columns>
 
             <asp:BoundField DataField="ID" HeaderText="ID" />

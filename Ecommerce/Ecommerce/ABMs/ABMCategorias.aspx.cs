@@ -28,8 +28,10 @@ namespace Ecommerce.ABMs
 
         }
 
-
-
-
+        protected void dgvCategorias_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {          
+                dgvCategorias.PageIndex= e.NewPageIndex;
+                dgvCategorias.DataBind();
+        }
     }
 }

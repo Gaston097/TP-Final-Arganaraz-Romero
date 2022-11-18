@@ -6,8 +6,12 @@
     <h1><%: Title %> </h1>
 
 
-    <asp:GridView ID="dgvCategorias" runat="server"  OnSelectedIndexChanged="dgvCategorias_SelectedIndexChanged"  AutoGenerateColumns="false" DataKeyNames="Id"  class="table table-dark table-bordered " >
-
+    <asp:GridView ID="dgvCategorias" runat="server"  
+        OnSelectedIndexChanged="dgvCategorias_SelectedIndexChanged"  
+        AutoGenerateColumns="false" DataKeyNames="Id"  class="table table-dark table-bordered "
+        OnPageIndexChanging="dgvCategorias_PageIndexChanging"
+        AllowPaging="True" PageSize="10" >
+        
         <Columns>
             
             <asp:BoundField DataField="Id" HeaderText="ID" />

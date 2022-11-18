@@ -26,6 +26,10 @@ namespace Ecommerce.ABMs
             Response.Redirect("FormularioMarca.aspx");        
         }
 
-
+        protected void dgvMarcas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvMarcas.PageIndex = e.NewPageIndex;
+            dgvMarcas.DataBind();
+        }
     }
-}
+    }
