@@ -14,9 +14,19 @@ namespace Ecommerce.ABMs
         public int id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+            if (Session["id"] != null)
+            {
+                Session.Remove("id");
+            }
+
+
             ArticuloNegocio lista = new ArticuloNegocio();
             dgvArticulos.DataSource = lista.listar(true);
             dgvArticulos.DataBind();
+
+
 
         }
 

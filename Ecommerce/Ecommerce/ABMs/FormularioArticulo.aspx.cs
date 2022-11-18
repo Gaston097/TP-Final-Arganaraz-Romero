@@ -32,7 +32,7 @@ namespace Ecommerce.ABMs
                     ddlEstadoComercial.DataBind();
 
                     id = Session["id"] != null ? Session["id"].ToString() : "";
-                    if (id != null)
+                    if (id != "")
                     {
 
                         ArticuloNegocio negocio = new ArticuloNegocio();
@@ -41,6 +41,7 @@ namespace Ecommerce.ABMs
                         txtNombre.Text = selecta.Nombre;
                         txtPrecio.Text = selecta.Precio.ToString();
                         txtImagen.Text = selecta.Imagen;
+                        txtDescripcion.Text = selecta.Descripcion;
                         txtDescuento.Text = selecta.Descuento.ToString();
                         ddlCategorias.SelectedValue = selecta.Categoria.ID.ToString();
                         ddlMarcas.SelectedValue = selecta.Marca.ID.ToString();
@@ -67,45 +68,53 @@ namespace Ecommerce.ABMs
             {
                 if (id != null)
                 {
-                    Articulo aAgregar = new Articulo();
-                    aAgregar.Codigo = txtCodigo.Text;
-                    aAgregar.Nombre = txtNombre.Text;
-                    aAgregar.Precio = decimal.Parse(txtPrecio.Text);
-                    aAgregar.Imagen = txtImagen.Text;
-                    aAgregar.Descuento = int.Parse(txtDescuento.Text);
-                    aAgregar.Marca = new Marca();
-                    aAgregar.Marca.ID = int.Parse(ddlMarcas.SelectedValue);
-                    aAgregar.Categoria = new Categoria();
-                    aAgregar.Categoria.ID = int.Parse(ddlCategorias.SelectedValue);
-                    aAgregar.EstadoComer = new EstadoComercial();
-                    aAgregar.EstadoComer.ID = int.Parse(ddlEstadoComercial.SelectedValue);
+                    Articulo aModificar = new Articulo();
+                    aModificar.Codigo = txtCodigo.Text;
+                    aModificar.Nombre = txtNombre.Text;
+                    aModificar.Descripcion = txtDescripcion.Text;
+                    aModificar.Precio = decimal.Parse(txtPrecio.Text);
+                    aModificar.Imagen = txtImagen.Text;
+                    aModificar.Descuento = int.Parse(txtDescuento.Text);
+                    aModificar.Marca = new Marca();
+                    aModificar.Marca.ID = ddlMarcas.SelectedIndex;
+                    aModificar.Marca.Descripcion = ddlMarcas.SelectedValue;
+                    aModificar.Categoria = new Categoria();
+                    aModificar.Categoria.ID = ddlCategorias.SelectedIndex;
+                    aModificar.Categoria.Descripcion = ddlCategorias.SelectedValue;
+                    aModificar.EstadoComer = new EstadoComercial();
+                    aModificar.EstadoComer.ID = ddlEstadoComercial.SelectedIndex;
+                    aModificar.EstadoComer.Nombre = ddlEstadoComercial.SelectedValue;
 
                     ArticuloNegocio a = new ArticuloNegocio();
-                    a.agregar(aAgregar);
+                    a.modificar(aModificar, id);
 
                     id = "";
                     Session.Remove("id");
-                    Response.Redirect("ABMCategorias.aspx");
+                    Response.Redirect("ABMArticulos.aspx");
                 }
             }
             else
             {
-                Articulo aModificar = new Articulo();
-                aModificar.Codigo = txtCodigo.Text;
-                aModificar.Nombre = txtNombre.Text;
-                aModificar.Precio = decimal.Parse(txtPrecio.Text);
-                aModificar.Imagen = txtImagen.Text;
-                aModificar.Descuento = int.Parse(txtDescuento.Text);
-                aModificar.Marca = new Marca();
-                aModificar.Marca.ID = int.Parse(ddlMarcas.SelectedValue);
-                aModificar.Categoria = new Categoria();
-                aModificar.Categoria.ID = int.Parse(ddlCategorias.SelectedValue);
-                aModificar.EstadoComer = new EstadoComercial();
-                aModificar.EstadoComer.ID = int.Parse(ddlEstadoComercial.SelectedValue);
+                Articulo aAgregar = new Articulo();
+                aAgregar.Codigo = txtCodigo.Text;
+                aAgregar.Nombre = txtNombre.Text;
+                aAgregar.Descripcion = txtDescripcion.Text;
+                aAgregar.Precio = decimal.Parse(txtPrecio.Text);
+                aAgregar.Imagen = txtImagen.Text;
+                aAgregar.Descuento = int.Parse(txtDescuento.Text);
+                aAgregar.Marca = new Marca();
+                aAgregar.Marca.ID = ddlMarcas.SelectedIndex;
+                aAgregar.Marca.Descripcion = ddlMarcas.SelectedValue;
+                aAgregar.Categoria = new Categoria();
+                aAgregar.Categoria.ID = ddlCategorias.SelectedIndex;
+                aAgregar.Categoria.Descripcion = ddlCategorias.SelectedValue;
+                aAgregar.EstadoComer = new EstadoComercial();
+                aAgregar.EstadoComer.ID = ddlEstadoComercial.SelectedIndex;
+                aAgregar.EstadoComer.Nombre = ddlEstadoComercial.SelectedValue;
 
                 ArticuloNegocio a = new ArticuloNegocio();
-                a.modificar(aModificar, id);
-                Response.Redirect("ABMCategorias.aspx");
+                a.agregar(aAgregar);
+                Response.Redirect("ABMArticulos.aspx");
             }
 
         }

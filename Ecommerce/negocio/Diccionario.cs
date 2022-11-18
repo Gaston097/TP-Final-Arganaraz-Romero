@@ -22,9 +22,9 @@ namespace negocio
 
         public static string CONSULTA_FILTRO_AVANZADO = "select A.Id, A.Codigo as Codigo, A.Nombre , A.Descripcion , M.Descripcion as Marca, M.Id as IdMarca, C.Descripcion as Categoria, C.Id as IdCategoria, A.ImagenUrl, A.Precio from ARTICULOS A inner join MARCAS M on M.Id = A.IdMarca inner join CATEGORIAS C on C.Id = A.IdCategoria where A.";
 
-        public static string MODIFICAR_ARTICULO = "update articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, ImagenUrl = @imagenUrl, Precio = @precio where ID = @ID";
+        public static string MODIFICAR_ARTICULO = "update articulo set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdCategoria = @IdCategoria, IdMarca = @IdMarca, Precio = @precio, Imagen = @imagen, EstadoComercial = @idEstadoComercial, Descuento = @descuento, EstadoActivo = @estado where ID = @ID";
 
-        public static string AGREGAR_ARTICULO = "insert into articulos values (@codigo, @nombre, @descripcion, @idMarca, @idCategoria, @imagen, @precio)";
+        public static string AGREGAR_ARTICULO = "insert into articulo values (@codigo, @nombre, @descripcion, @idCategoria, @idMarca, @precio, @imagen, @idEstadoComercial, @descuento, @estado)";
 
         public static string BAJA_ARTICULO = "update articulos set Estado = 0 where ID = @ID";
 

@@ -22,7 +22,7 @@ namespace negocio
                 }
                 else
                 {
-                    datos.setearConsulta(Diccionario.LISTAR_ARTICULOS + "WHERE id = " + id);
+                    datos.setearConsulta(Diccionario.LISTAR_ARTICULOS + "WHERE A.id = " + id);
                 }
 
 
@@ -81,10 +81,12 @@ namespace negocio
                 datos.setearParametro("@codigo", nuevo.Codigo);
                 datos.setearParametro("@nombre", nuevo.Nombre);
                 datos.setearParametro("@descripcion", nuevo.Descripcion);
-                datos.setearParametro("@IdMarca", nuevo.Marca.ID);
-                datos.setearParametro("@IdCategoria", nuevo.Categoria.ID);
-                datos.setearParametro("@imagenUrl", nuevo.Imagen);
+                datos.setearParametro("@idMarca", nuevo.Marca.ID);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.ID);
+                datos.setearParametro("@imagen", nuevo.Imagen);
                 datos.setearParametro("@precio", nuevo.Precio);
+                datos.setearParametro("@idEstadoComercial", nuevo.EstadoComer.ID);
+                datos.setearParametro("@descuento", nuevo.Descuento);
                 datos.setearParametro("@estado", 1);
                 datos.ejecutarAccion();
             }
@@ -108,10 +110,13 @@ namespace negocio
                 datos.setearParametro("@codigo", articulo.Codigo);
                 datos.setearParametro("@nombre", articulo.Nombre);
                 datos.setearParametro("@descripcion", articulo.Descripcion);
-                datos.setearParametro("@IdMarca", articulo.Marca.ID);
-                datos.setearParametro("@IdCategoria", articulo.Categoria.ID);
-                datos.setearParametro("@imagenUrl", articulo.Imagen);
+                datos.setearParametro("@idMarca", articulo.Marca.ID);
+                datos.setearParametro("@idCategoria", articulo.Categoria.ID);
+                datos.setearParametro("@imagen", articulo.Imagen);
                 datos.setearParametro("@precio", articulo.Precio);
+                datos.setearParametro("@idEstadoComercial", articulo.EstadoComer.ID);
+                datos.setearParametro("@descuento", articulo.Descuento);
+                datos.setearParametro("@estado", 1);
                 datos.setearParametro("@ID", id);
 
                 datos.ejecutarAccion();
