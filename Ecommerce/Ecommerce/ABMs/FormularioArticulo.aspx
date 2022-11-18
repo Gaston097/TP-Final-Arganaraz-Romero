@@ -8,49 +8,75 @@
     <br />
     <h1> Formulario Item Articulo </h1>
 
-    <div class="row">
-        <div class="col-6">
-    <div class="mb-3">
-         <label for="txtCodigo" class="form-label">Codigo del Articulo</label>
-         <asp:TextBox ID="txtCodigo" CssClass="form-control" runat="server"></asp:TextBox>
-    </div>
 
-    <div class="mb-3">
-         <label for="txtNombre" class="form-label">Nombre del Articulo</label>
-         <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
-    </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="txtCodigo" class="form-label">Codigo del Articulo</label>
+                    <asp:TextBox ID="txtCodigo" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
 
-    <div class="mb-3">
-         <label for="txtDescripcion" class="form-label">Descripcion</label>
-         <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server"></asp:TextBox>
-    </div>
+                <div class="mb-3">
+                     <label for="txtNombre" class="form-label">Nombre del Articulo</label>
+                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="mb-3">
+                     <label for="txtDescripcion" class="form-label">Descripcion</label>
+                     <asp:TextBox ID="txtDescripcion" CssClass="form-control " runat="server"></asp:TextBox>
+                </div>
+
+                <div class="mb-3">
+                     <label for="ddlCategoria" class="form-label">Categoria</label>
+                     <br />
+                     <asp:DropDownList ID="ddlCategorias" runat="server" CssClass="form-control border btn dropdown-toggle">
+                     </asp:DropDownList>
+                </div>
+
+                <div class="mb-3">
+                     <label for="ddlMarca" class="form-label">Marca</label>
+                     <br />
+                     <asp:DropDownList ID="ddlMarcas" runat="server" CssClass="form-control border btn dropdown-toggle">
+                     </asp:DropDownList>
+                </div>
 
 
-            <%-- 
-              REALIZAR DROPDOWN PARA:
-              >CATEGORIA
-              >MARCA
-              >ESTADO COMERCIAL
+
+
+
+
+                <%-- 
+                  REALIZAR DROPDOWN PARA:
+                  >CATEGORIA
+                  >MARCA
+                  >ESTADO COMERCIAL
                 
-                --%>
-    <div class="mb-3">
-         <label for="txtPrecio" class="form-label">Precio</label>
-         <asp:TextBox ID="txtPrecio" CssClass="form-control" runat="server"></asp:TextBox>
-    </div>
+                            --%>
+                <div class="mb-3">
+                     <label for="txtPrecio" class="form-label">Precio</label>
+                     <asp:TextBox ID="txtPrecio" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
 
-    <div class="mb-3">
-         <label for="txtImagen" class="form-label">Imagen</label>
-         <asp:TextBox ID="txtImagen" CssClass="form-control" runat="server"></asp:TextBox>
-    </div>
+                <div class="mb-3">
+                     <label for="txtImagen" class="form-label">Imagen</label>
+                     <asp:TextBox ID="txtImagen" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="mb-3">
+                     <label for="ddlEstadoComercial" class="form-label">Estado Comercial</label>
+                     <br />
+                     <asp:DropDownList ID="ddlEstadoComercial" runat="server" CssClass="form-control border btn dropdown-toggle">
+                     </asp:DropDownList>
+                </div>
+
+
+
 
     
-    <div class="mb-3">
-         <label for="txtDescuento" class="form-label">Descuento</label>
-         <asp:TextBox ID="txtDescuento" CssClass="form-control" runat="server"></asp:TextBox>
-    </div>
-
-    
-
+                <div class="mb-3">
+                     <label for="txtDescuento" class="form-label">Descuento</label>
+                     <asp:TextBox ID="txtDescuento" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
 
 
 

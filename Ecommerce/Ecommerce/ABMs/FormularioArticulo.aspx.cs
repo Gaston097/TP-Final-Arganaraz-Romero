@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
+using negocio;
 
 namespace Ecommerce.ABMs
 {
@@ -11,6 +13,32 @@ namespace Ecommerce.ABMs
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CategoriaNegocio Cnegocio = new CategoriaNegocio();
+            MarcaNegocio Mnegocio = new MarcaNegocio();
+            EstadoComercialNegocio ECnegocio = new EstadoComercialNegocio();
+
+            try
+            {
+                if (!IsPostBack)
+                {
+                    ddlCategorias.DataSource = Cnegocio.listar();
+                    ddlCategorias.DataBind();
+
+                    ddlMarcas.DataSource = Mnegocio.listar();
+                    ddlMarcas.DataBind();
+
+                    ddlEstadoComercial.DataSource = ECnegocio.listar();
+                    ddlEstadoComercial.DataBind();
+
+
+                }
+            }
+            catch(Exception ex)
+            {
+                Session.Add("error", ex);
+            }
+
+
 
         }
 

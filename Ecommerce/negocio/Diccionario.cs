@@ -40,6 +40,19 @@ namespace negocio
 
         public static string AGREGAR_MARCA = "INSERT INTO Marca VALUES (@nombre)";
 
+        public static string LISTAR_ESTADO_COMERCIAL = "SELECT Id, Nombre FROM Estado_Comercial";
+
+        public static string AGREGAR_ESTADO_COMERCIAL = "INSERT INTO Estado_Comercial VALUES (@nombre)";
+
+        public static string MODIFICAR_ESTADO_COMERCIAL = "UPDATE Estado_Comercial SET Nombre = @nombre WHERE Id = @id";
+
+        public static string ELIMINAR_ESTADO_COMERCIAL = "DELETE FROM Estado_Comercial WHERE Id = @id";
+
+
+
+
+
+
 
 
 

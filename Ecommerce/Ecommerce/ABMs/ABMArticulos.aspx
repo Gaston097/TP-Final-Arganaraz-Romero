@@ -6,34 +6,41 @@
     <br />
     <h1><%: Title %> </h1>
 
+    <div style="width:50%">
+        <asp:GridView ID="dgvArticulos" runat="server"  OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"  AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered " >
 
-    <asp:GridView ID="dgvArticulos" runat="server"  OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"  AutoGenerateColumns="false" DataKeyNames="Id"  class="table table-dark table-bordered " >
-
-        <Columns>
+            <Columns>
             
 
 
-            <asp:BoundField DataField="Id" HeaderText="ID" />
-            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-            <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
-            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
-            <asp:BoundField DataField="Categoria" HeaderText="Categoria" />
-            <asp:BoundField DataField="Marca" HeaderText="Marca" />
-            <asp:BoundField DataField="Precio" HeaderText="Precio" />
-            <asp:BoundField DataField="Imagen" HeaderText="Imagen" />
-            <asp:BoundField DataField="EstadoComer" HeaderText="EstadoComercial" />
-            <asp:BoundField DataField="Descuento" HeaderText="Descuento" />
+                <asp:BoundField DataField="Id" HeaderText="ID" />
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                <asp:BoundField DataField="Categoria" HeaderText="Categoria" />
+                <asp:BoundField DataField="Marca" HeaderText="Marca" />
+                <asp:BoundField DataField="Precio" HeaderText="Precio" />
+                <asp:TemplateField HeaderText="Imagen">
+                
+                <ItemTemplate >
+                    <asp:Image ID="Image" runat="server" ImageUrl ='<%# Eval("Imagen") %>' height="120px" CssClass="rounded mx-auto d-block align-content-center" />
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-            <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>
-            <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
+
+                <asp:BoundField DataField="EstadoComer" HeaderText="EstadoComercial" />
+                <asp:BoundField DataField="Descuento" HeaderText="Descuento" />
+
+                <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>
+                <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
              
 
               
-        </Columns>
+            </Columns>
 
 
-    </asp:GridView>
-
+        </asp:GridView>
+    </div>
     
      <a class="btn btn-dark" href="FormularioArticulo" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
