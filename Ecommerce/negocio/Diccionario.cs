@@ -28,8 +28,6 @@ namespace negocio
 
         public static string BAJA_ARTICULO = "update articulos set Estado = 0 where ID = @ID";
 
-        public static string ELIMINAR_ARTICULO = "delete from articulos where ID = @ID";
-
         public static string ELIMINAR_MARCA = "delete from MARCA where ID = @ID";
 
         public static string ELIMINAR_CATEGORIA = "delete from CATEGORIA where ID = @ID";
@@ -55,6 +53,8 @@ namespace negocio
         public static string MODIFICAR_USUARIO = "UPDATE Usuario SET IdTipo = @idtipo, Usuario = @usuario, Contrasena = @contrasena, Email = @email WHERE Id = @id";
 
         public static string ELIMINAR_USUARIO = "DELETE FROM Usuario WHERE Id = @id";
+
+        public static string ELIMINAR_ARTICULO = "DELETE FROM Articulo WHERE Id = @id";
 
         public static string LISTAR_TIPOS_USUARIO = "SELECT Id, Nombre FROM Usuario_Tipo";
 

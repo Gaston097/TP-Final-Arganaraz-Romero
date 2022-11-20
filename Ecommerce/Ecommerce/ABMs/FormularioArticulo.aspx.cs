@@ -11,6 +11,7 @@ namespace Ecommerce.ABMs
 {
     public partial class FormularioArticulo : System.Web.UI.Page
     {
+        public bool Confirmacion { get; set; }
         public string id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -119,6 +120,26 @@ namespace Ecommerce.ABMs
 
         }
 
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Confirmacion = true;
+        }
 
+        protected void btnEliminarConfirma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                id = Session["id"] != null ? Session["id"].ToString() : "";
+                int aux = int.Parse(id);
+                ArticuloNegocio Negocio = new ArticuloNegocio();
+                Negocio.eliminar(aux);
+                Response.Redirect("ABMArticulos.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -1,9 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormularioArticulo.aspx.cs" Inherits="Ecommerce.ABMs.FormularioArticulo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-
-    
-
     
     <br />
     <h1> Formulario Item Articulo </h1>
@@ -40,11 +36,6 @@
                      </asp:DropDownList>
                 </div>
 
-
-
-
-
-
                 <%-- 
                   REALIZAR DROPDOWN PARA:
                   >CATEGORIA
@@ -68,17 +59,11 @@
                      <asp:DropDownList ID="ddlEstadoComercial" runat="server" CssClass="form-control border btn dropdown-toggle">
                      </asp:DropDownList>
                 </div>
-
-
-
-
     
                 <div class="mb-3">
                      <label for="txtDescuento" class="form-label">Descuento</label>
                      <asp:TextBox ID="txtDescuento" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-
-
 
 
     <div class="mb-3">
@@ -102,13 +87,30 @@
               </div>
             </div>
           </div>
-        </div>
-
-
-          </div>
+         </div>
+       </div>
       </div>
     </div>
 
+    
+              <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                     <div class="row">
+                      <div class="col-6">
+                         <div class="mb-3">                           
+                             <br />
+                             <asp:Button ID="btnEliminar" OnClick="btnEliminar_Click" runat="server" CssClass="btn btn-danger" text="Eliminación" />
+                         </div>
+                          <%if (Confirmacion) { %>
+                         <div class="mb-3">
+                             <asp:CheckBox ID="ChkConfirmaEliminacion" runat="server" Text="Confirmar Eliminación" />
+                             <asp:Button ID="btnEliminarConfirma" OnClick="btnEliminarConfirma_Click"  runat="server" CssClass="btn btn-danger" text="Eliminar" />
+                         </div>
+                       <%  } %> 
+                      </div>
+              </div>
+                </ContentTemplate>
+             </asp:UpdatePanel>
  
 
 

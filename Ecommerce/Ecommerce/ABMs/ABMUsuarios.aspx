@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ABMUsuarios.aspx.cs" Inherits="Ecommerce.ABMs.ABMUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-
   
     <br />
     <h1><%: Title %> </h1>
@@ -23,11 +21,8 @@
 
                 <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>
                 <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
-             
-
-              
+                           
             </Columns>
-
 
         </asp:GridView>
     </div>
