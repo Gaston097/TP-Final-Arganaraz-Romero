@@ -12,9 +12,10 @@ namespace Ecommerce.ABMs
     public partial class ABMMarcas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {         
             MarcaNegocio lista = new MarcaNegocio();
-            dgvMarcas.DataSource = lista.listar();
+            Session.Add("listaMarca", lista.listar());
+            dgvMarcas.DataSource = Session["listaMarca"];
             dgvMarcas.DataBind();
         }
 
@@ -31,5 +32,16 @@ namespace Ecommerce.ABMs
             dgvMarcas.PageIndex = e.NewPageIndex;
             dgvMarcas.DataBind();
         }
+
+        protected void txtfiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Marca> lis = (List<Marca>)Session["listaMarca"];
+            List<Marca> listaFiltrada = lis.FindAll(x => x.Descripcion.ToUpper().Contains(txtfiltro.Text.ToUpper()));
+            dgvMarcas.DataSource = listaFiltrada;
+            dgvMarcas.DataBind();
+
+
+        }
     }
     }
+   

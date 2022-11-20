@@ -3,8 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <br />
-    <h1><%: Title %></h1>
 
+     <div class="row">      
+            <div class="col-6">
+                <div class="mb-3">
+                <asp:Label Text="Filtrar:" runat="server" />
+                <asp:TextBox runat="server" ID="txtfiltro" AutoPostBack="true" OnTextChanged="txtfiltro_TextChanged"
+                    CssClass="form-control"/>
+                </div>
+            </div>
+     </div>   
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+    
     <asp:GridView ID="dgvMarcas" runat="server" OnSelectedIndexChanged="dgvMarcas_SelectedIndexChanged" 
         AutoGenerateColumns="false" DataKeyNames="Id" class="table table-dark table-bordered " 
         AllowPaging="True" PageSize="10" OnPageIndexChanging="dgvMarcas_PageIndexChanging"
@@ -17,6 +29,9 @@
             <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
         </Columns>
     </asp:GridView>
+
+    </ContentTemplate>
+    </asp:UpdatePanel>
 
      <a class="btn btn-dark" href="FormularioMarca" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>

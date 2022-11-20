@@ -6,17 +6,29 @@
     <br />
     <h1><%: Title %> </h1>
 
+
+    <div class="row">      
+            <div class="col-6">
+                <div class="mb-3">
+                <asp:Label Text="Filtrar:" runat="server" />
+                <asp:TextBox runat="server" ID="txtfiltro" AutoPostBack="true" OnTextChanged="txtfiltro_TextChanged"
+                    CssClass="form-control"/>
+                </div>
+            </div>
+     </div>   
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+
     <div style="width:50%">
         <asp:GridView ID="dgvArticulos" runat="server"  OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged" 
             AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered "
             OnPageIndexChanging="dgvArticulos_PageIndexChanging"
-            AllowPaging="True" PageSize="5"
+            AllowPaging="True" PageSize="4"
             >
 
             <Columns>
             
-
-
                 <asp:BoundField DataField="Id" HeaderText="ID" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
@@ -37,14 +49,14 @@
 
                 <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>
                 <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
-             
-
-              
+                           
             </Columns>
-
-
         </asp:GridView>
     </div>
+        
+    </ContentTemplate>
+    </asp:UpdatePanel>
+
     
      <a class="btn btn-dark" href="FormularioArticulo" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
