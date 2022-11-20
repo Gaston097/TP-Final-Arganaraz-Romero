@@ -22,7 +22,7 @@ namespace negocio
                 }
                 else
                 {
-                    datos.setearConsulta(Diccionario.LISTAR_USUARIOS + "WHERE A.id = " + id);
+                    datos.setearConsulta(Diccionario.LISTAR_USUARIOS + "WHERE U.id = " + id);
                 }
 
 
@@ -33,13 +33,16 @@ namespace negocio
                 {
                  
                         Usuario aux = new Usuario();
+                        aux.TipoUsuario = new TipoUsuario();
                         aux.Id = (int)datos.Lector["Id"];
-                        aux.IdTipo = (int)datos.Lector["IdTipo"];
+                        aux.TipoUsuario.ID = (int)datos.Lector["IdTipo"];
+                        aux.TipoUsuario.Nombre = (string)datos.Lector["TipoUsuario"];
                         aux.Nombre = (string)datos.Lector["Usuario"];
                         aux.Contrasena = (string)datos.Lector["Contrasena"];
                         aux.eMail = (string)datos.Lector["Email"];
-                        aux.Fecha = (string)datos.Lector["Fecha"];
+                        aux.Fecha = (DateTime)datos.Lector["Fecha"];
                         lista.Add(aux);
+
 
                 }
 
@@ -60,7 +63,7 @@ namespace negocio
             try
             {
                 datos.setearConsulta(Diccionario.AGREGAR_USUARIO);
-                datos.setearParametro("@idtipo", nuevo.IdTipo);
+                datos.setearParametro("@idtipo", nuevo.TipoUsuario.ID);
                 datos.setearParametro("@nombre", nuevo.Nombre);
                 datos.setearParametro("@email", nuevo.eMail);
                 datos.setearParametro("@contrasena", nuevo.Contrasena);
@@ -84,9 +87,9 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta(Diccionario.MODIFICAR_ARTICULO);
-                datos.setearParametro("@idtipo", usuario.IdTipo);
-                datos.setearParametro("@nombre", usuario.Nombre);
+                datos.setearConsulta(Diccionario.MODIFICAR_USUARIO);
+                datos.setearParametro("@idtipo", usuario.TipoUsuario.ID);
+                datos.setearParametro("@usuario", usuario.Nombre);
                 datos.setearParametro("@contrasena", usuario.Contrasena);
                 datos.setearParametro("@email", usuario.eMail);
                 datos.setearParametro("@ID", id);

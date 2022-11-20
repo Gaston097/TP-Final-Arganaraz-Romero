@@ -10,7 +10,7 @@ namespace dominio
     {
         public int Id { get; set; }
 
-        public int IdTipo { get; set; }
+        public TipoUsuario TipoUsuario { get; set; }
 
         public string Nombre { get; set; }
 
@@ -18,7 +18,7 @@ namespace dominio
 
         public string Contrasena { get; set; }
 
-        public string Fecha { get; set; }
+        public DateTime Fecha { get; set; }
 
     }
 }

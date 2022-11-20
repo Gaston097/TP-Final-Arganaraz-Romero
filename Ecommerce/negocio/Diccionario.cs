@@ -48,7 +48,7 @@ namespace negocio
 
         public static string ELIMINAR_ESTADO_COMERCIAL = "DELETE FROM Estado_Comercial WHERE Id = @id";
 
-        public static string LISTAR_USUARIOS = "SELECT Id, IdTipo, Usuario, Contrasena, Email, Fecha FROM Usuario";
+        public static string LISTAR_USUARIOS = "SELECT U.Id, U.IdTipo, UT.Nombre AS TipoUsuario, U.Usuario, U.Contrasena, U.Email, U.Fecha FROM Usuario U INNER JOIN Usuario_Tipo UT ON UT.Id = U.IdTipo ";
 
         public static string AGREGAR_USUARIO = "INSERT INTO Usuario VALUES (@idtipo, @email, @contrasena, CAST(GETDATE() AS DATE), @nombre)";
 

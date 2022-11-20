@@ -12,6 +12,9 @@
     
     <a class="btn btn-dark" href="ABMs/ABMArticulos" > ABM de Articulos</a>
 
+    <a class="btn btn-dark" href="ABMs/ABMUsuarios" > ABM de Usuarios</a>
+
+
 
 
 </asp:Content>

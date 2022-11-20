@@ -34,7 +34,7 @@ namespace Ecommerce.ABMs
                         txtContrasena.Text = selecta.Contrasena;
                         txtEmail.Text = selecta.eMail;
                         txtUsuario.Text = selecta.Nombre;
-                        ddlTipoUsuario.SelectedIndex = selecta.IdTipo;
+                        ddlTipoUsuario.SelectedIndex = (selecta.TipoUsuario.ID - 1);
 
                     }
 
@@ -57,7 +57,8 @@ namespace Ecommerce.ABMs
                 if (id != null)
                 {
                     Usuario aModificar = new Usuario();
-                    aModificar.IdTipo = ddlTipoUsuario.SelectedIndex;
+                    aModificar.TipoUsuario = new TipoUsuario();
+                    aModificar.TipoUsuario.ID = (ddlTipoUsuario.SelectedIndex + 1);
                     aModificar.Nombre = txtUsuario.Text;
                     aModificar.eMail = txtEmail.Text;
                     aModificar.Contrasena = txtContrasena.Text;
@@ -73,7 +74,8 @@ namespace Ecommerce.ABMs
             else
             {
                 Usuario aAgregar = new Usuario();
-                aAgregar.IdTipo = ddlTipoUsuario.SelectedIndex;
+                aAgregar.TipoUsuario = new TipoUsuario();
+                aAgregar.TipoUsuario.ID = (ddlTipoUsuario.SelectedIndex + 1);
                 aAgregar.Nombre = txtUsuario.Text;
                 aAgregar.eMail = txtEmail.Text;
                 aAgregar.Contrasena = txtContrasena.Text;
