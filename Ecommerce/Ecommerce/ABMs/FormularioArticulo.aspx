@@ -93,7 +93,7 @@
             <div class="modal-content">
       
               <div class="modal-body" style="color:green">
-                  Categoria agregada con exito!
+                  Articulo agregado con exito!
                   <i class="fa fa-check-circle" aria-hidden="true"></i>
               </div>
 
@@ -109,6 +109,7 @@
       </div>
     </div>
 
+ 
 
 
 

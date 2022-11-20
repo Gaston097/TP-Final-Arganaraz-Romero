@@ -48,13 +48,15 @@ namespace negocio
 
         public static string ELIMINAR_ESTADO_COMERCIAL = "DELETE FROM Estado_Comercial WHERE Id = @id";
 
+        public static string LISTAR_USUARIOS = "SELECT Id, IdTipo, Usuario, Contrasena, Email, Fecha FROM Usuario";
 
+        public static string AGREGAR_USUARIO = "INSERT INTO Usuario VALUES (@idtipo, @email, @contrasena, CAST(GETDATE() AS DATE), @nombre)";
 
+        public static string MODIFICAR_USUARIO = "UPDATE Usuario SET IdTipo = @idtipo, Usuario = @usuario, Contrasena = @contrasena, Email = @email WHERE Id = @id";
 
+        public static string ELIMINAR_USUARIO = "DELETE FROM Usuario WHERE Id = @id";
 
-
-
-
+        public static string LISTAR_TIPOS_USUARIO = "SELECT Id, Nombre FROM Usuario_Tipo";
 
 
 

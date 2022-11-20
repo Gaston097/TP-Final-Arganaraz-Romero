@@ -107,9 +107,11 @@
     <Content Include="ABMs\ABMArticulos.aspx" />
     <Content Include="ABMs\ABMCategorias.aspx" />
     <Content Include="ABMs\ABMMarcas.aspx" />
+    <Content Include="ABMs\ABMUsuarios.aspx" />
     <Content Include="ABMs\FormularioArticulo.aspx" />
     <Content Include="ABMs\FormularioMarca.aspx" />
     <Content Include="ABMs\FormularioCategoria.aspx" />
+    <Content Include="ABMs\FormularioUsuario.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.css.map" />
@@ -193,6 +195,13 @@
     <Compile Include="ABMs\ABMMarcas.aspx.designer.cs">
       <DependentUpon>ABMMarcas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ABMs\ABMUsuarios.aspx.cs">
+      <DependentUpon>ABMUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMs\ABMUsuarios.aspx.designer.cs">
+      <DependentUpon>ABMUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMs\FormularioArticulo.aspx.cs">
       <DependentUpon>FormularioArticulo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,6 +222,13 @@
     </Compile>
     <Compile Include="ABMs\FormularioCategoria.aspx.designer.cs">
       <DependentUpon>FormularioCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\FormularioUsuario.aspx.cs">
+      <DependentUpon>FormularioUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMs\FormularioUsuario.aspx.designer.cs">
+      <DependentUpon>FormularioUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="ABMMain.aspx.cs">
