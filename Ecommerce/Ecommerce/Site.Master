@@ -59,17 +59,52 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../Carrito.aspx">Carrito</a>
-        </li>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../Carrito.aspx">Carrito</a>
+            </li>
 
-        
-             <li class="nav-item">
-          <a class="nav-link" href="../ABMMain.aspx">Menu ABM</a>
-        </li>
+            <%if ((((dominio.Usuario)Session["user"]) != null ) && (((dominio.Usuario)Session["user"]).TipoUsuario.ID == 4 ))
+                { 
+            %>
+            <li class="nav-item">
+                <a class="nav-link active" href="../ABMMain.aspx">Menu ABM</a>
+            </li>
+            <%
+                }
+            %>
+                         
+        </ul>
+
+        <ul class="navbar-nav  mb-2 mb-lg-0 navbar-right">
+            <li class="nav-item">
+                <% if (((dominio.Usuario)Session["user"]) == null) {
+                %>
+                    <a class="nav-link active" href="../Login.aspx">Ingresar</a>
+                <%
+                }
+                else
+                {
+                %>  
+                    <li class="nav-item">
+                        <span class="nav-link active">Bienvenido <%=((dominio.Usuario)Session["user"]).Nombre %> </span>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link active" style="text-decoration-line:underline" data-bs-toggle="modal" data-bs-target="#exampleModal" >(Desloguear)</a> 
+                    </li>
+                <%
+                    }
+                %>
+            </li>
+
+
+        </ul>
     
-      </ul>     
+
+
+
+
+
     </div>
   </div>
 </nav>
@@ -83,6 +118,27 @@
             </footer>
         </div>
 
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">¡Atencion!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ¿Está seguro de que quiere desloguearse de la pagina?
+              </div>
+              <div class="modal-footer">
+
+                <asp:Button type="button" OnClick="btnLogout_Click" ID="btnLogout" class="btn btn-primary"  runat="server" Text="Si" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
     </form>
+
+
 </body>
 </html>
