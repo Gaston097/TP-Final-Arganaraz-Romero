@@ -33,6 +33,24 @@
     <asp:Label ID="lblt" CssClass="label" runat="server" Text=" Total a Pagar:" Font-Size="25px"></asp:Label>
     <asp:Label ID="lblTotal" runat="server" Text="" Font-Size="25px"></asp:Label>
 
+   <div class="row">      
+            <div class="col-6">
+                <div class="mb-3">
+        <%if (Confirmacion) { %>      
+                    <br />
+                             <asp:Button ID="btn" runat="server" OnClick="btn_Click" CssClass="btn btn-success" Text="Iniciar Compra" />                       
+        <%  } %> 
+    </div>
+  </div>
+ </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate> 
 
+                        <%if (ConfirLog) { %>      
+                             <asp:Label ID="lblLogueo" CssClass="alert-info" runat="server" Text="Disculpe, usted debe loguearse para continuar"></asp:Label>
+                             <asp:Button ID="btnLogueo" runat="server" OnClick="btnLogueo_Click" CssClass="btn btn-info" text="Loguearse" /> 
+                         <%  } %> 
+                </ContentTemplate>
+             </asp:UpdatePanel>
 
 </asp:Content>

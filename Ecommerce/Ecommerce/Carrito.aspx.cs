@@ -12,19 +12,24 @@ namespace Ecommerce
     public partial class Carrito : Page
     {
         public List<int> cantidadArticulos { get; set; }
+        public bool Confirmacion { get; set; }
 
-
+        public bool ConfirLog { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Confirmacion = false;
+            ConfirLog = false;  
 
             List<ItemCarrito> ListSesion = ListaSessionCar();
             dgvCarrito.DataSource = ListSesion;
             dgvCarrito.DataBind();
             if (dgvCarrito.Rows.Count > 0)
             {
+                Confirmacion = true;
                 dgvCarrito.HeaderRow.Style["background-color"] = "#f0f2f4";
 
             }
+          
             contar();
 
 
@@ -67,6 +72,25 @@ namespace Ecommerce
 
             }
 
+        }
+
+        protected void btn_Click(object sender, EventArgs e)
+        {
+          
+             if (Session["user"] == null)
+            {
+                ConfirLog = true;
+            }
+            else
+            {
+                Response.Redirect("ABMs/ABMDomicilio.aspx");
+            }
+            
+        }
+
+        protected void btnLogueo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
         }
     }
 }

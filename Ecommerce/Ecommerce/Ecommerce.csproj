@@ -106,6 +106,7 @@
     <Content Include="ABMMain.aspx" />
     <Content Include="ABMs\ABMArticulos.aspx" />
     <Content Include="ABMs\ABMCategorias.aspx" />
+    <Content Include="ABMs\ABMDomicilio.aspx" />
     <Content Include="ABMs\ABMMarcas.aspx" />
     <Content Include="ABMs\ABMUsuarios.aspx" />
     <Content Include="ABMs\FormularioArticulo.aspx" />
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="ABMs\ABMCategorias.aspx.designer.cs">
       <DependentUpon>ABMCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\ABMDomicilio.aspx.cs">
+      <DependentUpon>ABMDomicilio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMs\ABMDomicilio.aspx.designer.cs">
+      <DependentUpon>ABMDomicilio.aspx</DependentUpon>
     </Compile>
     <Compile Include="ABMs\ABMMarcas.aspx.cs">
       <DependentUpon>ABMMarcas.aspx</DependentUpon>
