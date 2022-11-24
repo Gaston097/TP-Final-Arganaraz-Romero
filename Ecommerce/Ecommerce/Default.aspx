@@ -17,10 +17,31 @@
                                 <p class="card-text"><%#Eval("Descripcion")%></p>
                                 <p class="card-text"> $<%#Eval("Precio")%></p>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<%#Eval("Id")%>">
-                                  Agregar a Carrito
-                                       <i class="fa trash-can" aria-hidden="true"></i>
+                                    Agregar a Carrito
+                                    <i class="fa trash-can" aria-hidden="true"></i>
                                 </button>   
                                 
+                                <% if (((dominio.Usuario)Session["user"]) == null) {
+                                %>
+                                <div class="modal fade"  id="modal<%#Eval("Id")%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                    
+                                            <div class="modal-body" style="color:red">
+                                                Debe ingresar al sistema para poder agregar items a su carrito
+                                                <i class="fa fa-check-cross" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%
+                                }
+                                else
+                                {
+                                %>  
                                 <div class="modal fade" data-keyboard="false" id="modal<%#Eval("Id")%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -30,12 +51,21 @@
                                                 <i class="fa fa-check-circle" aria-hidden="true"></i>
                                             </div>
                                             <div class="modal-footer">
-                                                <asp:Button ID="btnAgregarCarrito" CssClass="btn btn-primary" runat="server" Text="Continuar aqui" CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloId" OnClick="btnAgregarCarrito_Click"/>
-                                                <asp:Button ID="btnAgregarCarritoRedirect" CssClass="btn btn-primary" runat="server" Text="Ir a Carrito" CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloId" OnClick="btnAgregarCarritoRedirect_Click"/>
+                                                <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Continuar aqui" CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloId" OnClick="btnAgregarCarrito_Click"/>
+                                                <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="Ir a Carrito" CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloId" OnClick="btnAgregarCarritoRedirect_Click"/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                        <%
+                                            }
+                                        %>
+
+
+
+
+                        
+                                        
                             </div>                                                         
                         </div>
                     </div>

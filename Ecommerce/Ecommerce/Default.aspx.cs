@@ -64,6 +64,9 @@ namespace Ecommerce
             }
 
             Session.Add("listaEnCarro", ListSesion);
+
+            Response.Redirect("Default.aspx");
+
         }
 
 

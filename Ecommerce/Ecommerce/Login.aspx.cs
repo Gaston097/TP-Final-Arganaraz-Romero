@@ -45,6 +45,9 @@ namespace Ecommerce
 
                     Session.Add("user", aux);
 
+                    Response.Redirect("Default.aspx");
+
+
                 }
 
             }
@@ -52,10 +55,6 @@ namespace Ecommerce
             {
                 throw ex;
             }
-
-         
-
-
 
         }
     }

@@ -4,6 +4,11 @@
     <br />
     <h1> Bienvenido, ingrese su usuario </h1>
 
+    <br />
+    <div><%=
+(string)Session["pagprevia"]
+             %></div>
+
     <div class="mb-3">
             <label for="txtUsuario" class="form-label">Nombre de Usuario</label>
             <asp:TextBox  ID="txtUsuario" CssClass="form-control" runat="server"></asp:TextBox>
