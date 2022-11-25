@@ -50,6 +50,8 @@
     <Compile Include="EstadoComercial.cs" />
     <Compile Include="ItemCarrito.cs" />
     <Compile Include="Marca.cs" />
+    <Compile Include="Orden.cs" />
+    <Compile Include="OrdenDetalle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoUsuario.cs" />
     <Compile Include="Usuario.cs" />

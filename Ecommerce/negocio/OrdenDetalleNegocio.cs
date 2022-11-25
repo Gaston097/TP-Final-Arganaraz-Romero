@@ -56,7 +56,6 @@ namespace negocio
             try
             {
 
-                
                 datos.setearConsulta(Diccionario.LISTAR_ORDENES_DETALLE + "WHERE IdOrden = " + id);
                 
                 datos.ejecutarLectura();

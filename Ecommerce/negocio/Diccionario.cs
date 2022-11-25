@@ -58,6 +58,17 @@ namespace negocio
 
         public static string LISTAR_TIPOS_USUARIO = "SELECT Id, Nombre FROM Usuario_Tipo";
 
+        public static string LISTAR_ORDENES = "SELECT Id, IdUser, IdMetodoPago, IdDomicilio, Total FROM Orden ";
+
+        public static string AGREGAR_ORDEN = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, @idDomicilio, @total)";
+
+        public static string ELIMINAR_ORDEN = "DELETE FROM Orden WHERE ID = @id";
+
+        public static string LISTAR_ORDENES_DETALLE = "SELECT Id, IdOrden, IdArticulo, Cantidad, Precio FROM Orden_Detalle ";
+
+        public static string AGREGAR_ORDEN_DETALLE = "INSERT INTO Orden_Detalle VALUES (@idOrden, @idArticulo, @cantidad, (SELECT Precio FROM Articulo WHERE ID = @idArticulo))";
+
+        public static string ELIMINAR_ORDEN_DETALLE = "DELETE FROM Orden_Detalle WHERE ID = @id";
 
 
         public static string Buscar = "select A.Id, A.Codigo as Codigo, A.Nombre , A.Descripcion , M.Descripcion as Marca, M.Id as IdMarca, C.Descripcion as Categoria, C.Id as IdCategoria, A.ImagenUrl, A.Precio from ARTICULOS A inner join MARCAS M on M.Id = A.IdMarca inner join CATEGORIAS C on C.Id = A.IdCategoria where A.ID = @ID";
