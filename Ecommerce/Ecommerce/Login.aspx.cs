@@ -43,6 +43,8 @@ namespace Ecommerce
                     aux.eMail = (string)datos.Lector["Email"];
                     aux.Fecha = (DateTime)datos.Lector["Fecha"];
 
+
+                    Session.Add("id", aux.Id);
                     Session.Add("user", aux);
 
                     Response.Redirect("Default.aspx");

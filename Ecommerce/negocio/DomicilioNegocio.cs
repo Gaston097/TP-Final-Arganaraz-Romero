@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dominio;
 
 namespace negocio
 {
     public class DomicilioNegocio
     {
-       /* public void agregar(Domicilio nuevo)
+        public void agregarDom(Domicilio nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta(Diccionario.AGREGAR_DOMICILIO); //AGREGAR DICCIONARIO
-           
-                datos.setearParametro("@IdUsuario", nuevo.Usuario.ID);
-                datos.setearParametro("@Calle", nuevo.Calle);
-                datos.setearParametro("@Numero", nuevo.Numero);
-                datos.setearParametro("@Ciudad", nuevo.Ciudad);
-                datos.setearParametro("@CodPostal", nuevo.CodPostal);
-              
+                datos.setearConsulta(Diccionario.AGREGAR_DOMICILIO);
+                datos.setearParametro("@idUser", nuevo.IdUsuario.Id);
+                datos.setearParametro("@calle", nuevo.Calle);
+                datos.setearParametro("@numero", nuevo.Numero);
+                datos.setearParametro("@ciudad", nuevo.Ciudad);
+                datos.setearParametro("@codpos", nuevo.CodPostal);              
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -34,6 +33,6 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-       */
+
     }
 }

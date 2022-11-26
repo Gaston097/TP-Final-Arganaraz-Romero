@@ -18,10 +18,20 @@ namespace Ecommerce.ABMs
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            string texto = txtCalle.Text.ToString();
+
+            Domicilio dAgregar = new Domicilio();        
+            dAgregar.IdUsuario = new Usuario();
+            dAgregar.IdUsuario.Id = int.Parse(Session["id"].ToString());
+            dAgregar.Calle = txtCalle.Text;
+            dAgregar.Numero = txtNumero.Text;
+            dAgregar.Ciudad = txtCiudad.Text;
+            dAgregar.CodPostal = txtCodpos.Text;
+
             DomicilioNegocio a = new DomicilioNegocio();
-          //  a.agregarCat(texto);
-            Response.Redirect("ABMCategorias.aspx");
+            a.agregarDom(dAgregar);
+            Response.Redirect("../OrdenPago.aspx");
+
+
 
         
         }
