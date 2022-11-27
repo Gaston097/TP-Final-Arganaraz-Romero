@@ -38,6 +38,8 @@ namespace negocio
 
         public static string AGREGAR_MARCA = "INSERT INTO Marca VALUES (@nombre)";
 
+        public static string LISTAR_DOMICILIO = "SELECT D.Id as Id, D.IdUser as IdUser, D.Calle as Calle, D.Numero as Altura, D.Ciudad as Ciudad, D.Codpos as Codpos, U.Usuario as Usuario FROM Domicilio D INNER JOIN Usuario U ON D.IdUser = U.Id ";
+
         public static string AGREGAR_DOMICILIO = "INSERT INTO Domicilio values (@idUser, @calle, @numero, @ciudad, @codpos)";
 
         public static string LISTAR_ESTADO_COMERCIAL = "SELECT Id, Nombre FROM Estado_Comercial";

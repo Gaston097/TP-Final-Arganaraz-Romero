@@ -20,7 +20,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
 
-    <div style="width:50%">
+    <div>
         <asp:GridView ID="dgvArticulos" runat="server"  OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged" 
             AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered "
             OnPageIndexChanging="dgvArticulos_PageIndexChanging"

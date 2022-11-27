@@ -21,17 +21,74 @@
                     <%--
                         Agregar funcion en HTML para verificar que tenga un domicilio  
                     --%>
+                    
+                    <%if (validarDireccion)
+         
+                        {   %>
+                                
+                       
+
+
+                            <h2> Por favor seleccione una direccion a la cual se realizara el envio </h2>
+
+                           <div>
+                                <asp:GridView ID="dgvDomiciliosUsuario" runat="server"
+                                    AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-secondary table-bordered "
+                                    >
+
+                        
+                                        <Columns>
+            
+                                            <asp:BoundField DataField="Id" HeaderText="ID" />
+                                            <asp:BoundField DataField="Calle" HeaderText="Calle" />
+                                            <asp:BoundField DataField="Numero" HeaderText="Altura" />
+                                            <asp:BoundField DataField="Ciudad" HeaderText="Ciudad" />
+                                            <asp:BoundField DataField="CodPostal" HeaderText="Codigo Postal" />
+                             
+                                            <asp:CommandField ShowSelectButton="true" SelectText="⭕" HeaderText="Seleccionar"/>
+                           
+                                        </Columns>
+
+
+
+                                </asp:GridView>
+                            </div>
+
+
+                             <div class="mb-3">
+                                    <label for="ddlMetodoPago" class="form-label">Metodo de Pago</label>
+                                    <br />
+                                    <asp:DropDownList ID="ddlMetodoPago" runat="server" CssClass="form-control border btn dropdown-toggle">
+                                    </asp:DropDownList>
+                             </div>
+
+
+                    
+                    <% }
+                 else
+                      { %>
+                    
                     Este usuario no tiene ningun domicilio registrado a su nombre. Por favor, ingrese un
                     domicilio previo a registrar una orden de compra
                     <br />
                     <br />
                     <a type="button" class="btn btn-secondary" href="ABMs/ABMDomicilio">Ingresar un domicilio</a>
-                    <%--
 
-                        Tras verificar si hay un domicilio registrado, mostrar un boton que permita
-                        finalizar la compra y generar la orden de pago
+                <%   }%>
 
-                    --%>
+   
+            
+
+                   
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -43,7 +100,15 @@
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        Aqui va un boton para registrar la orden de pago
+                        
+                        <div class="mb-3">
+                                    <label for="ddlMetodoPago2" class="form-label">Metodo de Pago</label>
+                                    <br />
+                                    <asp:DropDownList ID="ddlMetodoPago2" runat="server" CssClass="form-control border btn dropdown-toggle">
+                                    </asp:DropDownList>
+                        </div>
+
+
 
                     </div>
                 </div>
