@@ -1,6 +1,20 @@
 ﻿<%@ Page Title="Orden de Pago" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrdenPago.aspx.cs" Inherits="Ecommerce.OrdenPago" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script language="javascript" type="text/javascript">
+        function SelectSingleRadiobutton(rdbtnid) {
+            var rdBtn = document.getElementById(rdbtnid);
+            var rdBtnList = document.getElementsByTagName("input");
+            for (i = 0; i < rdBtnList.length; i++) {
+                if (rdBtnList[i].type == "radio" && rdBtnList[i].id != rdBtn.id) {
+                    rdBtnList[i].checked = false;
+                }
+            }
+        }
+    </script>
+
+
+
     <br />
     <h1> Finalizar Orden de Pago </h1>
 
@@ -45,7 +59,11 @@
                                             <asp:BoundField DataField="Ciudad" HeaderText="Ciudad" />
                                             <asp:BoundField DataField="CodPostal" HeaderText="Codigo Postal" />
                              
-                                            <asp:CommandField ShowSelectButton="true" SelectText="⭕" HeaderText="Seleccionar"/>
+                                            
+                                            <asp:TemplateField HeaderText="Selecccionar">
+                                                <ItemTemplate><asp:RadioButton ID="rbtSeleccionar" GroupName="Seleccion" runat="server" OnClick="javascript:SelectSingleRadiobutton(this.id)"/></ItemTemplate>
+                                            </asp:TemplateField>
+
                            
                                         </Columns>
 
@@ -61,7 +79,7 @@
                                     <asp:DropDownList ID="ddlMetodoPago" runat="server" CssClass="form-control border btn dropdown-toggle">
                                     </asp:DropDownList>
                              </div>
-                    <asp:Button ID="BntConfirmar" runat="server"  CssClass="btn btn-success" Text="Confirmar Pedido" />
+                    <asp:Button ID="btnConfirmar"  OnClick="btnConfirmar_Click"  runat="server"  CssClass="btn btn-success" Text="Confirmar Pedido" />
 
                     
                     <% }
@@ -108,7 +126,7 @@
                                     </asp:DropDownList>
                         </div>
 
-                        <asp:Button ID="BtnConfirmar2" CssClass="btn btn-success" OnClick="BtnConfirmar2_Click" runat="server" Text="Confirmar Pedido" />
+                        <asp:Button ID="btnConfirmar2" CssClass="btn btn-success" OnClick="btnConfirmar2_Click" runat="server" Text="Confirmar Pedido" />
 
                     </div>
                 </div>
