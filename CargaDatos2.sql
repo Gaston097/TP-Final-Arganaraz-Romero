@@ -14,6 +14,7 @@ INSERT INTO Articulo VALUES ('J02', 'HORNO ELÉCTRICO HG-2010N', ' 17 LTS - 1200 
 INSERT INTO Usuario VALUES (2, 'test@test.com', '1234', CAST(GETDATE() AS DATE), 'testy')
 INSERT INTO Usuario VALUES (4, 'mod@mod.com', '4321', CAST(GETDATE() AS DATE), 'modmin')
 
+INSERT INTO Metodo_Pago VALUES ('Mercado_Pago')
 
 
 select A.Id, A.Codigo as Codigo, A.Nombre as Nombre, A.Descripcion as Descripcion, M.Nombre as Marca, M.Id as IdMarca, C.Nombre as Categoria, C.Id as IdCategoria, A.Precio as Precio,
@@ -36,3 +37,4 @@ SELECT * FROM Articulo
 Select * FROM Estado_Comercial
 SELECT * FROM Usuario
 SELECT * FROM Domicilio
+SELECT * FROM Metodo_Pago

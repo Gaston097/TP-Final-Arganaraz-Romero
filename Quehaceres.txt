@@ -4,21 +4,32 @@ Este es un documento de texto para registrar las cosas que debe hacer cada uno,
 lo que esta desarrollado, y lo que falta desarrollar
 
 
------------------------------------------
-------------COSAS REALIZADAS-------------
------------------------------------------
 
->BASE DE DATOS
->MODELO DE DOMINIO
->RELLENAR BASE DE DATOS (Gaston)
->DESARROLLAR CONEXIONES A LA BASE DE DATOS (Martin)
->DESARROLLAR CLASES DE ARTICULOS, CATEGORIAS Y MARCAS
------------------------------------------
---------------COSAS A HACER--------------
------------------------------------------
+|||||||||||||||_COSAS REALIZADAS_|||||||||||||||||||||
 
 
->DESARROLLAR LISTADOS DE ARTICULOS- CARDS ,  [[[[CATEGORIAS Y MARCAS   <<< DGV
->DESARROLLAR ABM DE ARTICULOS, CATEGORIAS Y MARCAS 
+>BASE DE DATOS------------------------------------------------------->(Gaston / Martin)
+>MODELO DE DOMINIO--------------------------------------------------->(Gaston / Martin)
+>RELLENAR BASE DE DATOS---------------------------------------------->(Gaston)
+>DESARROLLAR CONEXIONES A LA BASE DE DATOS--------------------------->(Martin)
+>DESARROLLAR CLASES DE ARTICULOS, CATEGORIAS Y MARCAS---------------->(Gaston / Martin)
+>DESARROLLAR LISTADOS DE ARTICULOS- CARDS  [CATEGORIAS Y MARCAS------>(Gaston / Martin)
+>DESARROLLAR ABM DE ARTICULOS, CATEGORIAS Y MARCAS------------------->(Gaston / Martin)
+>DOMICILIO ABM+ PRECARGA--------------------------------------------->(Gaston)
+>Precarga de orden de compra + Usuario------------------------------->(Martin)
+
+
+|||||||||||||||_COSAS A HACER_|||||||||||||||||||||||||
+
+
+>Orden De Compra.
+1)Traer Metodos de Pago del campo al finalizar un domicilio.
+2)Una Vez finalizado, llevar a una pestaña donde se carguen todos los datos para reconfirmar,
+3)Levantar por session / Link algunos datos necesarios para generar la Orden
+4)Notificar que el vendedor recibio su pedido y se comunicará por email en caso de estar todo ok
+5)Una vez que el pedido se encuentra en aprobacion, se tomara la Orden detalle.
+
+
+
 
 
