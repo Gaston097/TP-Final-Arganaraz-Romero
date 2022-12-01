@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
 
 namespace Ecommerce
 {
@@ -13,6 +14,7 @@ namespace Ecommerce
         public bool validarDireccion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            MetodoNegocio Mnegocio = new MetodoNegocio();
             DomicilioNegocio lista = new DomicilioNegocio();
             if (Session["user"] != null)
             {
@@ -29,12 +31,18 @@ namespace Ecommerce
                 validarDireccion = true;
             }
 
+            ddlMetodoPago.DataSource = Mnegocio.listar();
+            ddlMetodoPago.DataBind();
 
-            
+            ddlMetodoPago2.DataSource = Mnegocio.listar();
+            ddlMetodoPago2.DataBind();
+
+
         }
 
-
-
-
+        protected void BtnConfirmar2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ConfirmacionPedido.aspx");
+        }
     }
 }

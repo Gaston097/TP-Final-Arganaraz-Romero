@@ -51,6 +51,7 @@
     <Compile Include="Diccionario.cs" />
     <Compile Include="EstadoComercialNegocio.cs" />
     <Compile Include="MarcaNegocio.cs" />
+    <Compile Include="MetodoNegocio.cs" />
     <Compile Include="OrdenDetalleNegocio.cs" />
     <Compile Include="OrdenNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

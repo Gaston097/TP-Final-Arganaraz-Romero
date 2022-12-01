@@ -61,7 +61,7 @@
                                     <asp:DropDownList ID="ddlMetodoPago" runat="server" CssClass="form-control border btn dropdown-toggle">
                                     </asp:DropDownList>
                              </div>
-
+                    <asp:Button ID="BntConfirmar" runat="server"  CssClass="btn btn-success" Text="Confirmar Pedido" />
 
                     
                     <% }
@@ -108,7 +108,7 @@
                                     </asp:DropDownList>
                         </div>
 
-
+                        <asp:Button ID="BtnConfirmar2" CssClass="btn btn-success" OnClick="BtnConfirmar2_Click" runat="server" Text="Confirmar Pedido" />
 
                     </div>
                 </div>

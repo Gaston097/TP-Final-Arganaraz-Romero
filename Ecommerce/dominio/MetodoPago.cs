@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-    internal class MetodoPago
-    {
+    public class MetodoPago
+    {     
+            public int ID { get; set; }
+
+            public string Nombre { get; set; }
+
+            public override string ToString()
+            {
+                return Nombre;
+            }      
     }
 }

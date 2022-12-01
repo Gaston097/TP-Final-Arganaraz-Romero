@@ -50,6 +50,7 @@
     <Compile Include="EstadoComercial.cs" />
     <Compile Include="ItemCarrito.cs" />
     <Compile Include="Marca.cs" />
+    <Compile Include="MetodoPago.cs" />
     <Compile Include="Orden.cs" />
     <Compile Include="OrdenDetalle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

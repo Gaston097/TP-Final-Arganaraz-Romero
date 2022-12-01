@@ -12,6 +12,8 @@ namespace negocio
 
         public static string LISTAR_MARCAS = "select id, Nombre from MARCA ";
 
+        public static string LISTAR_MetodoPago = "select id, Nombre from Metodo_Pago ";
+
         public static string MODIFICAR_MARCA = "UPDATE Marca SET Nombre = @nombre WHERE ID = @id";
 
         public static string LISTAR_CATEGORIAS = "select id, Nombre from CATEGORIA ";

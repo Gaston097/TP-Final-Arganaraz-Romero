@@ -9,29 +9,21 @@ namespace negocio
 {
     public class MetodoNegocio
     {
-        /*
-        public List<Marca> listar(string id = "")
+        
+        public List<MetodoPago> listar()
         {
-            List<Marca> lista = new List<Marca>();
+            List<MetodoPago> lista = new List<MetodoPago>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-
-                if (id == "")
-                {
-                    datos.setearConsulta(Diccionario.LISTAR_MARCAS);
-                }
-                else
-                {
-                    datos.setearConsulta(Diccionario.LISTAR_MARCAS + "WHERE id = " + id);
-                }
+                datos.setearConsulta(Diccionario.LISTAR_MetodoPago);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Marca aux = new Marca();
+                    MetodoPago aux = new MetodoPago();
                     aux.ID = (int)datos.Lector["id"];
-                    aux.Descripcion = (String)datos.Lector["Nombre"];
+                    aux.Nombre = (String)datos.Lector["Nombre"];
 
                     lista.Add(aux);
                 }
@@ -46,7 +38,7 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-        */
+       
 
     }
 }
