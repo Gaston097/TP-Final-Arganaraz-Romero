@@ -18,9 +18,9 @@ namespace Ecommerce
             //   dgvDatosUser.DataSource = aux;
             //  dgvDatosUser.DataBind();
 
-            List<ItemCarrito> ListSesion = ListaSessionCar();
-            dgvCarrito.DataSource = ListSesion;
-            dgvCarrito.DataBind();
+            List<OrdenDetalle> ListSesion = ((Orden)Session["orden"]).ItemsCarro;
+            dgvDetallesOrden.DataSource = ListSesion;
+            dgvDetallesOrden.DataBind();
             contar();
 
             UsuarioNegocio lista = new UsuarioNegocio();
@@ -41,12 +41,14 @@ namespace Ecommerce
         public void contar()
         {
             decimal a = 0;
-            foreach (ItemCarrito item in ListaSessionCar())
+            foreach (OrdenDetalle item in ((Orden)Session["orden"]).ItemsCarro) 
             {
-                a += item.Precio * item.Cantidad;
+                a += item.Detalles.Precio * item.Detalles.Cantidad;
             }
             lblTotal.Text = a.ToString();
         }
+
+
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
 

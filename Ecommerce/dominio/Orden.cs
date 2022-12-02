@@ -12,8 +12,13 @@ namespace dominio
         public int IDUser { get; set; }
         public int IDMetodoPago { get; set; }
         public int IDDomicilio { get; set; }
-        public float Total { get; set; }
+        public double Total { get; set; }
         public List<OrdenDetalle> ItemsCarro { get; set; }
+
+        public bool Envio { get; set; }
+        public bool Pagado { get; set; }
+        public bool Enviado { get; set; }
+        public bool Recibido { get; set; }
 
     }
 }

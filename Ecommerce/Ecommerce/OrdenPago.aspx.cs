@@ -1,13 +1,13 @@
-﻿using negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using dominio;
 using System.Data;
 using Microsoft.Ajax.Utilities;
+using dominio;
+using negocio;
 
 namespace Ecommerce
 {
@@ -50,18 +50,22 @@ namespace Ecommerce
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             Orden oCompra = new Orden();
+            OrdenNegocio oNegocio = new OrdenNegocio();
+            oCompra.ID = oNegocio.DevolverID();
             oCompra.ItemsCarro = new List<OrdenDetalle>();
             foreach (ItemCarrito a in (List<ItemCarrito>)Session["listaEnCarro"])
             {
                 OrdenDetalle aAgregar = new OrdenDetalle();
                 aAgregar.IDOrden = oCompra.ID;
                 aAgregar.IDArticulo = a.Id;
-                aAgregar.Precio = (float)a.Precio;
-                aAgregar.Cantidad = a.Cantidad;
+                aAgregar.Detalles = a;
                 oCompra.ItemsCarro.Add(aAgregar);
             }
             oCompra.IDMetodoPago = ddlMetodoPago.SelectedIndex;
             oCompra.IDUser = ((Usuario)Session["user"]).Id;
+            oCompra.IDDomicilio = 1;
+
+
 
             Session.Add("orden", oCompra);
 
@@ -74,18 +78,21 @@ namespace Ecommerce
         protected void btnConfirmar2_Click(object sender, EventArgs e)
         {
             Orden oCompra = new Orden();
+            OrdenNegocio oNegocio = new OrdenNegocio();
+            oCompra.ID = oNegocio.DevolverID();
             oCompra.ItemsCarro = new List<OrdenDetalle>();
             foreach (ItemCarrito a in (List<ItemCarrito>)Session["listaEnCarro"])
             {
                 OrdenDetalle aAgregar = new OrdenDetalle();
                 aAgregar.IDOrden = oCompra.ID;
                 aAgregar.IDArticulo = a.Id;
-                aAgregar.Precio = (float)a.Precio;
-                aAgregar.Cantidad = a.Cantidad;
+                aAgregar.Detalles = new dominio.ItemCarrito();
+                aAgregar.Detalles = a;
                 oCompra.ItemsCarro.Add(aAgregar);
             }
-            oCompra.IDMetodoPago = ddlMetodoPago2.SelectedIndex;
+            oCompra.IDMetodoPago = ddlMetodoPago.SelectedIndex;
             oCompra.IDUser = ((Usuario)Session["user"]).Id;
+
 
             Session.Add("orden", oCompra);
 

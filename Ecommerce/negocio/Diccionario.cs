@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,15 +65,21 @@ namespace negocio
 
         public static string LISTAR_TIPOS_USUARIO = "SELECT Id, Nombre FROM Usuario_Tipo";
 
-        public static string LISTAR_ORDENES = "SELECT Id, IdUser, IdMetodoPago, IdDomicilio, Total FROM Orden ";
+        public static string LISTAR_ORDENES = "SELECT Id, IdUser, IdMetodoPago, IdDomicilio, Total, Envio, Pagado, Enviado, Recibido FROM Orden ";
 
-        public static string AGREGAR_ORDEN = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, @idDomicilio, @total)";
+        public static string LISTAR_ORDENES_PROLIJO = "SELECT U.Usuario, MP.Nombre, D.Ciudad, D.Calle, D.Numero, O.Total, O.Envio, O.Enviado, O.Recibido, O.Pagado FROM Orden O INNER JOIN Usuario U ON U.ID = O.IDUser INNER JOIN Metodo_Pago MP ON MP.Id = O.IdMetodoPago LEFT JOIN Domicilio D ON D.Id = O.IdDomicilio ";
+
+        public static string AGREGAR_ORDEN_SIN_ENVIO = "INSERT INTO Orden (IdUser, IdMetodoPago, Total, Envio, Recibido, Pagado) VALUES (@idUsuario, @idMetodoPago, @total, 0, 0, 0)";
+
+        public static string AGREGAR_ORDEN_CON_ENVIO = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, @idDomicilio, @total, 1, 0, 0, 0)";
 
         public static string ELIMINAR_ORDEN = "DELETE FROM Orden WHERE ID = @id";
 
-        public static string LISTAR_ORDENES_DETALLE = "SELECT Id, IdOrden, IdArticulo, Cantidad, Precio FROM Orden_Detalle ";
+        public static string LISTAR_ORDENES_DETALLE = "SELECT OD.Id as Id, OD.IdOrden as IdOrden, OD.IdArticulo as IdArticulo, A.Nombre as NombreArt, OD.Cantidad as Cantidad, A.Precio as Precio FROM Orden_Detalle OD INNER JOIN Articulo A ON A.Id = OD.IdArticulo ";
 
-        public static string AGREGAR_ORDEN_DETALLE = "INSERT INTO Orden_Detalle VALUES (@idOrden, @idArticulo, @cantidad, (SELECT Precio FROM Articulo WHERE ID = @idArticulo))";
+        public static string LISTAR_ORDENES_DETALLE_PROLIJO = "SELECT A.Nombre, A.Descripcion, C.Nombre, M.Nombre, A.Imagen, OD.Cantidad ,A.Precio FROM Orden_Detalle OD INNER JOIN Articulo A ON A.Id = OD.IdArticulo INNER JOIN Categoria C ON C.Id = A.IdCategoria INNER JOIN Marca M ON M.Id = A.IdMarca ";
+
+        public static string AGREGAR_ORDEN_DETALLE = "INSERT INTO Orden_Detalle VALUES (@idOrden, @idArticulo, @cantidad, (SELECT Precio FROM Articulo WHERE ID = @idProducto))";
 
         public static string ELIMINAR_ORDEN_DETALLE = "DELETE FROM Orden_Detalle WHERE ID = @id";
 
