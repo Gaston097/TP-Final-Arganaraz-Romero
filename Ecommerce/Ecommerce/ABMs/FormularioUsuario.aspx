@@ -12,7 +12,7 @@
 
         <div style="color:red">No tiene permisos para acceder aqui</div>
         <br />
-        <a class="btn btn-primary" href="Login" > Iniciar Sesion </a>
+        <a class="btn btn-primary" href="../Login.aspx" > Iniciar Sesion </a>
         <%
             }
             else
