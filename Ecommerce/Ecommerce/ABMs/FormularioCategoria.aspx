@@ -2,6 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
      <h3>Formulario Item Categoria</h3>
+
+          <% if ((((dominio.Usuario)Session["user"]) == null) || (((dominio.Usuario)Session["user"]).TipoUsuario.ID != 4) )
+               {
+        %>
+
+        <div style="color:red">No tiene permisos para acceder aqui</div>
+        <br />
+        <a class="btn btn-primary" href="Login" > Iniciar Sesion </a>
+        <%
+            }
+            else
+            {
+        %>  
+
     <div class="row">
         <div class="col-6">
       <div class="mb-3">
@@ -60,6 +74,9 @@
     </div>
 
  
+      <%
+      }
+        %>  
 
 
 
