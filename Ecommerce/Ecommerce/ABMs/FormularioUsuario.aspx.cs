@@ -13,6 +13,8 @@ namespace Ecommerce.ABMs
     public partial class FormularioUsuario : System.Web.UI.Page
     {
         public string id { get; set; }
+
+        public bool Confirmacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             TipoUsuarioNegocio TUnegocio = new negocio.TipoUsuarioNegocio();
@@ -87,8 +89,25 @@ namespace Ecommerce.ABMs
 
         }
 
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Confirmacion = true;
+        }
 
-
-
+        protected void btnEliminarConfirma_Click(object sender, EventArgs e)
+        {
+              try
+            {
+                id = Session["id"] != null ? Session["id"].ToString() : "";
+                int aux = int.Parse(id);
+                UsuarioNegocio Negocio = new UsuarioNegocio();
+                Negocio.eliminar(aux);
+                Response.Redirect("ABMuSUARIOS.aspx");
+            }
+            catch ( Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
