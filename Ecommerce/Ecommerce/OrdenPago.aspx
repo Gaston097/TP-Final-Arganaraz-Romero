@@ -61,7 +61,8 @@
                              
                                             
                                             <asp:TemplateField HeaderText="Selecccionar">
-                                                <ItemTemplate><asp:RadioButton ID="rbtSeleccionar" GroupName="Seleccion" runat="server" OnClick="javascript:SelectSingleRadiobutton(this.id)"/></ItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:RadioButton ID="rbtSeleccionar" runat="server" OnClick="javascript:SelectSingleRadiobutton(this.id)"/></ItemTemplate>
                                             </asp:TemplateField>
 
                            

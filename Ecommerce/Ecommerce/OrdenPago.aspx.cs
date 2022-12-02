@@ -13,7 +13,7 @@ namespace Ecommerce
 {
     public partial class OrdenPago : System.Web.UI.Page
     {
-        static int rdChecked = -1; 
+  
         public bool validarDireccion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,6 +40,8 @@ namespace Ecommerce
             ddlMetodoPago2.DataSource = Mnegocio.listar();
             ddlMetodoPago2.DataBind();
 
+
+            
         }
 
 
@@ -62,6 +64,8 @@ namespace Ecommerce
             oCompra.IDUser = ((Usuario)Session["user"]).Id;
 
             Session.Add("orden", oCompra);
+
+            
 
             Response.Redirect("ConfirmacionPedido.aspx");
 
