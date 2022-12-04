@@ -24,19 +24,13 @@ namespace Ecommerce
             contar();
 
             UsuarioNegocio lista = new UsuarioNegocio();
-            dgvDatosUsuario.DataSource = lista.listar(((dominio.Usuario)Session["user"]).Id.ToString());
+            dgvDatosUsuario.DataSource = lista.listar(((Orden)Session["orden"]).User.Id.ToString());
             dgvDatosUsuario.DataBind();
 
-
+            lblMetPago.Text = ((Orden)Session["orden"]).MetPago.ToString();
 
         }
 
-        private List<ItemCarrito> ListaSessionCar()
-        {
-            List<ItemCarrito> ItemEnCarro = Session["listaEnCarro"] != null ?
-                (List<ItemCarrito>)Session["listaEnCarro"] : new List<ItemCarrito>();
-            return ItemEnCarro;
-        }
 
         public void contar()
         {
@@ -54,9 +48,9 @@ namespace Ecommerce
             Orden nuevo = new Orden();
 
             nuevo.ID = ((Orden)Session["orden"]).ID;
-            nuevo.IDUser = ((Orden)Session["orden"]).IDUser;
-            nuevo.IDMetodoPago = ((Orden)Session["orden"]).IDMetodoPago;
-            nuevo.IDDomicilio = ((Orden)Session["orden"]).IDDomicilio;
+            nuevo.User = ((Orden)Session["orden"]).User;
+            nuevo.MetPago = ((Orden)Session["orden"]).MetPago;
+            nuevo.Domicilio = ((Orden)Session["orden"]).Domicilio;
             nuevo.Total = Convert.ToDouble(lblTotal.Text);          
             nuevo.Envio = ((Orden)Session["orden"]).Envio;
             nuevo.Pagado = ((Orden)Session["orden"]).Pagado;

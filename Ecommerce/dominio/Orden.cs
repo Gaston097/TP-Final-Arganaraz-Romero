@@ -9,9 +9,9 @@ namespace dominio
     public class Orden
     {
         public int ID { get; set; }
-        public int IDUser { get; set; }
-        public int IDMetodoPago { get; set; }
-        public int IDDomicilio { get; set; }
+        public Usuario User { get; set; }
+        public MetodoPago MetPago { get; set; }
+        public Domicilio Domicilio { get; set; }
         public double Total { get; set; }
         public bool Envio { get; set; }
         public bool Pagado { get; set; }

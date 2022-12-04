@@ -17,6 +17,10 @@ namespace Ecommerce
         public bool validarDireccion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+
+
             MetodoNegocio Mnegocio = new MetodoNegocio();
             DomicilioNegocio lista = new DomicilioNegocio();
             if (Session["user"] != null)
@@ -41,6 +45,8 @@ namespace Ecommerce
             ddlMetodoPago2.DataBind();
 
 
+            }
+
             
         }
 
@@ -61,9 +67,10 @@ namespace Ecommerce
                 aAgregar.Detalles = a;
                 oCompra.ItemsCarro.Add(aAgregar);
             }
-            oCompra.IDMetodoPago = ddlMetodoPago.SelectedIndex;
-            oCompra.IDUser = ((Usuario)Session["user"]).Id;
-            oCompra.IDDomicilio = 1;
+            oCompra.MetPago.ID = ddlMetodoPago.SelectedIndex;
+            oCompra.MetPago.Nombre = ddlMetodoPago.SelectedValue;
+            oCompra.Domicilio.Id = 1;
+            oCompra.User = ((Usuario)Session["user"]);
 
 
 
@@ -90,12 +97,11 @@ namespace Ecommerce
                 aAgregar.Detalles = a;
                 oCompra.ItemsCarro.Add(aAgregar);
             }
-            oCompra.IDMetodoPago = ddlMetodoPago.SelectedIndex;
-            if (oCompra.IDMetodoPago == 0)
-            {
-                oCompra.IDMetodoPago =ddlMetodoPago2.SelectedIndex;
-            }
-            oCompra.IDUser = ((Usuario)Session["user"]).Id;
+            oCompra.MetPago = new MetodoPago();
+            oCompra.MetPago.ID = ddlMetodoPago2.SelectedIndex;
+            oCompra.MetPago.Nombre = ddlMetodoPago2.SelectedValue;
+            oCompra.User = new Usuario();
+            oCompra.User = (Usuario)Session["user"];
 
 
             Session.Add("orden", oCompra);

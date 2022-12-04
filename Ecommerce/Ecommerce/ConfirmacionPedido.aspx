@@ -55,6 +55,15 @@
 
             </asp:GridView>
         </div>
+
+        <div>
+            
+            <asp:Label ID="lblg" CssClass="label" runat="server" Text=" Metodo de Pago:" Font-Size="25px"></asp:Label>
+            <asp:Label ID="lblMetPago" runat="server" Text="" Font-Size="25px"></asp:Label>
+
+        </div>
+
+        <br />
         
         <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar Compra" class="btn btn-success" OnClick="btnConfirmar_Click"/>
 

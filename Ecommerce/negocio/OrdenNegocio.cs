@@ -24,24 +24,36 @@ namespace negocio
                 }
                 else
                 {
-                    datos.setearConsulta(Diccionario.LISTAR_ORDENES + "WHERE id = " + id);
+                    datos.setearConsulta(Diccionario.LISTAR_ORDENES + "WHERE idOrden = " + id);
                 }
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Orden aux = new Orden();
-                    aux.ID = (int)datos.Lector["Id"];
-                    aux.IDUser = (int)datos.Lector["IdUser"];
-                    aux.IDMetodoPago = (int)datos.Lector["IdMetodoPago"];
-                    if (!Convert.IsDBNull(datos.Lector["IdDomicilio"])) { aux.IDDomicilio = (int)datos.Lector["IdDomicilio"]; }
-                    aux.Total = Convert.ToDouble(datos.Lector["Total"]);
-                    aux.Envio = (bool)datos.Lector["Envio"];
-                    aux.Pagado = (bool)datos.Lector["Pagado"];
+                    aux.ID = (int)datos.Lector["idOrden"];
+                    aux.User = new Usuario();
+                    aux.User.Nombre = (string)datos.Lector["usuario"];
+                    aux.User.Id = (int)datos.Lector["idUsuario"];
+                    aux.MetPago = new MetodoPago();
+                    aux.MetPago.ID = (int)datos.Lector["idMetodoPago"];
+                    aux.MetPago.Nombre = (string)datos.Lector["metodoPago"];
+                    if (!Convert.IsDBNull(datos.Lector["idDomicilio"])) 
+                    {
+                        aux.Domicilio = new Domicilio();
+                        aux.Domicilio.Id = (int)datos.Lector["idDomicilio"];
+                        aux.Domicilio.Ciudad = (string)datos.Lector["ciudad"];
+                        aux.Domicilio.Calle = (string)datos.Lector["calle"];
+                        aux.Domicilio.Numero = (string)datos.Lector["numeroCalle"];
+                        aux.Domicilio.CodPostal = (string)datos.Lector["codpos"];
+                    }
+                    aux.Total = Convert.ToDouble(datos.Lector["total"]);
+                    aux.Envio = (bool)datos.Lector["envio"];
+                    aux.Pagado = (bool)datos.Lector["pagado"];
                     
 
-                    if (!Convert.IsDBNull(datos.Lector["Enviado"])) { aux.Enviado = (bool)datos.Lector["Enviado"]; }
-                    aux.Recibido = (bool)datos.Lector["Recibido"];
+                    if (!Convert.IsDBNull(datos.Lector["enviado"])) { aux.Enviado = (bool)datos.Lector["Enviado"]; }
+                    aux.Recibido = (bool)datos.Lector["recibido"];
                     lista.Add(aux);
                 }
                 return lista;
@@ -63,8 +75,8 @@ namespace negocio
             try
             {
                 datos.setearConsulta(Diccionario.AGREGAR_ORDEN_SIN_ENVIO);
-                datos.setearParametro("@idUsuario", nuevo.IDUser);
-                datos.setearParametro("@idMetodoPago", nuevo.IDMetodoPago);
+                datos.setearParametro("@idUsuario", nuevo.User.Id);
+                datos.setearParametro("@idMetodoPago", nuevo.MetPago.ID);
                 datos.setearParametro("@total", Convert.ToDecimal(nuevo.Total));
                 datos.ejecutarAccion();
             }
@@ -86,9 +98,9 @@ namespace negocio
             try
             {
                 datos.setearConsulta(Diccionario.AGREGAR_ORDEN_CON_ENVIO);
-                datos.setearParametro("@idUsuario", nuevo.IDUser);
-                datos.setearParametro("@idMetodoPago", nuevo.IDMetodoPago);
-                datos.setearParametro("@idDomicilio", nuevo.IDMetodoPago);
+                datos.setearParametro("@idUsuario", nuevo.User.Id);
+                datos.setearParametro("@idMetodoPago", nuevo.MetPago.ID);
+                datos.setearParametro("@idDomicilio", nuevo.Domicilio.Id);
                 datos.setearParametro("@total", nuevo.Total);
                 datos.ejecutarAccion();
             }
