@@ -64,6 +64,7 @@ namespace Ecommerce
 
             nuevo.ID = ((Orden)Session["orden"]).ID;
             nuevo.User = ((Orden)Session["orden"]).User;
+            nuevo.ItemsCarro = ((Orden)Session["orden"]).ItemsCarro;
             nuevo.MetPago = ((Orden)Session["orden"]).MetPago;
             nuevo.Domicilio = ((Orden)Session["orden"]).Domicilio;
             nuevo.Total = Convert.ToDouble(lblTotal.Text);          
@@ -79,6 +80,13 @@ namespace Ecommerce
             {
                 oNegocio.agregarSinEnvio(nuevo);
             }
+
+            foreach( OrdenDetalle orden in nuevo.ItemsCarro)
+            {
+                OrdenDetalleNegocio odNegocio = new OrdenDetalleNegocio();
+                odNegocio.agregar(orden);
+            }
+
 
         }
 

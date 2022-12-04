@@ -54,6 +54,9 @@ namespace negocio
 
                     if (!Convert.IsDBNull(datos.Lector["enviado"])) { aux.Enviado = (bool)datos.Lector["Enviado"]; }
                     aux.Recibido = (bool)datos.Lector["recibido"];
+
+                    if (!Convert.IsDBNull(datos.Lector["EstadoActivo"])) { aux.EstadoActivo = (bool)datos.Lector["EstadoActivo"]; }
+
                     lista.Add(aux);
                 }
                 return lista;
@@ -133,6 +136,29 @@ namespace negocio
                 return (lista.Last().ID + 1);
             }
         }
+
+        public void AltaBajaLogica(Orden aAlterar, bool cambio)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(Diccionario.BAJA_ALTA_LOGICA_ORDEN);
+                datos.setearParametro("@id", aAlterar.User.Id);
+                datos.setearParametro("ed", cambio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
 
 
     }

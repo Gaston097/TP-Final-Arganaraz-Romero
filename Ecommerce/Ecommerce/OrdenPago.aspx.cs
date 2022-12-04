@@ -105,7 +105,7 @@ namespace Ecommerce
             if (validarDomicilio)
             {
                 oCompra.MetPago = new MetodoPago();
-                oCompra.MetPago.ID = ddlMetodoPago.SelectedIndex;
+                oCompra.MetPago.ID = ddlMetodoPago.SelectedIndex + 1;
                 oCompra.MetPago.Nombre = ddlMetodoPago.SelectedValue;
                 oCompra.User = ((Usuario)Session["user"]);
 
@@ -132,24 +132,22 @@ namespace Ecommerce
                 OrdenDetalle aAgregar = new OrdenDetalle();
                 aAgregar.IDOrden = oCompra.ID;
                 aAgregar.IDArticulo = a.Id;
-                aAgregar.Detalles = new dominio.ItemCarrito();
                 aAgregar.Detalles = a;
                 oCompra.ItemsCarro.Add(aAgregar);
             }
             oCompra.MetPago = new MetodoPago();
-            oCompra.MetPago.ID = ddlMetodoPago2.SelectedIndex;
+            oCompra.MetPago.ID = ddlMetodoPago2.SelectedIndex + 1;
             oCompra.MetPago.Nombre = ddlMetodoPago2.SelectedValue;
-            oCompra.User = new Usuario();
-            oCompra.User = (Usuario)Session["user"];
-
+            oCompra.User = ((Usuario)Session["user"]);
 
             Session.Add("orden", oCompra);
-
             Response.Redirect("ConfirmacionPedido.aspx");
-          
+
+
+
         }
 
-    
+
 
     }
 }

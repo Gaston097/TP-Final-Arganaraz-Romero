@@ -18,6 +18,7 @@ namespace dominio
         public bool Enviado { get; set; }
         public bool Recibido { get; set; }
         public List<OrdenDetalle> ItemsCarro { get; set; }
+        public bool EstadoActivo { get; set; }
 
     }
 }

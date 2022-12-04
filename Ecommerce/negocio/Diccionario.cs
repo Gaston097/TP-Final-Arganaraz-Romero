@@ -65,11 +65,17 @@ namespace negocio
 
         public static string LISTAR_TIPOS_USUARIO = "SELECT Id, Nombre FROM Usuario_Tipo";
 
-        public static string LISTAR_ORDENES = "SELECT O.Id as idOrden, U.Id as idUsuario, U.Usuario as usuario, MP.Id as idMetodoPago, MP.Nombre as metodoPago, D.Id as idDomicilio, D.Ciudad as ciudad, D.Calle as calle, D.Numero as numeroCalle, D.Codpos as codpos, O.Total as total, O.Envio as envio, O.Enviado as enviado, O.Recibido as recibido, O.Pagado as pagado FROM Orden O INNER JOIN Usuario U ON U.Id = O.IdUser INNER JOIN Metodo_Pago MP ON MP.Id = O.IdMetodoPago INNER JOIN Domicilio D ON D.Id = O.IdDomicilio ";
+        public static string LISTAR_ORDENES = "SELECT O.Id as idOrden, U.Id as idUsuario, U.Usuario as usuario, MP.Id as idMetodoPago, MP.Nombre as metodoPago, D.Id as idDomicilio, D.Ciudad as ciudad, D.Calle as calle, D.Numero as numeroCalle, D.Codpos as codpos, O.Total as total, O.Envio as envio, O.Enviado as enviado, O.Recibido as recibido, O.Pagado as pagado, O.EstadoActivo as EstadoActivo FROM Orden O INNER JOIN Usuario U ON U.Id = O.IdUser INNER JOIN Metodo_Pago MP ON MP.Id = O.IdMetodoPago LEFT JOIN Domicilio D ON D.Id = O.IdDomicilio ";
 
-        public static string AGREGAR_ORDEN_SIN_ENVIO = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, NULL, @total, 0, 0, 0, 0)";
+        public static string LISTAR_ORDENES_ALTA_LOGICA = "SELECT O.Id as idOrden, U.Id as idUsuario, U.Usuario as usuario, MP.Id as idMetodoPago, MP.Nombre as metodoPago, D.Id as idDomicilio, D.Ciudad as ciudad, D.Calle as calle, D.Numero as numeroCalle, D.Codpos as codpos, O.Total as total, O.Envio as envio, O.Enviado as enviado, O.Recibido as recibido, O.Pagado as pagado FROM Orden O INNER JOIN Usuario U ON U.Id = O.IdUser INNER JOIN Metodo_Pago MP ON MP.Id = O.IdMetodoPago INNER JOIN Domicilio D ON D.Id = O.IdDomicilio WHERE O.EstadoActivo = 1 ";
 
-        public static string AGREGAR_ORDEN_CON_ENVIO = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, @idDomicilio, @total, 1, 0, 0, 0)";
+        public static string LISTAR_ORDENES_BAJA_LOGICA = "SELECT O.Id as idOrden, U.Id as idUsuario, U.Usuario as usuario, MP.Id as idMetodoPago, MP.Nombre as metodoPago, D.Id as idDomicilio, D.Ciudad as ciudad, D.Calle as calle, D.Numero as numeroCalle, D.Codpos as codpos, O.Total as total, O.Envio as envio, O.Enviado as enviado, O.Recibido as recibido, O.Pagado as pagado FROM Orden O INNER JOIN Usuario U ON U.Id = O.IdUser INNER JOIN Metodo_Pago MP ON MP.Id = O.IdMetodoPago INNER JOIN Domicilio D ON D.Id = O.IdDomicilio WHERE O.EstadoActivo = 0 ";
+
+        public static string AGREGAR_ORDEN_SIN_ENVIO = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, NULL, @total, 0, NULL, 0, 0, 1)";
+
+        public static string AGREGAR_ORDEN_CON_ENVIO = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, @idDomicilio, @total, 1, 0, 0, 0, 1)";
+
+        public static string BAJA_ALTA_LOGICA_ORDEN = "UPDATE Orden SET EstadoActivo = @ed WHERE ID = @id";
 
         public static string ELIMINAR_ORDEN = "DELETE FROM Orden WHERE ID = @id";
 
