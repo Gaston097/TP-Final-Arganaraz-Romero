@@ -11,6 +11,7 @@ namespace Ecommerce
 {
     public partial class ConfirmacionPedido : System.Web.UI.Page
     {
+        public bool validarDomicilio { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             //   List<Usuario> aux = new List<Usuario>();
@@ -28,6 +29,19 @@ namespace Ecommerce
             dgvDatosUsuario.DataBind();
 
             lblMetPago.Text = ((Orden)Session["orden"]).MetPago.ToString();
+
+            if (((Orden)Session["orden"]).Domicilio != null)
+            {
+                validarDomicilio = true;
+                DomicilioNegocio aListar = new DomicilioNegocio();
+                dgvDomicilioUsuario.DataSource = aListar.listar(((Orden)Session["orden"]).Domicilio.Id.ToString());
+                dgvDomicilioUsuario.DataBind();
+
+            }
+            else
+            {
+                validarDomicilio = false;
+            }
 
         }
 

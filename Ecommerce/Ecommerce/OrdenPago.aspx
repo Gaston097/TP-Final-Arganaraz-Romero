@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Orden de Pago" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrdenPago.aspx.cs" Inherits="Ecommerce.OrdenPago" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+
     <script language="javascript" type="text/javascript">
         function SelectSingleRadiobutton(rdbtnid) {
             var rdBtn = document.getElementById(rdbtnid);
@@ -12,11 +13,48 @@
             }
         }
     </script>
+    <script language="javascript" type="text/javascript" >
+        $(window).on('load', function () {
+            $('#noDomModal').modal('show');
+        });
+    </script>
 
 
 
     <br />
     <h1> Finalizar Orden de Pago </h1>
+
+
+    <% if (validarSeleccionDomicilio)
+        {   %>
+        <div class="modal fade" id="noDomModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Advertencia</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" style="color:red">
+                No ha seleccionado ningun Domicilio. <br /> <br />
+                Por favor, seleccione uno de sus domicilios antes de confirmar compra por envio.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        
+        
+        
+       <% } %>
+
+
+
+
+
 
     
     <div> ¿De que manera desea receptar la compra? </div>
@@ -46,6 +84,8 @@
                             <h2> Por favor seleccione una direccion a la cual se realizara el envio </h2>
 
                            <div>
+
+                       
                                 <asp:GridView ID="dgvDomiciliosUsuario" runat="server"
                                     AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-secondary table-bordered "
                                     >
@@ -61,14 +101,15 @@
                              
                                             
                                             <asp:TemplateField HeaderText="Selecccionar">
-                                                <ItemTemplate>
-                                                    <asp:RadioButton ID="rbtSeleccionar" runat="server" OnClick="javascript:SelectSingleRadiobutton(this.id)"/></ItemTemplate>
+                                                <ItemTemplate>                                               
+                                                    <asp:RadioButton ID="rbtSeleccionar" runat="server"  OnClick="javascript:SelectSingleRadiobutton(this.id)"/> 
+                                                </ItemTemplate>
                                             </asp:TemplateField>
 
                            
                                         </Columns>
 
-
+                                   
 
                                 </asp:GridView>
                             </div>

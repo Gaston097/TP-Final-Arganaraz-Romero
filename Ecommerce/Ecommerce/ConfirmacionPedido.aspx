@@ -4,9 +4,9 @@
         <br />
         <h3><u>Por favor, fijese que los datos sean los correctos. Luego presione Confirmar...</u></h3>
         <br /> 
-        <h3>Items en Carro</h3>
+        <h3>Items en Carro: </h3>
 
-        <asp:GridView ID="dgvDetallesOrden" runat="server"  AutoGenerateColumns="false" class="table table-bordered table-condensed table-hover " >
+        <asp:GridView ID="dgvDetallesOrden" runat="server"  AutoGenerateColumns="false" class="table table-bordered table-condensed " >
 
             <Columns>
             
@@ -36,7 +36,7 @@
         <br />
 
 
-        <h3>Datos del usuario</h3>
+        <h3>Datos del usuario:</h3>
         <div>
             <asp:GridView ID="dgvDatosUsuario" runat="server"  AutoGenerateColumns="false"  
                 DataKeyNames="Id"  class="table table-bordered table-condensed  "
@@ -64,6 +64,51 @@
         </div>
 
         <br />
+            
+        <div>
+
+                <asp:Label CssClass="label" runat="server" Text=" Datos del Domicilio:" Font-Size="25px"></asp:Label>
+
+
+        <% if (validarDomicilio)
+        { %>
+
+            
+
+        
+            <asp:GridView ID="dgvDomicilioUsuario" runat="server"
+                AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-bordered table-condensed  "
+                >
+
+                        
+                    <Columns>
+            
+                        <asp:BoundField DataField="Id" HeaderText="ID" />
+                        <asp:BoundField DataField="Calle" HeaderText="Calle" />
+                        <asp:BoundField DataField="Numero" HeaderText="Altura" />
+                        <asp:BoundField DataField="Ciudad" HeaderText="Ciudad" />
+                        <asp:BoundField DataField="CodPostal" HeaderText="Codigo Postal" />
+            
+                           
+                    </Columns>
+
+                                   
+
+            </asp:GridView>
+
+
+        <% } 
+            else { %>
+                
+                    <asp:Label CssClass="label" runat="server" Text=" Retira por local" Font-Size="25px"></asp:Label>
+
+        <% } %>
+
+        </div>
+        
+        <br />
+
+
         
         <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar Compra" class="btn btn-success" OnClick="btnConfirmar_Click"/>
 

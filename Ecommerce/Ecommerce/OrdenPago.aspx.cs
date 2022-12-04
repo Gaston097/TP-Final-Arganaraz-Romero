@@ -8,6 +8,10 @@ using System.Data;
 using Microsoft.Ajax.Utilities;
 using dominio;
 using negocio;
+using System.Reflection.Emit;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Drawing;
 
 namespace Ecommerce
 {
@@ -15,40 +19,55 @@ namespace Ecommerce
     {
   
         public bool validarDireccion { get; set; }
+
+        public bool validarSeleccionDomicilio { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             if (!IsPostBack)
             {
 
 
-            MetodoNegocio Mnegocio = new MetodoNegocio();
-            DomicilioNegocio lista = new DomicilioNegocio();
-            if (Session["user"] != null)
-            {
-                dgvDomiciliosUsuario.DataSource = lista.listarPorUsuario((((dominio.Usuario)Session["user"]).Id).ToString());
-                dgvDomiciliosUsuario.DataBind();
-            }
+                MetodoNegocio Mnegocio = new MetodoNegocio();
+                DomicilioNegocio lista = new DomicilioNegocio();
+                if (Session["user"] != null)
+                {
+                    dgvDomiciliosUsuario.DataSource = lista.listarPorUsuario((((dominio.Usuario)Session["user"]).Id).ToString());
+                    dgvDomiciliosUsuario.DataBind();
+                }
 
-            if (dgvDomiciliosUsuario.Rows.Count == 0)
-            {
-                validarDireccion = false;
-            }
-            else
-            {
-                validarDireccion = true;
-            }
+                if (dgvDomiciliosUsuario.Rows.Count == 0)
+                {
+                    validarDireccion = false;
+                }
+                else
+                {
+                    validarDireccion = true;
+                }
 
-            ddlMetodoPago.DataSource = Mnegocio.listar();
-            ddlMetodoPago.DataBind();
+                if (Request.QueryString["noDom"] != null)
+                {
+                    validarSeleccionDomicilio = true;
+                }
+                else
+                {
+                    validarSeleccionDomicilio = false;
+                }
 
-            ddlMetodoPago2.DataSource = Mnegocio.listar();
-            ddlMetodoPago2.DataBind();
+                ddlMetodoPago.DataSource = Mnegocio.listar();
+                ddlMetodoPago.DataBind();
+
+                ddlMetodoPago2.DataSource = Mnegocio.listar();
+                ddlMetodoPago2.DataBind();
 
 
             }
 
             
         }
+
+
 
 
 
@@ -67,18 +86,38 @@ namespace Ecommerce
                 aAgregar.Detalles = a;
                 oCompra.ItemsCarro.Add(aAgregar);
             }
-            oCompra.MetPago.ID = ddlMetodoPago.SelectedIndex;
-            oCompra.MetPago.Nombre = ddlMetodoPago.SelectedValue;
-            oCompra.Domicilio.Id = 1;
-            oCompra.User = ((Usuario)Session["user"]);
+            oCompra.Domicilio = new Domicilio();
+            bool validarDomicilio = false;
+            foreach (GridViewRow row in dgvDomiciliosUsuario.Rows)
+            {
+                RadioButton rb = (RadioButton)row.FindControl("rbtSeleccionar");
+                if (rb.Checked)
+                {
+                    oCompra.Domicilio.Id = Int32.Parse(row.Cells[0].Text);
+                    oCompra.Domicilio.Calle = row.Cells[1].Text;
+                    oCompra.Domicilio.Numero = row.Cells[2].Text;
+                    oCompra.Domicilio.Ciudad = row.Cells[3].Text;
+                    oCompra.Domicilio.CodPostal = row.Cells[4].Text;
+                    validarDomicilio = true;
+                }
+            }
 
+            if (validarDomicilio)
+            {
+                oCompra.MetPago = new MetodoPago();
+                oCompra.MetPago.ID = ddlMetodoPago.SelectedIndex;
+                oCompra.MetPago.Nombre = ddlMetodoPago.SelectedValue;
+                oCompra.User = ((Usuario)Session["user"]);
 
+                Session.Add("orden", oCompra);
+                Response.Redirect("ConfirmacionPedido.aspx");
 
-            Session.Add("orden", oCompra);
+            }
+            else
+            {
+                Response.Redirect("OrdenPago.aspx?noDom=true");
+            }
 
-            
-
-            Response.Redirect("ConfirmacionPedido.aspx");
 
         }
 
