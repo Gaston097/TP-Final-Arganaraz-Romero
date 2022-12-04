@@ -65,7 +65,7 @@ namespace negocio
                 datos.setearConsulta(Diccionario.AGREGAR_ORDEN_SIN_ENVIO);
                 datos.setearParametro("@idUsuario", nuevo.IDUser);
                 datos.setearParametro("@idMetodoPago", nuevo.IDMetodoPago);
-                datos.setearParametro("@total", nuevo.Total);
+                datos.setearParametro("@total", Convert.ToDecimal(nuevo.Total));
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

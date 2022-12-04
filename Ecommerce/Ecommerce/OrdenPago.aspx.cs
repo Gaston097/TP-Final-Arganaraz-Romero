@@ -91,6 +91,10 @@ namespace Ecommerce
                 oCompra.ItemsCarro.Add(aAgregar);
             }
             oCompra.IDMetodoPago = ddlMetodoPago.SelectedIndex;
+            if (oCompra.IDMetodoPago == 0)
+            {
+                oCompra.IDMetodoPago =ddlMetodoPago2.SelectedIndex;
+            }
             oCompra.IDUser = ((Usuario)Session["user"]).Id;
 
 

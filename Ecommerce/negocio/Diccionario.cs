@@ -69,7 +69,7 @@ namespace negocio
 
         public static string LISTAR_ORDENES_PROLIJO = "SELECT U.Usuario, MP.Nombre, D.Ciudad, D.Calle, D.Numero, O.Total, O.Envio, O.Enviado, O.Recibido, O.Pagado FROM Orden O INNER JOIN Usuario U ON U.ID = O.IDUser INNER JOIN Metodo_Pago MP ON MP.Id = O.IdMetodoPago LEFT JOIN Domicilio D ON D.Id = O.IdDomicilio ";
 
-        public static string AGREGAR_ORDEN_SIN_ENVIO = "INSERT INTO Orden (IdUser, IdMetodoPago, Total, Envio, Recibido, Pagado) VALUES (@idUsuario, @idMetodoPago, @total, 0, 0, 0)";
+        public static string AGREGAR_ORDEN_SIN_ENVIO = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, NULL, @total, 0, 0, 0, 0)";
 
         public static string AGREGAR_ORDEN_CON_ENVIO = "INSERT INTO Orden VALUES (@idUsuario, @idMetodoPago, @idDomicilio, @total, 1, 0, 0, 0)";
 

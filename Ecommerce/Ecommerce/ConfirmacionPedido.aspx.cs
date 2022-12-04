@@ -48,9 +48,22 @@ namespace Ecommerce
             lblTotal.Text = a.ToString();
         }
 
-
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
+            OrdenNegocio ordenN = new OrdenNegocio();
+            Orden nuevo = new Orden();
+
+            nuevo.ID = ((Orden)Session["orden"]).ID;
+            nuevo.IDUser = ((Orden)Session["orden"]).IDUser;
+            nuevo.IDMetodoPago = ((Orden)Session["orden"]).IDMetodoPago;
+            nuevo.IDDomicilio = ((Orden)Session["orden"]).IDDomicilio;
+            nuevo.Total = Convert.ToDouble(lblTotal.Text);          
+            nuevo.Envio = ((Orden)Session["orden"]).Envio;
+            nuevo.Pagado = ((Orden)Session["orden"]).Pagado;
+            nuevo.Enviado = ((Orden)Session["orden"]).Enviado;
+            nuevo.Recibido = ((Orden)Session["orden"]).Recibido;
+
+            ordenN.agregarSinEnvio(nuevo);
 
         }
 
