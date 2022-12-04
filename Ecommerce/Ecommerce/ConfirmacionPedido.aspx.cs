@@ -22,7 +22,8 @@ namespace Ecommerce
             List<OrdenDetalle> ListSesion = ((Orden)Session["orden"]).ItemsCarro;
             dgvDetallesOrden.DataSource = ListSesion;
             dgvDetallesOrden.DataBind();
-            contar();
+
+            lblTotal.Text = contar().ToString();
 
             UsuarioNegocio lista = new UsuarioNegocio();
             dgvDatosUsuario.DataSource = lista.listar(((Orden)Session["orden"]).User.Id.ToString());
@@ -46,19 +47,19 @@ namespace Ecommerce
         }
 
 
-        public void contar()
+        public decimal contar()
         {
             decimal a = 0;
             foreach (OrdenDetalle item in ((Orden)Session["orden"]).ItemsCarro) 
             {
                 a += item.Detalles.Precio * item.Detalles.Cantidad;
             }
-            lblTotal.Text = a.ToString();
+            return a;
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-            OrdenNegocio ordenN = new OrdenNegocio();
+            OrdenNegocio oNegocio = new OrdenNegocio();
             Orden nuevo = new Orden();
 
             nuevo.ID = ((Orden)Session["orden"]).ID;
@@ -70,8 +71,14 @@ namespace Ecommerce
             nuevo.Pagado = ((Orden)Session["orden"]).Pagado;
             nuevo.Enviado = ((Orden)Session["orden"]).Enviado;
             nuevo.Recibido = ((Orden)Session["orden"]).Recibido;
-
-            ordenN.agregarSinEnvio(nuevo);
+            if (validarDomicilio)
+            {
+                oNegocio.agregarConEnvio(nuevo);
+            }
+            else
+            {
+                oNegocio.agregarSinEnvio(nuevo);
+            }
 
         }
 
