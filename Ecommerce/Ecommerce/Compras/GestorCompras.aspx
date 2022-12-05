@@ -8,7 +8,7 @@
     <asp:GridView ID="dgvOrdenes" runat="server"  OnSelectedIndexChanged="dgvOrdenes_SelectedIndexChanged" 
         AutoGenerateColumns="false"   DataKeyNames="ID"  class="table table-dark table-bordered "
         OnPageIndexChanging="dgvOrdenes_PageIndexChanging"
-        AllowPaging="True" PageSize="6"
+        AllowPaging="True" PageSize="8"
         >
 
         <Columns>
