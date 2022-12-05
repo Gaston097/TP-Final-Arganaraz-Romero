@@ -114,7 +114,6 @@
     <Content Include="ABMs\FormularioCategoria.aspx" />
     <Content Include="ABMs\FormularioUsuario.aspx" />
     <Content Include="Carrito.aspx" />
-    <Content Include="Compras\ComprasUsuario.aspx" />
     <Content Include="Compras\GestorCompras.aspx" />
     <Content Include="ConfirmacionPedido.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -258,13 +257,6 @@
     </Compile>
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\ComprasUsuario.aspx.cs">
-      <DependentUpon>ComprasUsuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Compras\ComprasUsuario.aspx.designer.cs">
-      <DependentUpon>ComprasUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Compras\GestorCompras.aspx.cs">
       <DependentUpon>GestorCompras.aspx</DependentUpon>

@@ -87,7 +87,7 @@ namespace Ecommerce
                 odNegocio.agregar(orden);
             }
 
-
+           Response.Redirect("Compras/GestorCompras.aspx");
         }
 
     }

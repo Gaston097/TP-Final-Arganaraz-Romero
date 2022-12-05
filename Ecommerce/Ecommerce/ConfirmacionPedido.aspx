@@ -107,9 +107,8 @@
         </div>
         
         <br />
+            
 
-
-        
-        <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar Compra" class="btn btn-success" OnClick="btnConfirmar_Click"/>
+  <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar Compra" class="btn btn-success" OnClick="btnConfirmar_Click"/>
 
 </asp:Content>
