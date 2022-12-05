@@ -6,7 +6,7 @@
     <br />
 
     <asp:GridView ID="dgvOrdenes" runat="server"  OnSelectedIndexChanged="dgvOrdenes_SelectedIndexChanged" 
-        AutoGenerateColumns="false"   DataKeyNames="ID"  class="table table-dark table-bordered "
+        AutoGenerateColumns="false"   DataKeyNames="ID"  class="table table-secondary table-bordered "
         OnPageIndexChanging="dgvOrdenes_PageIndexChanging"
         AllowPaging="True" PageSize="8"
         >
@@ -16,14 +16,36 @@
             <asp:BoundField DataField="ID" HeaderText="ID" />
             <asp:BoundField DataField="User.Nombre" HeaderText="Nombre de Usuario del Cliente" />
             <asp:BoundField DataField="MetPago.Nombre" HeaderText="Metodo de Pago Elegido" />
-            <asp:BoundField DataField="Domicilio.Ciudad" NullDisplayText="―" HeaderText="Ciudad de Residencia" />
+            <asp:BoundField DataField="Domicilio.Ciudad" NullDisplayText="―"  HeaderText="Ciudad de Residencia" />
             <asp:BoundField DataField="Domicilio.Calle"  NullDisplayText="―" HeaderText="Calle" />
             <asp:BoundField DataField="Domicilio.Numero" NullDisplayText="―" HeaderText="Altura" />
             <asp:BoundField DataField="Domicilio.CodPostal"  NullDisplayText="―" HeaderText="Codigo Postal" />
-            <asp:BoundField DataField="Envio" HeaderText="Envio" />
-            <asp:BoundField DataField="Enviado" NullDisplayText="―" HeaderText="Enviado?" />
-            <asp:BoundField DataField="Recibido" HeaderText="Recibido?" />
-            <asp:BoundField DataField="Pagado" HeaderText="Pagado?" />
+            
+            <asp:TemplateField HeaderText = "Envio">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chbEnvio" runat="server" Checked='<%# Convert.ToBoolean(Eval("Envio")) %>'  />
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText = "Enviado?">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chbEnviado" runat="server"  Checked='<%# Convert.ToBoolean(Eval("Enviado")) %>'/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+            <asp:TemplateField HeaderText = "Recibido?">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chbRecibido" runat="server"  Checked='<%# Convert.ToBoolean(Eval("Recibido")) %>'/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+            <asp:TemplateField HeaderText = "Pagado?">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chbPagado" runat="server"  checked='<%# Convert.ToBoolean(Eval("Pagado"))  %>'/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+          
             <asp:BoundField DataField="Total" HeaderText="Pago Total" />
 
             <asp:CommandField ShowSelectButton="true" SelectText="🔎" HeaderText="Ver Detalles"/>
