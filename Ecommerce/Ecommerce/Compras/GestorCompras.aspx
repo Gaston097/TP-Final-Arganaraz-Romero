@@ -23,25 +23,25 @@
             
             <asp:TemplateField HeaderText = "Envio">
                 <ItemTemplate>
-                    <asp:CheckBox ID="chbEnvio" runat="server" Checked='<%# Convert.ToBoolean(Eval("Envio")) %>'  />
+                    <asp:CheckBox ID="chbEnvio" runat="server" OnClick="return false;" Checked='<%# Convert.ToBoolean(Eval("Envio")) %>'  />
                 </ItemTemplate>
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText = "Enviado?">
                 <ItemTemplate>
-                    <asp:CheckBox ID="chbEnviado" runat="server"  Checked='<%# Convert.ToBoolean(Eval("Enviado")) %>'/>
+                    <asp:CheckBox ID="chbEnviado" runat="server" OnClick="return false;" Checked='<%# Convert.ToBoolean(Eval("Enviado")) %>'/>
                 </ItemTemplate>
             </asp:TemplateField>
             
             <asp:TemplateField HeaderText = "Recibido?">
                 <ItemTemplate>
-                    <asp:CheckBox ID="chbRecibido" runat="server"  Checked='<%# Convert.ToBoolean(Eval("Recibido")) %>'/>
+                    <asp:CheckBox ID="chbRecibido" runat="server" OnClick="return false;"  Checked='<%# Convert.ToBoolean(Eval("Recibido")) %>'/>
                 </ItemTemplate>
             </asp:TemplateField>
             
             <asp:TemplateField HeaderText = "Pagado?">
                 <ItemTemplate>
-                    <asp:CheckBox ID="chbPagado" runat="server"  checked='<%# Convert.ToBoolean(Eval("Pagado"))  %>'/>
+                    <asp:CheckBox ID="chbPagado" runat="server" OnClick="return false;" checked='<%# Convert.ToBoolean(Eval("Pagado"))  %>'/>
                 </ItemTemplate>
             </asp:TemplateField>
             
