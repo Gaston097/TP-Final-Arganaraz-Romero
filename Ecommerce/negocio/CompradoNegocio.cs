@@ -25,6 +25,8 @@ namespace negocio
                     aux.ID = (int)datos.Lector["id"];
                     aux.IdOrden = (int)datos.Lector["idOrden"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Imagen = (string)datos.Lector["Imagen"];
                     aux.Cantidad =(int)datos.Lector["Cantidad"];
                     aux.Precio = (decimal)datos.Lector["Precio"];       
                     

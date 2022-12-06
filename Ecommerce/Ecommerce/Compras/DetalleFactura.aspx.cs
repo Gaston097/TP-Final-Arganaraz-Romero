@@ -11,9 +11,10 @@ namespace Ecommerce.Compras
 {
     public partial class DetalleFactura : System.Web.UI.Page
     {
+        public string id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id = Session["idd"].ToString();
+            id = Session["idd"].ToString();
             CompradoNegocio lista = new CompradoNegocio();
             dgvDetalle.DataSource = lista.listar(id);
             dgvDetalle.DataBind();

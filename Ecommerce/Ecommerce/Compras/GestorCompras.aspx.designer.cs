@@ -15,6 +15,15 @@ namespace Ecommerce.Compras
     {
 
         /// <summary>
+        /// btnEdicion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEdicion;
+
+        /// <summary>
         /// dgvOrdenes control.
         /// </summary>
         /// <remarks>
@@ -22,5 +31,23 @@ namespace Ecommerce.Compras
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvOrdenes;
+
+        /// <summary>
+        /// dgvOrdenes2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvOrdenes2;
+
+        /// <summary>
+        /// btnCambios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCambios;
     }
 }
