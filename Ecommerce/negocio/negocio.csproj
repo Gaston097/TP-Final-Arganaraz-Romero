@@ -47,6 +47,7 @@
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="ArticuloNegocio.cs" />
     <Compile Include="CategoriaNegocio.cs" />
+    <Compile Include="CompradoNegocio.cs" />
     <Compile Include="DomicilioNegocio.cs" />
     <Compile Include="Diccionario.cs" />
     <Compile Include="EstadoComercialNegocio.cs" />

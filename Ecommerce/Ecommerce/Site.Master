@@ -94,21 +94,23 @@
                 <% if (((dominio.Usuario)Session["user"]) == null) {
                 %>
                     <a class="nav-link active" href="../Login.aspx">Ingresar</a>
+                </li>
                 <%
                 }
+                       
                 else
                 {
                 %>  
                     <li class="nav-item">
                         <span class="nav-link active">Bienvenido <%=((dominio.Usuario)Session["user"]).Nombre %> </span>
                     </li>
-                    <li class="nav-item" >
+                    <li class="nav-item">
                         <a class="nav-link active" style="text-decoration-line:underline" data-bs-toggle="modal" data-bs-target="#exampleModal" >(Desloguear)</a> 
                     </li>
                 <%
                     }
                 %>
-            </li>
+         
 
 
         </ul>

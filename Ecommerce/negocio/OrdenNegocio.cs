@@ -9,7 +9,7 @@ namespace negocio
 {
     public class OrdenNegocio
     {
-        public List<Orden> listar(string id = "")
+        public List<Orden> listar(string id = "")       
         {
 
             

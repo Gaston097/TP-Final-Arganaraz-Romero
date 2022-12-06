@@ -26,8 +26,10 @@ namespace Ecommerce.Compras
         protected void dgvOrdenes_SelectedIndexChanged(object sender, EventArgs e)
         {
             string id = dgvOrdenes.SelectedDataKey.Value.ToString();
-            Session.Add("id", id);
-          /// VER QUE CARAJO SE ENSARTA ACA  /// Response.Redirect("FormularioArticulo.aspx");
+            Session.Add("idd", id);
+            Response.Redirect("DetalleFactura.aspx");
+            
+
           
         }
 

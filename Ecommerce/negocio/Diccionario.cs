@@ -79,6 +79,8 @@ namespace negocio
 
         public static string ELIMINAR_ORDEN = "DELETE FROM Orden WHERE ID = @id";
 
+        public static string LISTAR_FACTURA = "Select D.Id , D.IdOrden, A.Nombre ,D.Cantidad, D.Precio  from Orden_Detalle D INNER JOIN Orden O ON D.IdOrden = O.Id INNER JOIN Articulo A ON A.Id = D.IdArticulo Where D.IdOrden = ";
+
         public static string LISTAR_ORDENES_DETALLE = "SELECT OD.Id as Id, OD.IdOrden as IdOrden, OD.IdArticulo as IdArticulo, A.Nombre as NombreArt, OD.Cantidad as Cantidad, A.Precio as Precio FROM Orden_Detalle OD INNER JOIN Articulo A ON A.Id = OD.IdArticulo ";
 
         public static string LISTAR_ORDENES_DETALLE_PROLIJO = "SELECT A.Nombre, A.Descripcion, C.Nombre, M.Nombre, A.Imagen, OD.Cantidad ,A.Precio FROM Orden_Detalle OD INNER JOIN Articulo A ON A.Id = OD.IdArticulo INNER JOIN Categoria C ON C.Id = A.IdCategoria INNER JOIN Marca M ON M.Id = A.IdMarca ";
