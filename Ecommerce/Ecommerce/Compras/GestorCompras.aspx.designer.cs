@@ -15,6 +15,15 @@ namespace Ecommerce.Compras
     {
 
         /// <summary>
+        /// dgvOrdenesCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvOrdenesCliente;
+
+        /// <summary>
         /// btnEdicion control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace Ecommerce.Compras
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEdicion;
+
+        /// <summary>
+        /// btnListar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnListar;
 
         /// <summary>
         /// dgvOrdenes control.
