@@ -60,7 +60,8 @@ namespace Ecommerce.Compras
                     Session.Add("listaOrdenes", lista.listar(listarBool));
                     dgvOrdenes.DataSource = Session["listaOrdenes"];
                     dgvOrdenes.DataBind();
-                    dgvOrdenes2.DataSource = Session["listaOrdenes"];
+                    Session.Add("listaOrdenes2", lista.listarParaConteo());
+                    dgvOrdenes2.DataSource = Session["listaOrdenes2"];
                     dgvOrdenes2.DataBind();
                 }
 
@@ -124,7 +125,15 @@ namespace Ecommerce.Compras
         {
             bool edit = true;
             Session.Add("edicion", edit);
+            Response.Redirect("GestorCompras.aspx");
         }
+
+        protected void btnCambios_Click(object sender, EventArgs e)
+        {
+            Session["edicion"] = false;
+            Response.Redirect("GestorCompras.aspx");
+        }
+
 
         protected void btnListar_Click(object sender, EventArgs e)
         {

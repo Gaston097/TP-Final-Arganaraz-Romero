@@ -187,11 +187,17 @@
 
             <asp:CommandField ShowSelectButton="true" SelectText="🔎" HeaderText="Ver Detalles"/>
 
+            <asp:TemplateField HeaderText = "Estado Activo">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chbEstado" runat="server" checked='<%# Convert.ToBoolean(Eval("EstadoActivo"))  %>'/>
+                </ItemTemplate>
+            </asp:TemplateField>
+
             
         </Columns>
     </asp:GridView>
     <br />
-    <asp:Button ID="btnCambios" runat="server" Text="Guardar cambios"  />
+    <asp:Button ID="btnCambios" OnClick="btnCambios_Click" runat="server" Text="Guardar cambios"  />
     <br />
     
 
