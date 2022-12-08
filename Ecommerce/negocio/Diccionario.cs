@@ -85,6 +85,8 @@ namespace negocio
 
         public static string LISTAR_ORDENES_DETALLE_PROLIJO = "SELECT A.Nombre, A.Descripcion, C.Nombre, M.Nombre, A.Imagen, OD.Cantidad ,A.Precio FROM Orden_Detalle OD INNER JOIN Articulo A ON A.Id = OD.IdArticulo INNER JOIN Categoria C ON C.Id = A.IdCategoria INNER JOIN Marca M ON M.Id = A.IdMarca ";
 
+        public static string ORDENES_GESTION = "UPDATE Orden SET Enviado = @enviado, Recibido = @recibido, Pagado = @pagado, EstadoActivo = @activo WHERE Id = @id";
+
         public static string AGREGAR_ORDEN_DETALLE = "INSERT INTO Orden_Detalle VALUES (@idOrden, @idArticulo, @cantidad, (SELECT Precio FROM Articulo WHERE ID = @idProducto))";
 
         public static string ELIMINAR_ORDEN_DETALLE = "DELETE FROM Orden_Detalle WHERE ID = @id";

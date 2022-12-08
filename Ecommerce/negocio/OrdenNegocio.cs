@@ -278,6 +278,34 @@ namespace negocio
             }
         }
 
+        public void gestionOrdenes(Orden aGestionar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(Diccionario.ORDENES_GESTION);
+                datos.setearParametro("@enviado", Convert.ToInt32(aGestionar.Enviado));
+                datos.setearParametro("@recibido", Convert.ToInt32(aGestionar.Recibido));
+                datos.setearParametro("@pagado", Convert.ToInt32(aGestionar.Pagado));
+                datos.setearParametro("@activo", Convert.ToInt32(aGestionar.EstadoActivo));
+                datos.setearParametro("@id", aGestionar.ID);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+
+        }
+
+
 
 
     }

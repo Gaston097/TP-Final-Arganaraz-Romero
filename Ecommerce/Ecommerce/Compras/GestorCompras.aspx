@@ -164,13 +164,13 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText = "Enviado?">
+            <asp:TemplateField  HeaderText = "Enviado?">
                 <ItemTemplate>
                     <asp:CheckBox ID="chbEnviado" runat="server" Checked='<%# Convert.ToBoolean(Eval("Enviado")) %>'/>
                 </ItemTemplate>
             </asp:TemplateField>
             
-            <asp:TemplateField HeaderText = "Recibido?">
+            <asp:TemplateField  HeaderText = "Recibido?">
                 <ItemTemplate>
                     <asp:CheckBox ID="chbRecibido" runat="server" Checked='<%# Convert.ToBoolean(Eval("Recibido")) %>'/>
                 </ItemTemplate>

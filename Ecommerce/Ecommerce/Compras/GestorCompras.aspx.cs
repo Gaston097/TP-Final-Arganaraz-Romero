@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Ecommerce.Compras
 {
     public partial class GestorCompras : System.Web.UI.Page
@@ -16,28 +17,26 @@ namespace Ecommerce.Compras
         protected void Page_Load(object sender, EventArgs e)
             
         {
-            
+            if (Session["edicion"] != null)
+            {
+                edicion = (bool)Session["edicion"];
+            }
+            else
+            {
+                edicion = false;
+            }
 
-                if (Session["edicion"] != null)
-                {
-                    edicion = (bool)Session["edicion"];
-                }
-                else
-                {
-                    edicion = false;
-                }
+            if (Session["listar"] != null)
+            {
+                listarBool = (bool)Session["listar"];
 
-                if (Session["listar"] != null)
-                {
-                    listarBool = (bool)Session["listar"];
-                    
-                }
-                else
-                {
-                    listarBool = true;
-                }
+            }
+            else
+            {
+                listarBool = true;
+            }
 
-                if (listarBool)
+            if (listarBool)
             {
                 btnListar.Text = "Listar ordenes dadas de baja";
             }
@@ -48,21 +47,30 @@ namespace Ecommerce.Compras
 
 
 
-                if (Session["id"] != null)
-                {
-                    Session.Remove("id");
-                }
+            if (Session["id"] != null)
+            {
+                Session.Remove("id");
+            }
+
+            if (!IsPostBack)
+            {
 
                 OrdenNegocio lista = new OrdenNegocio();
 
                 if ((Session["user"] != null) && (((Usuario)Session["user"]).TipoUsuario.ID == 4))
                 {
-                    Session.Add("listaOrdenes", lista.listar(listarBool));
-                    dgvOrdenes.DataSource = Session["listaOrdenes"];
-                    dgvOrdenes.DataBind();
-                    Session.Add("listaOrdenes2", lista.listarParaConteo());
-                    dgvOrdenes2.DataSource = Session["listaOrdenes2"];
-                    dgvOrdenes2.DataBind();
+                    if (edicion)
+                    {
+                        Session.Add("listaOrdenes2", lista.listarParaConteo());
+                        dgvOrdenes2.DataSource = Session["listaOrdenes2"];
+                        dgvOrdenes2.DataBind();
+                    }
+                    else
+                    {
+                        Session.Add("listaOrdenes", lista.listar(listarBool));
+                        dgvOrdenes.DataSource = Session["listaOrdenes"];
+                        dgvOrdenes.DataBind();
+                    }
                 }
 
                 if ((Session["user"] != null) && (((Usuario)Session["user"]).TipoUsuario.ID == 2))
@@ -73,13 +81,11 @@ namespace Ecommerce.Compras
 
                 }
 
-
-
-
-
-
+            }
 
         }
+
+
         /// ORDENES DE COMPRA DE UN CLIENTE ESPECIFICO
         protected void dgvOrdenesCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -111,14 +117,14 @@ namespace Ecommerce.Compras
         /// ORDENES DE COMPRA CON EDICION PERMITIDA
         protected void dgvOrdenes2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string id = dgvOrdenes.SelectedDataKey.Value.ToString();
+            string id = dgvOrdenes2.SelectedDataKey.Value.ToString();
             Session.Add("idd", id);
-            Response.Redirect("DetalleFactura.aspx");
         }
         protected void dgvOrdenes2_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvOrdenes2.PageIndex = e.NewPageIndex;
             dgvOrdenes2.DataBind();
+
         }
 
         protected void btnEdicion_Click(object sender, EventArgs e)
@@ -130,6 +136,42 @@ namespace Ecommerce.Compras
 
         protected void btnCambios_Click(object sender, EventArgs e)
         {
+            
+            List<Orden> ordenes = new List<Orden> { };
+            foreach (GridViewRow row in dgvOrdenes2.Rows)
+            {
+                Orden aAgregar = new Orden();
+                OrdenNegocio oNegocio = new OrdenNegocio();
+
+                aAgregar.ID = Int32.Parse(row.Cells[0].Text);
+
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[8].FindControl("chbEnviado") as CheckBox);
+                    aAgregar.Enviado = chkRow.Checked;
+                }
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[9].FindControl("chbRecibido") as CheckBox);
+                    aAgregar.Recibido = chkRow.Checked;
+                }
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[10].FindControl("chbPagado") as CheckBox);
+                    aAgregar.Pagado = chkRow.Checked;
+                }
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[13].FindControl("chbEstado") as CheckBox);
+                    aAgregar.EstadoActivo = chkRow.Checked;
+                }
+
+                oNegocio.gestionOrdenes(aAgregar);
+
+            }
+
+            
+
             Session["edicion"] = false;
             Response.Redirect("GestorCompras.aspx");
         }
