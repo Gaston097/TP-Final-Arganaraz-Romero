@@ -88,18 +88,11 @@ namespace Ecommerce.Compras
                 dgvOrdenesCliente.DataBind();
             }
             if (IsPostBack && (Session["user"] != null) && (((Usuario)Session["user"]).TipoUsuario.ID == 4))
-            {
-                if (edicion)
-                {
-                    dgvOrdenes2.DataSource = Session["listaOrdenes2"];
-                    dgvOrdenes2.DataBind();
-                }
-                else
-                {
-                    dgvOrdenes.DataSource = Session["listaOrdenes"];
-                    dgvOrdenes.DataBind();
-                }
+            {                  
+                dgvOrdenes.DataSource = Session["listaOrdenes"];
+                dgvOrdenes.DataBind();              
             }
+           
         }
 
 
@@ -139,6 +132,8 @@ namespace Ecommerce.Compras
         }
         protected void dgvOrdenes2_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            dgvOrdenes2.DataSource = Session["listaOrdenes2"];
+            dgvOrdenes2.DataBind();
             dgvOrdenes2.PageIndex = e.NewPageIndex;
             dgvOrdenes2.DataBind();
 
