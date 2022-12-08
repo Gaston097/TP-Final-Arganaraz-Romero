@@ -9,6 +9,8 @@
      <%if ((((dominio.Usuario)Session["user"]) != null ) && (((dominio.Usuario)Session["user"]).TipoUsuario.ID == 2 ))
          {
             %>
+   
+
             <asp:GridView ID="dgvOrdenesCliente" runat="server"  OnSelectedIndexChanged="dgvOrdenesCliente_SelectedIndexChanged" 
         AutoGenerateColumns="false"   DataKeyNames="ID"  class="table table-secondary table-bordered "
         OnPageIndexChanging="dgvOrdenesCliente_PageIndexChanging"
@@ -57,6 +59,8 @@
             
         </Columns>
     </asp:GridView>
+
+
 
     <a class="btn btn-dark" href="../Default" > Volver al Catalogo </a>
              <%

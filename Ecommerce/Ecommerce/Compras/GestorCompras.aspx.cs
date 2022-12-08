@@ -14,9 +14,9 @@ namespace Ecommerce.Compras
     {
         public bool edicion { get; set; }
         public bool listarBool { get; set; }
-        protected void Page_Load(object sender, EventArgs e)
-            
+        protected void Page_Load(object sender, EventArgs e)         
         {
+                           
             if (Session["edicion"] != null)
             {
                 edicion = (bool)Session["edicion"];
@@ -82,7 +82,24 @@ namespace Ecommerce.Compras
                 }
 
             }
-
+            if (IsPostBack && (Session["user"] != null) && (((Usuario)Session["user"]).TipoUsuario.ID == 2))
+            {
+                dgvOrdenesCliente.DataSource = Session["listaOrdenes"];
+                dgvOrdenesCliente.DataBind();
+            }
+            if (IsPostBack && (Session["user"] != null) && (((Usuario)Session["user"]).TipoUsuario.ID == 4))
+            {
+                if (edicion)
+                {
+                    dgvOrdenes2.DataSource = Session["listaOrdenes2"];
+                    dgvOrdenes2.DataBind();
+                }
+                else
+                {
+                    dgvOrdenes.DataSource = Session["listaOrdenes"];
+                    dgvOrdenes.DataBind();
+                }
+            }
         }
 
 
