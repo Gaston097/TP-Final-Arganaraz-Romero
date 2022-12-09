@@ -1,7 +1,20 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Ecommerce._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-        
+
+ <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img1.jpg" class="d-block w-100" alt="1">
+    </div>   
+       <div class="carousel-item active">
+      <img src="img2.jpg" class="d-block w-100" alt="2">
+    </div>   
+       <div class="carousel-item active">
+      <img src="img3.jpg" class="d-block w-100" alt="3">
+    </div>   
+  </div>
+</div>
     
     <br />
     <h1 class="title"> Catalogo de Articulos</h1>

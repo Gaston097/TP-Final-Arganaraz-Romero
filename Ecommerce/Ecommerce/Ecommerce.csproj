@@ -138,6 +138,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Img1.jpg" />
+    <Content Include="img2.jpg" />
+    <Content Include="img3.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="OrdenPago.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
