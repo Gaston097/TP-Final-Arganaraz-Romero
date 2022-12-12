@@ -5,38 +5,49 @@
 
 
 
+
     <nav class="navbar navbar-inverse navbar-expand-lg bg-light  " style="width: 100%; position:fixed; margin-top:6px;z-index:100; left:-1px; margin-bottom:-20px">
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap "  >
     
-            <ul class=" nav navbar-nav">
+            <ul class=" nav navbar-nav" >
 
-                    <li class="nav-item">
-                        <div >
-                             <asp:DropDownList ID="ddlCategorias" runat="server" CssClass="form-control  btn dropdown-toggle">
-                             </asp:DropDownList>
-                        </div>
-                    </li>
+              <asp:UpdatePanel  runat="server">
+                  <ContentTemplate>
 
-                    <li class="nav-item">
-                        <div >
-                                <asp:DropDownList ID="ddlMarcas" runat="server" CssClass="form-control  btn dropdown-toggle">
-                                </asp:DropDownList>
-                        </div>
-                    </li>
+  
+
+
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                        <li class="nav-item">
+                            <div >
+                 
+                                <asp:DropDownList ID="ddlCategorias" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged">
+                                </asp:DropDownList>                                                       
+ 
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <div >
+                                    <asp:DropDownList ID="ddlMarcas" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlMarcas_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                            </div>
+                        </li>
                     
-                    <li class="nav-item">
-                        <div>
-                          <asp:TextBox runat="server" ID="txtfiltro" placeholder="🔎" Autopostback="true"  OnTextChanged="filtro_TextChanged"
-                           />
+                        <li class="nav-item">
+                            <div>
+                              <asp:TextBox runat="server" ID="txtfiltro" placeholder="🔎" OnFocus="javascript:this.select();"
+                               />
 
-                        </div>
-                    </li>
+                            </div>
+                        </li>
 
-                    <li class="nav-item"><a class="nav-link" href="#">Buscar</a></li>
+                        <li class="nav-item"><asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" /></li>
             </ul>
 
 
-    
+            
         </div>
     </nav>
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Antlr.Runtime;
 using dominio;
 using negocio;
 
@@ -44,22 +45,111 @@ namespace Ecommerce
                     ddlMarcas.Items.Insert(test, m.Descripcion);
                     test++;
                 }
+            }
+        }
 
-              
+        protected List<Articulo> listarArticulos()
+        {
+            List<Articulo> listaFiltrada = listaArticulos.FindAll((busqueda => (busqueda.Nombre.ToUpper().Contains(txtfiltro.Text.ToUpper())) || (busqueda.Codigo.ToUpper().Contains(txtfiltro.Text.ToUpper())) || (busqueda.Descripcion.ToUpper().Contains(txtfiltro.Text.ToUpper())) || (busqueda.Categoria.Descripcion.ToUpper().Contains(txtfiltro.Text.ToUpper())) || (busqueda.Marca.Descripcion.ToUpper().Contains(txtfiltro.Text.ToUpper()))));
+            return listaFiltrada;
+        }
 
+
+        protected void ddlMarcas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Articulo> filtro = listarArticulos();
+            List<Articulo> listaFiltrada = new List<Articulo>();
+            if (ddlMarcas.SelectedIndex != 0)
+            {
+                
+                if (ddlCategorias.SelectedIndex != 0)
+                {
+                    listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Categoria.Descripcion.ToUpper().Contains(ddlCategorias.SelectedValue.ToUpper())) && (busqueda.Marca.Descripcion.ToUpper().Contains(ddlMarcas.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                }
+                else
+                {
+                    listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Marca.Descripcion.ToUpper().Contains(ddlMarcas.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                }
+                Repeter.DataSource = listaFiltrada;
+                Repeter.DataBind();
+            
+            }
+            else if (ddlCategorias.SelectedIndex != 0)
+            {
+                listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Categoria.Descripcion.ToUpper().Contains(ddlCategorias.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                Repeter.DataSource = listaFiltrada;
+                Repeter.DataBind();
+            }
+            else
+            {
+                Repeter.DataSource = listarArticulos();
+                Repeter.DataBind();
             }
         }
 
 
-        protected void filtro_TextChanged(object sender, EventArgs e)
+        protected void ddlCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Articulo> listaFiltrada = listaArticulos.FindAll((x => x.Nombre.ToUpper().Contains(txtfiltro.Text.ToUpper())));
+            List<Articulo> filtro = listarArticulos();
+            List<Articulo> listaFiltrada = new List<Articulo>();
+            if (ddlCategorias.SelectedIndex != 0)
+            {
+                if (ddlMarcas.SelectedIndex != 0)
+                {
+                    listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Categoria.Descripcion.ToUpper().Contains(ddlCategorias.SelectedValue.ToUpper())) && (busqueda.Marca.Descripcion.ToUpper().Contains(ddlMarcas.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                }
+                else
+                {
+                    listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Categoria.Descripcion.ToUpper().Contains(ddlCategorias.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                }
+                Repeter.DataSource = listaFiltrada;
+                Repeter.DataBind();
 
+            }
+            else if (ddlMarcas.SelectedIndex != 0)
+            {
+                listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Marca.Descripcion.ToUpper().Contains(ddlCategorias.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                Repeter.DataSource = listaFiltrada;
+                Repeter.DataBind();
+            }
+            else
+            {
+                Repeter.DataSource = listarArticulos();
+                Repeter.DataBind();
+            }
+        }
+
+        protected void btnBuscar_OnClick(object sender, EventArgs e)
+        {
+            List<Articulo> filtro = listarArticulos();
+            List<Articulo> listaFiltrada = new List<Articulo>();
+            {
+                if(ddlCategorias.SelectedIndex != 0)
+                {
+                    if(ddlMarcas.SelectedIndex != 0)
+                    {
+                        listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Categoria.Descripcion.ToUpper().Contains(ddlCategorias.SelectedValue.ToUpper())) && (busqueda.Marca.Descripcion.ToUpper().Contains(ddlMarcas.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                    }
+                    else
+                    {
+                        listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Categoria.Descripcion.ToUpper().Contains(ddlCategorias.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                    }
+                }
+                else if(ddlMarcas.SelectedIndex != 0)
+                {
+                    listaFiltrada = listaArticulos.FindAll(busqueda => (busqueda.Marca.Descripcion.ToUpper().Contains(ddlMarcas.SelectedValue.ToUpper())) && filtro.Contains(busqueda));
+                }
+                else
+                {
+                    listaFiltrada = listaArticulos.FindAll(busqueda => (filtro.Contains(busqueda)));
+
+                }
+            }
             Repeter.DataSource = listaFiltrada;
             Repeter.DataBind();
 
-
         }
+
 
 
         public int CarritoVacio()
