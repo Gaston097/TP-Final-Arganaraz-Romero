@@ -15,7 +15,8 @@ namespace Ecommerce
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            CategoriaNegocio Cnegocio = new CategoriaNegocio();
+            MarcaNegocio Mnegocio = new MarcaNegocio();
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulos = negocio.listar(true);
 
@@ -23,7 +24,41 @@ namespace Ecommerce
             {
                 Repeter.DataSource = listaArticulos;
                 Repeter.DataBind();
+
+                ddlCategorias.Items.Insert(0, new ListItem("Buscar por Categoria"));
+                List<Categoria> ddlC = new List<Categoria>();
+                ddlC = Cnegocio.listar();
+                int test = 1;
+                foreach(Categoria c in ddlC)
+                {
+                    ddlCategorias.Items.Insert(test, c.Descripcion);
+                    test++;
+                }
+
+                ddlMarcas.Items.Insert(0, new ListItem("Buscar por Marca"));
+                List<Marca> ddlM = new List<Marca>();
+                ddlM = Mnegocio.listar();
+                test = 1;
+                foreach (Marca m in ddlM)
+                {
+                    ddlMarcas.Items.Insert(test, m.Descripcion);
+                    test++;
+                }
+
+              
+
             }
+        }
+
+
+        protected void filtro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada = listaArticulos.FindAll((x => x.Nombre.ToUpper().Contains(txtfiltro.Text.ToUpper())));
+
+            Repeter.DataSource = listaFiltrada;
+            Repeter.DataBind();
+
+
         }
 
 

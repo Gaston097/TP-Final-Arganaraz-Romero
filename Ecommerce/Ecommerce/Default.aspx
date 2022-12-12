@@ -2,6 +2,52 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+
+
+
+    <nav class="navbar navbar-inverse navbar-expand-lg bg-light  " style="width: 100%; position:fixed; margin-top:6px;z-index:100; left:-1px; margin-bottom:-20px">
+        <div class="mx-auto d-sm-flex d-block flex-sm-nowrap "  >
+    
+            <ul class=" nav navbar-nav">
+
+                    <li class="nav-item">
+                        <div >
+                             <asp:DropDownList ID="ddlCategorias" runat="server" CssClass="form-control  btn dropdown-toggle">
+                             </asp:DropDownList>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div >
+                                <asp:DropDownList ID="ddlMarcas" runat="server" CssClass="form-control  btn dropdown-toggle">
+                                </asp:DropDownList>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <div>
+                          <asp:TextBox runat="server" ID="txtfiltro" placeholder="🔎" Autopostback="true"  OnTextChanged="filtro_TextChanged"
+                           />
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#">Buscar</a></li>
+            </ul>
+
+
+    
+        </div>
+    </nav>
+
+    <br />
+    <br />
+        <br />
+    <br />
+
+
+
+
  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
