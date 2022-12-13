@@ -44,5 +44,15 @@ namespace Ecommerce.ABMs
             dgvCategorias.DataSource = listaFiltrada;
             dgvCategorias.DataBind();
         }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            GridViewRow clickedRow = ((LinkButton)sender).NamingContainer as GridViewRow;
+            GridView gv = clickedRow.NamingContainer as GridView;
+            var id = gv.DataKeys[clickedRow.RowIndex].Values[0].ToString();
+           
+            Session.Add("id", id);
+            Response.Redirect("FormularioCategoria.aspx");
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <h1> Menu de ABMs </h1>
+      <h1> Menu de ABMs </h1>
 
     <br />
 
@@ -19,13 +19,14 @@
             {
         %>  
 
-     <asp:Button runat="server" class="btn btn-dark"   Text="ABM de Categorias" OnClick="Unnamed_Click" />
+     <asp:Button runat="server" class="btn btn-dark"   Text="ABM de Categorias" OnClick="Unnamed_Click" style="width:326px; padding-top:20px; padding-bottom:20px; padding-left:15px; padding-right:15px;"/>
     
-    <asp:Button runat="server" class="btn btn-dark" Text="ABM de Marcas" ID="btnAbmMarcas" OnClick="btnAbmMarcas_Click" />
-    
-    <a class="btn btn-dark" href="ABMs/ABMArticulos" > ABM de Articulos</a>
-
-    <a class="btn btn-dark" href="ABMs/ABMUsuarios" > ABM de Usuarios</a>
+    <asp:Button runat="server" class="btn btn-dark" Text="ABM de Marcas" ID="btnAbmMarcas" OnClick="btnAbmMarcas_Click" style="width:326px; padding-top:20px; padding-bottom:20px; padding-left:15px; padding-right:15px;" />
+      <br />
+    <br />
+    <asp:Button runat="server" class="btn btn-dark" OnClick="btnArt_Click" Text="ABM de Articulos" ID="btnArt"  style="width:326px; padding-top:20px; padding-bottom:20px; padding-left:15px; padding-right:15px;" />
+   
+     <asp:Button runat="server" class="btn btn-dark" OnClick="btnUser_Click" Text="ABM de Usuarios" ID="btnUser"  style="width:326px; padding-top:20px; padding-bottom:20px; padding-left:15px; padding-right:15px;" />
   <%
       }
         %>  

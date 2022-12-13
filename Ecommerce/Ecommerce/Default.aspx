@@ -19,13 +19,13 @@
                 </asp:UpdatePanel>
                         <li class="nav-item">
                             <div >             
-                                <asp:DropDownList style="color:white;" ID="ddlCategorias" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged">
+                                <asp:DropDownList style="color:deepskyblue;" ID="ddlCategorias" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged">
                                </asp:DropDownList>                                                       
                             </div>
                         </li>
                         <li class="nav-item">
                             <div >
-                                    <asp:DropDownList style="color:white;" ID="ddlMarcas" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlMarcas_SelectedIndexChanged">
+                                    <asp:DropDownList style="color:deepskyblue;" ID="ddlMarcas" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlMarcas_SelectedIndexChanged">
                                     </asp:DropDownList>
                             </div>
                         </li>               

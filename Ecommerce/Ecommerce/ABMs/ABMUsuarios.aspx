@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ABMUsuarios" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ABMUsuarios.aspx.cs" Inherits="Ecommerce.ABMs.ABMUsuarios" %>
+﻿<%@ Page Title="Usuarios" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ABMUsuarios.aspx.cs" Inherits="Ecommerce.ABMs.ABMUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
   
     <br />
@@ -28,8 +28,13 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre de Usuario" />
                 <asp:BoundField DataField="eMail" HeaderText="Correo Electronico" />
                 <asp:BoundField DataField="Fecha" HeaderText="Fecha de Alta" />
-               
-                <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar / Eliminar"/>
+               <asp:TemplateField HeaderText="Accion" ItemStyle-Width="100" HeaderStyle-Width="100" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btnModificar" OnClick="btnModificar_Click" runat="server" CssClass="btn btn-info" data-toggle="tooltip" ToolTip="Modificar">
+                            <i class="fa-solid fa-pencil"></i>
+                            </asp:LinkButton>            
+                 </ItemTemplate>
+                </asp:TemplateField>
                            
             </Columns>
 

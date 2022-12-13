@@ -5,7 +5,7 @@
     <h2>Detalles de Orden de Compra N° <%= id %></h2>
     <br />
     <div>
-       <asp:GridView ID="dgvDetalle" runat="server" class="table table table-secondary table-bordered" AllowPaging="true"
+       <asp:GridView ID="dgvDetalle" runat="server" class="table table-success table-striped-columns" AllowPaging="true"
            AutoGenerateColumns="false" PageSize="8">
            
             <Columns>
@@ -29,7 +29,7 @@
        </asp:GridView>
     </div>
     
-    <a class="btn btn-dark" href="../Compras/GestorCompras.aspx" > Volver a Gestion de Ordenes de Compras </a>
+    <a class="btn btn-danger" href="../Compras/GestorCompras.aspx" > Volver a Gestion de Ordenes de Compras </a>
      
 
 </asp:Content>

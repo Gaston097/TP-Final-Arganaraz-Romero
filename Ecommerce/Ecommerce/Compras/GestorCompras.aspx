@@ -54,15 +54,20 @@
           
             <asp:BoundField DataField="Total" HeaderText="Pago Total" />
 
-            <asp:CommandField ShowSelectButton="true" SelectText="🔎" HeaderText="Ver Detalles"/>
-
+             <asp:TemplateField HeaderText="Detalles" ItemStyle-Width="100" HeaderStyle-Width="100" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btnDet" OnClick="btnDet_Click" runat="server" CssClass="btn btn-info" data-toggle="tooltip" ToolTip="Modificar">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                            </asp:LinkButton>            
+                </ItemTemplate>
+            </asp:TemplateField>
             
         </Columns>
     </asp:GridView>
 
 
 
-    <a class="btn btn-dark" href="../Default" > Volver al Catalogo </a>
+    <a class="btn btn-success" href="../Default" > Volver al Catalogo </a>
              <%
 
                  } else if((((dominio.Usuario)Session["user"]) != null ) && (((dominio.Usuario)Session["user"]).TipoUsuario.ID == 4))
@@ -80,9 +85,9 @@
 
 
  
-       <asp:Button ID="btnEdicion" runat="server" Text="Administrar ordenes" OnClick="btnEdicion_Click" />
+       <asp:Button ID="btnEdicion" CssClass="btn btn-info" runat="server" Text="Administrar ordenes" OnClick="btnEdicion_Click" />
       
-       <asp:Button ID="btnListar" runat="server"  OnClick="btnListar_Click" />
+       <asp:Button ID="btnListar" Cssclass="btn btn-success" runat="server"  OnClick="btnListar_Click" />
             
    
         <br />
@@ -132,8 +137,14 @@
           
             <asp:BoundField DataField="Total" HeaderText="Pago Total" />
 
-            <asp:CommandField ShowSelectButton="true" SelectText="🔎" HeaderText="Ver Detalles"/>
-
+           
+            <asp:TemplateField HeaderText="Detalles" ItemStyle-Width="100" HeaderStyle-Width="100" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btnDet" OnClick="btnDet_Click" runat="server" CssClass="btn btn-info" data-toggle="tooltip" ToolTip="Modificar">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                            </asp:LinkButton>            
+                </ItemTemplate>
+            </asp:TemplateField>
             
         </Columns>
     </asp:GridView>
@@ -189,7 +200,16 @@
           
             <asp:BoundField DataField="Total" HeaderText="Pago Total" />
 
-            <asp:CommandField ShowSelectButton="true" SelectText="🔎" HeaderText="Ver Detalles"/>
+
+            <asp:TemplateField HeaderText="Detalles" ItemStyle-Width="100" HeaderStyle-Width="100" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btnDetalles" runat="server" CssClass="btn btn-info" data-toggle="tooltip" ToolTip="Modificar">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                            </asp:LinkButton>            
+                </ItemTemplate>
+            </asp:TemplateField>
+
+         
 
             <asp:TemplateField HeaderText = "Estado Activo">
                 <ItemTemplate>
@@ -201,7 +221,7 @@
         </Columns>
     </asp:GridView>
     <br />
-    <asp:Button ID="btnCambios" OnClick="btnCambios_Click" runat="server" Text="Guardar cambios"  />
+    <asp:Button ID="btnCambios" CssClass="btn btn-success" OnClick="btnCambios_Click" runat="server" Text="Guardar cambios"  />
     <br />
     
 

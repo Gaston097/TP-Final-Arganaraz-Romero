@@ -23,5 +23,15 @@ namespace Ecommerce
         {
             Response.Redirect("ABMs/ABMMarcas.aspx");
         }
+
+        protected void btnUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ABMs/ABMUsuarios.aspx");
+        }
+
+        protected void btnArt_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ABMs/ABMArticulos.aspx");
+        }
     }
 }

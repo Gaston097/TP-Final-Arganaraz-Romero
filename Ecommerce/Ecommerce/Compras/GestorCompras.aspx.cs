@@ -212,7 +212,14 @@ namespace Ecommerce.Compras
             Response.Redirect("GestorCompras.aspx");
         }
 
-
-
+        protected void btnDet_Click(object sender, EventArgs e)
+        {
+            GridViewRow clickedRow = ((LinkButton)sender).NamingContainer as GridViewRow;
+            GridView gv = clickedRow.NamingContainer as GridView;
+            var id = gv.DataKeys[clickedRow.RowIndex].Values[0].ToString();
+            Session.Add("idd", id);
+            Response.Redirect("DetalleFactura.aspx");
+        }
     }
+    // <asp:CommandField ShowSelectButton="true" SelectText="🔎" HeaderText="Ver Detalles"/>
 }
