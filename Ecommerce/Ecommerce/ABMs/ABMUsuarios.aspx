@@ -17,7 +17,7 @@
         %>  
     <div>
         <asp:GridView ID="dgvUsuarios" runat="server"  OnSelectedIndexChanged="dgvUsuarios_SelectedIndexChanged" 
-            AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered "
+            AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered table-striped "
             OnPageIndexChanging="dgvUsuarios_PageIndexChanging"
             AllowPaging="True" PageSize="5" >
 
@@ -29,16 +29,14 @@
                 <asp:BoundField DataField="eMail" HeaderText="Correo Electronico" />
                 <asp:BoundField DataField="Fecha" HeaderText="Fecha de Alta" />
                
-
-                <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>
-                <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
+                <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar / Eliminar"/>
                            
             </Columns>
 
         </asp:GridView>
     </div>
     
-     <a class="btn btn-dark" href="FormularioUsuario" > Agregar </a>
+     <a class="btn btn-success" href="FormularioUsuario" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
      
       <%

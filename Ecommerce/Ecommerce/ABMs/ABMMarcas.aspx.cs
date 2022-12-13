@@ -31,6 +31,8 @@ namespace Ecommerce.ABMs
 
         protected void dgvMarcas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            dgvMarcas.DataSource = Session["listaMarca"];
+            dgvMarcas.DataBind();
             dgvMarcas.PageIndex = e.NewPageIndex;
             dgvMarcas.DataBind();
         }

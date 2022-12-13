@@ -79,7 +79,7 @@
 
             <%if ((((dominio.Usuario)Session["user"]) != null ) && (((dominio.Usuario)Session["user"]).TipoUsuario.ID == 4 ))
                 { 
-            %>
+            %>          
             <li class="nav-item">
                 <a class="nav-link active" href="../ABMMain.aspx">Menu ABM</a>
             </li>
@@ -91,6 +91,7 @@
             %>
                          
         </ul>
+       
 
         <ul class="navbar-nav  mb-2 mb-lg-0 navbar-right">
             <li class="nav-item">
@@ -127,7 +128,7 @@
   </div>
 </nav>
 
-        <div class="container body-content ">
+        <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

@@ -16,8 +16,7 @@
             else
             {
         %>  
-  
-    <table style="width: 100%" class="table table-primary">
+    <table style="width: 100%" class="table table-primary";>
         <tbody>
             <tr>
                 <td style="width: 100%">
@@ -33,28 +32,24 @@
     </table>
 
 
-
-
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
     
     <asp:GridView ID="dgvMarcas" runat="server" OnSelectedIndexChanged="dgvMarcas_SelectedIndexChanged" 
-        AutoGenerateColumns="false" DataKeyNames="Id" class="table table-dark table-bordered " 
+        AutoGenerateColumns="false" DataKeyNames="Id" class="table table-dark table-bordered table-striped" 
         AllowPaging="True" PageSize="10" OnPageIndexChanging="dgvMarcas_PageIndexChanging"
         >
         <Columns>
-
             <asp:BoundField DataField="ID" HeaderText="ID" />
-            <asp:BoundField DataField="Descripcion" HeaderText="Nombre" />
-            <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>           
-            <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
+            <asp:BoundField DataField="Descripcion" HeaderText="Nombre" />           
+            <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar / Eliminar"/>
         </Columns>
     </asp:GridView>
 
     </ContentTemplate>
     </asp:UpdatePanel>
 
-     <a class="btn btn-dark" href="FormularioMarca" > Agregar </a>
+     <a class="btn btn-success" href="FormularioMarca" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
 
       <%

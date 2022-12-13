@@ -6,35 +6,29 @@
 
 
 
-    <nav class="navbar navbar-inverse navbar-expand-lg bg-light  " style="width: 100%; position:fixed; margin-top:6px;z-index:100; left:-1px; margin-bottom:-20px">
-        <div class="mx-auto d-sm-flex d-block flex-sm-nowrap "  >
+    <nav class="navbar navbar-inverse navbar-expand-lg bg-DARK  " style="width: 832px; position: fixed; margin-top: 0px; z-index: 100; left: -1px; padding-bottom: 0px; right: 200px;margin-left: 500px; height: 38px; bottom: 0px; top: 10px;">
+        <div class="mx-auto d-sm-flex d-block flex-sm-nowrap ">
     
-            <ul class=" nav navbar-nav" >
+            <ul class=" nav navbar-nav" style="height:40px;" >
 
               <asp:UpdatePanel  runat="server">
                   <ContentTemplate>
-
-  
 
 
                     </ContentTemplate>
                 </asp:UpdatePanel>
                         <li class="nav-item">
-                            <div >
-                 
-                                <asp:DropDownList ID="ddlCategorias" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged">
-                                </asp:DropDownList>                                                       
- 
+                            <div >             
+                                <asp:DropDownList style="color:white;" ID="ddlCategorias" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged">
+                               </asp:DropDownList>                                                       
                             </div>
                         </li>
-
                         <li class="nav-item">
                             <div >
-                                    <asp:DropDownList ID="ddlMarcas" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlMarcas_SelectedIndexChanged">
+                                    <asp:DropDownList style="color:white;" ID="ddlMarcas" runat="server" CssClass="form-control  btn dropdown-toggle"  AutoPostBack="True" OnSelectedIndexChanged="ddlMarcas_SelectedIndexChanged">
                                     </asp:DropDownList>
                             </div>
-                        </li>
-                    
+                        </li>               
                         <li class="nav-item">
                             <div>
                               <asp:TextBox runat="server" ID="txtfiltro" placeholder="🔎" OnFocus="javascript:this.select();"
@@ -43,21 +37,11 @@
                             </div>
                         </li>
 
-                        <li class="nav-item"><asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" /></li>
+                        <li class="nav-item"><asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="btnBuscar_OnClick" /></li>
             </ul>
-
-
             
         </div>
     </nav>
-
-    <br />
-    <br />
-        <br />
-    <br />
-
-
-
 
  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -74,8 +58,9 @@
 </div>
     
     <br />
-    <h1 class="title"> Catalogo de Articulos</h1>
+    <h1 class="title" style="padding-bottom:0px;"> Catalogo de Articulos</h1>
     <hr />
+ 
       <div class="row row-cols-1 row-cols-md-4 g-4">
         <asp:Repeater ID="Repeter" runat="server">
             <ItemTemplate>

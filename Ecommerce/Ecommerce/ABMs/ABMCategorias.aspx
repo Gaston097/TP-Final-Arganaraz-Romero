@@ -37,7 +37,7 @@
 
     <asp:GridView ID="dgvCategorias" runat="server"  
         OnSelectedIndexChanged="dgvCategorias_SelectedIndexChanged"  
-        AutoGenerateColumns="false" DataKeyNames="Id"  class="table table-dark table-bordered "
+        AutoGenerateColumns="false" DataKeyNames="Id"  class="table table-dark table-bordered table-striped"
         OnPageIndexChanging="dgvCategorias_PageIndexChanging"
         AllowPaging="True" PageSize="10" >
    
@@ -46,8 +46,7 @@
             
             <asp:BoundField DataField="Id" HeaderText="ID" />
             <asp:BoundField DataField="Descripcion" HeaderText="Nombre" />
-            <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>
-            <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
+            <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar / Eliminar"/>
                            
         </Columns>
      
@@ -56,7 +55,7 @@
     </ContentTemplate>
     </asp:UpdatePanel>
 
-     <a class="btn btn-dark" href="FormularioCategoria.aspx" > Agregar </a>
+     <a class="btn btn-success" href="FormularioCategoria.aspx" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
      
       <%

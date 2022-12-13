@@ -38,7 +38,7 @@
 
     <div>
         <asp:GridView ID="dgvArticulos" runat="server"  OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged" 
-            AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered "
+            AutoGenerateColumns="false"   DataKeyNames="Id"  class="table table-dark table-bordered table-striped"
             OnPageIndexChanging="dgvArticulos_PageIndexChanging"
             AllowPaging="True" PageSize="4"
             >
@@ -61,10 +61,14 @@
 
 
                 <asp:BoundField DataField="EstadoComer" HeaderText="EstadoComercial" />
-                <asp:BoundField DataField="Descuento" HeaderText="Descuento" />
-
-                <asp:CommandField ShowSelectButton="true" SelectText="❌" HeaderText="Eliminar"/>
-                <asp:CommandField ShowSelectButton="true" SelectText="🛠️" HeaderText="Modificar"/>
+                <asp:BoundField DataField="Descuento" HeaderText="Descuento" />   
+                <asp:TemplateField HeaderText="Accion" ItemStyle-Width="100" HeaderStyle-Width="100" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btnModificar" OnClick="btnModificar_Click" runat="server" CssClass="btn btn-info" data-toggle="tooltip" ToolTip="Modificar">
+                            <i class="fa-solid fa-pencil"></i>
+                            </asp:LinkButton>            
+                 </ItemTemplate>
+                </asp:TemplateField>
                            
             </Columns>
         </asp:GridView>
@@ -74,7 +78,7 @@
     </asp:UpdatePanel>
 
     
-     <a class="btn btn-dark" href="FormularioArticulo" > Agregar </a>
+     <a class="btn btn-success" href="FormularioArticulo" > Agregar </a>
      <a class="btn btn-dark" href="../ABMMain" > Volver al Menu de ABMs </a>
      
 

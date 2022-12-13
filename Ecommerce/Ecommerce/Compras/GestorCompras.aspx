@@ -12,7 +12,7 @@
    
 
             <asp:GridView ID="dgvOrdenesCliente" runat="server"  OnSelectedIndexChanged="dgvOrdenesCliente_SelectedIndexChanged" 
-        AutoGenerateColumns="false"   DataKeyNames="ID"  class="table table-secondary table-bordered "
+        AutoGenerateColumns="false"   DataKeyNames="ID"   class="table table-dark table-bordered table-striped"
         OnPageIndexChanging="dgvOrdenesCliente_PageIndexChanging"
         AllowPaging="True" PageSize="8"
         >
@@ -90,7 +90,7 @@
     
 
        <asp:GridView ID="dgvOrdenes" runat="server"  OnSelectedIndexChanged="dgvOrdenes_SelectedIndexChanged" 
-        AutoGenerateColumns="false"   DataKeyNames="ID"  class="table table-secondary table-bordered "
+        AutoGenerateColumns="false"   DataKeyNames="ID"   class="table table-dark table-bordered table-striped"
         OnPageIndexChanging="dgvOrdenes_PageIndexChanging"
         AllowPaging="True" PageSize="8"
         >
@@ -147,7 +147,7 @@
             {%>
 
      <asp:GridView ID="dgvOrdenes2" runat="server"  OnSelectedIndexChanged="dgvOrdenes2_SelectedIndexChanged" 
-        AutoGenerateColumns="false"   DataKeyNames="ID"  class="table table-secondary table-bordered "
+        AutoGenerateColumns="false"   DataKeyNames="ID"   class="table table-dark table-bordered table-striped"
         OnPageIndexChanging="dgvOrdenes2_PageIndexChanging"
         AllowPaging="True" PageSize="8"
         >
