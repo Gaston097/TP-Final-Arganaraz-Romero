@@ -44,8 +44,8 @@ namespace Ecommerce.ABMs
                         txtImagen.Text = selecta.Imagen;
                         txtDescripcion.Text = selecta.Descripcion;
                         txtDescuento.Text = selecta.Descuento.ToString();
-                        ddlCategorias.SelectedValue = selecta.Categoria.ToString();
-                        ddlMarcas.SelectedValue = selecta.Marca.ToString();
+                        ddlCategorias.SelectedValue = selecta.Categoria.ToString();                      
+                        ddlMarcas.SelectedValue = selecta.Marca.ToString();                       
                         ddlEstadoComercial.SelectedValue = selecta.EstadoComer.ID.ToString();
                     }
 
