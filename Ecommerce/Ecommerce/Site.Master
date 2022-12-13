@@ -10,6 +10,8 @@
     <title><%: Page.Title %> - Ecommerce ASP.NET</title>
 
 
+
+
      <%--STYLESHEETS--%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
@@ -21,7 +23,8 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
@@ -81,13 +84,21 @@
 
             <%if ((((dominio.Usuario)Session["user"]) != null ) && (((dominio.Usuario)Session["user"]).TipoUsuario.ID == 4 ))
                 { 
-            %>          
-            <li class="nav-item">
-                <a class="nav-link active" href="../ABMMain.aspx">Menu ABM</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="../Compras/GestorCompras.aspx">Gestion de ordenes</a>
-            </li>
+            %>   
+
+
+
+            <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    ⚙️
+                  </button>
+                  <ul class="dropdown-menu bg-secondary">
+                    <li><a class="nav-link active" href="../ABMMain.aspx">Menu ABM</a></li>
+                    <li><a class="nav-link active" href="../Compras/GestorCompras.aspx">Gestion de ordenes</a></li>
+
+                  </ul>
+            </div>
+
             <%
                 }
             %>
@@ -130,7 +141,7 @@
   </div>
 </nav>
 
-        <div class="container body-content bg-light px-5">
+        <div class=" container body-content bg-light px-5" >
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

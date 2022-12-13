@@ -12,7 +12,7 @@
    
 
             <asp:GridView ID="dgvOrdenesCliente" runat="server"  OnSelectedIndexChanged="dgvOrdenesCliente_SelectedIndexChanged" 
-        AutoGenerateColumns="false"   DataKeyNames="ID"   class="table table-dark table-bordered table-striped"
+        AutoGenerateColumns="false"   DataKeyNames="ID"   class="table table-dark table-bordered table-striped" 
         OnPageIndexChanging="dgvOrdenesCliente_PageIndexChanging"
         AllowPaging="True" PageSize="8"
         >
