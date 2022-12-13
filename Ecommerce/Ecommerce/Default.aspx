@@ -4,7 +4,7 @@
 
 
 
-    <nav class="navbar navbar-inverse navbar-expand-lg" style="position: fixed; left:20.1% ;margin-top: 0px; z-index:100; height: 54px;  width: 60%; top: 1px; background-color:#00cc44; ">
+    <nav class="navbar navbar-inverse navbar-expand-lg" style="position: fixed; left:20.1% ;margin-top: 0px; z-index:100; height: 54px;  width: 60%; top: 1px; ">
         <div class="mx-auto d-sm-flex d-block flex-sm-nowrap ">
     
             <ul class=" nav navbar-nav" style="height:40px;" >

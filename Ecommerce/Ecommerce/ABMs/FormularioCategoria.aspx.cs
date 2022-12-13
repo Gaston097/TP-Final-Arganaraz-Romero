@@ -22,10 +22,20 @@ namespace Ecommerce.ABMs
                 id = Session["id"] != null ? Session["id"].ToString() : "";
                 if (id != null)
                 {
+                    try
+                    {
+                        CategoriaNegocio negocio = new CategoriaNegocio();
+                        Categoria selecta = (negocio.listar(id))[0];
+                        if(selecta != null) {
+                        txtDesc.Text = selecta.Descripcion;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
 
-                    CategoriaNegocio negocio = new CategoriaNegocio();                   
-                    Categoria selecta = (negocio.listar(id))[0];
-                    txtDesc.Text = selecta.Descripcion;                   
+                        throw ex;
+                    }
+                                   
                 }
 
             }
