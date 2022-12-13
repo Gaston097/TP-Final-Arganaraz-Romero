@@ -30,8 +30,10 @@
 
 
 </head>
-<body>
-    <form runat="server">
+<body style="background-image: url(https://safebooru.org//images/3988/e17503dfbe37e8c1a896e52a6e969d8b0754f97e.jpg); background-repeat:no-repeat ; background-attachment:fixed; background-size:cover   ">
+    <div style="background-color:rgba( 255, 255, 255, 0.7); margin-bottom:-20px; min-height:100vh" >
+
+         <form  runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -52,7 +54,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position:fixed; width:100%;margin-top:-50px; z-index:98;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position:fixed; width:100%;margin-top:-50px; z-index:98;">
   <div class="container-fluid">
     <a class="navbar-brand" href="../Default.aspx">e-CooKmmerce</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -128,13 +130,14 @@
   </div>
 </nav>
 
-        <div class="container body-content">
+        <div class="container body-content bg-light px-5">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Ecommerce ASP.NET</p>
             </footer>
+            <br />
         </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -157,6 +160,11 @@
         </div>
 
     </form>
+        <br />
+        <br />
+
+    </div>
+
 
 
 </body>
