@@ -14,17 +14,19 @@ namespace Ecommerce.ABMs
         public int id { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
 
             if (Session["id"] != null)
             {
                 Session.Remove("id");
             }
 
+            if (!IsPostBack) { 
             ArticuloNegocio lista = new ArticuloNegocio();
             Session.Add("listaArticulo", lista.listar(true));
             dgvArticulos.DataSource = Session["listaArticulo"];
             dgvArticulos.DataBind();
+            }
         }
 
         protected void dgvArticulos_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,6 +39,8 @@ namespace Ecommerce.ABMs
 
         protected void dgvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            dgvArticulos.DataSource = Session["listaArticulo"];
+            dgvArticulos.DataBind();
             dgvArticulos.PageIndex = e.NewPageIndex;
             dgvArticulos.DataBind();
         }

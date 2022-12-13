@@ -13,12 +13,13 @@ namespace Ecommerce.ABMs
     {
         public int id {get;set;}
         protected void Page_Load(object sender, EventArgs e)
-        {          
-
+        {
+            if (!IsPostBack) { 
             CategoriaNegocio lista = new CategoriaNegocio();
             Session.Add("listaCategoria", lista.listar());
             dgvCategorias.DataSource = Session["listaCategoria"];
             dgvCategorias.DataBind();
+            }
         }
 
         protected void dgvCategorias_SelectedIndexChanged(object sender, EventArgs e)

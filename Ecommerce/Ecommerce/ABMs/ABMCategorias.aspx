@@ -17,15 +17,20 @@
             {
         %>  
 
-      <div class="row">      
-            <div class="col-6">
-                <div class="mb-3">
-                <asp:Label Text="Filtrar:" runat="server" />
-                <asp:TextBox runat="server" ID="txtfiltro" Autopostback="true" OnTextChanged="filtro_TextChanged"
+      <table style="width: 100%" class="table table-primary">
+        <tbody>
+            <tr>
+                <td style="width: 100%">
+                    <div class="form-group">
+                        <label style="font-size: 15px;" class="col-md-6"> Filtrar:</label>
+                      <div class="col-md-6">
+                            <asp:TextBox runat="server" ID="txtfiltro" AutoPostBack="true" MaxLength="40" style="min-width: 600px; height: 25px" OnTextChanged="filtro_TextChanged"
                     CssClass="form-control"/>
-                </div>
-            </div>
-     </div>   
+                     </div>
+                </div>              
+            </tr>
+        </tbody>
+    </table> 
     
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
